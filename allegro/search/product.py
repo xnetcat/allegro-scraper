@@ -136,15 +136,15 @@ def _find_product_price(soup):
 
 
 def _find_product_seller(soup):
-    seller_div = soup.find(
-        "div",
+    seller = soup.find(
+        "a",
         attrs={
-            "data-analytics-interaction-label": "sellerInfo",
-            "data-analytics-interaction-custom-url": "#aboutSeller",
+            "href": "#aboutSeller",
+            "data-analytics-click-value": "sellerLogin"
         },
-    )
+    ).text.split(" - ")[0]
 
-    return seller_div.find("div").text
+    return seller
 
 
 def _find_product_quantity(soup):
@@ -173,7 +173,6 @@ def _find_product_images(soup):
 
 def _find_product_parameters(soup):
     parameters = {}
-
     parameters_div = soup.find(
         "div",
         attrs={
@@ -182,10 +181,10 @@ def _find_product_parameters(soup):
             "data-analytics-category": "allegro.showoffer.parameters",
         },
     )
+
     parameters_list = parameters_div.find("ul", attrs={"data-reactroot": True})
     segments = parameters_list.find_all("li", recursive=False)
     for segment in segments:
-        # idk how to name variables
         parts_holder = segment.find("div")
         parts = parts_holder.find_all("div")
         for part in parts:
