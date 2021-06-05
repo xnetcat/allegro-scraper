@@ -44,7 +44,8 @@ class Product:
         - `Product` that contains the metadata of a product.
         """
         if "allegro.pl/oferta" not in url:
-            raise Exception(f"Passed url is not that of a product: {url}")
+            if "allegro.pl/events/clicks" not in url and "&redirect=https%3A%2F%2Fallegro.pl%2Foferta" not in url:
+                raise Exception(f"Passed url is not that of a product: {url}")
 
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
@@ -156,7 +157,12 @@ def _find_product_quantity(soup):
 
 
 def _find_product_rating(soup):
-    rating = soup.find("meta", attrs={"itemprop": "ratingValue"}).get("content")
+    rating_object = soup.find("meta", attrs={"itemprop": "ratingValue"})
+    if rating_object is not None:
+        rating = rating_object.get("content")
+    else:
+        # 0 means no reviews
+        rating = 0
 
     return float(rating)
 
