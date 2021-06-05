@@ -5,6 +5,7 @@ import json
 import requests
 import bs4
 
+
 @dataclass(frozen=True)
 class Product:
     """
@@ -46,34 +47,82 @@ class Product:
             raise Exception(f"Passed url is not that of a product: {url}")
 
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
-            'DNT': '1',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
-            'Pragma': 'no-cache',
-            'Cache-Control': 'no-cache'
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+            "DNT": "1",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "Pragma": "no-cache",
+            "Cache-Control": "no-cache",
         }
 
         request = requests.get(url, proxies=proxy, headers=headers)
         soup = bs4.BeautifulSoup(request.text, "html.parser")
 
-        buy_now_button = soup.find("button", attrs={"type": "submit", "id": "buy-now-button", "data-analytics-interaction-custom-flow-type": "BuyNow"})
+        buy_now_button = soup.find(
+            "button",
+            attrs={
+                "type": "submit",
+                "id": "buy-now-button",
+                "data-analytics-interaction-custom-flow-type": "BuyNow",
+            },
+        )
         if buy_now_button is None:
             raise NotImplementedError("Auctions and offers are not supported")
 
-        name = soup.find("meta", attrs={"property": "og:title"}).get('content')
-        price = float(soup.find("meta", attrs={"itemprop": "price"}).get('content'))
-        category = [div for div in soup.find_all("div", attrs={"data-role": "breadcrumb-item", "itemscope": True, "itemprop":"itemListElement", "itemtype": "http://schema.org/ListItem"}) if "allegro.pl/kategoria" in div.find("a").get("href")][-1].find("a").get("href")
-        seller = soup.find("div", attrs={"data-analytics-interaction-label": "sellerInfo", "data-analytics-interaction-custom-url": "#aboutSeller"}).find("div").text
-        quantity = int(soup.find("input", attrs={"type": "number", "name": "quantity"}).get("max"))
-        rating = float(soup.find("meta", attrs={"itemprop": "ratingValue"}).get('content'))
-        images = [img.find("img").get("src") for img in soup.find_all("div", attrs={"role": "button", "tabindex": "0"}) if img.find("img") is not None]
+        name = soup.find("meta", attrs={"property": "og:title"}).get("content")
+        price = float(soup.find("meta", attrs={"itemprop": "price"}).get("content"))
+        category = (
+            [
+                div
+                for div in soup.find_all(
+                    "div",
+                    attrs={
+                        "data-role": "breadcrumb-item",
+                        "itemscope": True,
+                        "itemprop": "itemListElement",
+                        "itemtype": "http://schema.org/ListItem",
+                    },
+                )
+                if "allegro.pl/kategoria" in div.find("a").get("href")
+            ][-1]
+            .find("a")
+            .get("href")
+        )
+        seller = (
+            soup.find(
+                "div",
+                attrs={
+                    "data-analytics-interaction-label": "sellerInfo",
+                    "data-analytics-interaction-custom-url": "#aboutSeller",
+                },
+            )
+            .find("div")
+            .text
+        )
+        quantity = int(
+            soup.find("input", attrs={"type": "number", "name": "quantity"}).get("max")
+        )
+        rating = float(
+            soup.find("meta", attrs={"itemprop": "ratingValue"}).get("content")
+        )
+        images = [
+            img.find("img").get("src")
+            for img in soup.find_all("div", attrs={"role": "button", "tabindex": "0"})
+            if img.find("img") is not None
+        ]
 
         # this part could probably be optimized but idk how
         parameters = {}
-        parameters_div = soup.find("div", attrs={"data-box-name": "Parameters", "data-prototype-id": "allegro.showoffer.parameters", "data-analytics-category": "allegro.showoffer.parameters"})
+        parameters_div = soup.find(
+            "div",
+            attrs={
+                "data-box-name": "Parameters",
+                "data-prototype-id": "allegro.showoffer.parameters",
+                "data-analytics-category": "allegro.showoffer.parameters",
+            },
+        )
         parameters_list = parameters_div.find("ul", attrs={"data-reactroot": True})
         segments = parameters_list.find_all("li", recursive=False)
         for segment in segments:
@@ -91,15 +140,7 @@ class Product:
                     parameters[key] = value
 
         return cls(
-            url,
-            name,
-            category,
-            price,
-            seller,
-            quantity,
-            rating,
-            images,
-            parameters
+            url, name, category, price, seller, quantity, rating, images, parameters
         )
 
     @classmethod
