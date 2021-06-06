@@ -30,7 +30,7 @@ class Product:
     price: float
     seller: str
     quantity: int
-    rating: int
+    rating: float
     images: List[str]
     parameters: dict
 
