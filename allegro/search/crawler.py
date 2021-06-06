@@ -51,10 +51,13 @@ def search(search_term: str, proxies=None) -> List[Product]:
 
         if logging.DEBUG >= logging.root.level:
             logging.debug(
-                f'Scraping "{product.name}" with url "{product.url}" [{index + 1}/{len(sections) - 1}]'
+                f'Scraping "{product.name}" with url "{product.url}" [{index + 1}/{len(sections)}]'
             )
         else:
-            logging.info(f'Scraping "{product.name}" [{index + 1}/{len(sections) - 1}]')
+            logging.info(
+                f'Scraping "{product.name}"'
+                f' [{index + 1}/{len(sections)}]'
+            )
 
         # Add product to list
         products.append(product)
