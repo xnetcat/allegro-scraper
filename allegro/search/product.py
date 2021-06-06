@@ -1,9 +1,9 @@
+import json
+import requests
+
 from dataclasses import dataclass
 from typing import List
-import json
-
-import requests
-import bs4
+from bs4 import BeautifulSoup
 
 
 @dataclass(frozen=True)
@@ -44,7 +44,10 @@ class Product:
         - `Product` that contains the metadata of a product.
         """
         if "allegro.pl/oferta" not in url:
-            if "allegro.pl/events/clicks" not in url and "&redirect=https%3A%2F%2Fallegro.pl%2Foferta" not in url:
+            if (
+                "allegro.pl/events/clicks" not in url
+                and "&redirect=https%3A%2F%2Fallegro.pl%2Foferta" not in url
+            ):
                 raise Exception(f"Passed url is not that of a product: {url}")
 
         headers = {
@@ -59,7 +62,7 @@ class Product:
         }
 
         request = requests.get(url, proxies=proxy, headers=headers)
-        soup = bs4.BeautifulSoup(request.text, "html.parser")
+        soup = BeautifulSoup(request.text, "html.parser")
 
         if not _is_buynow_offer(soup):
             raise NotImplementedError("Auctions and offers are not supported")
@@ -93,7 +96,7 @@ class Product:
         return cls(**data_dict)
 
 
-def _is_buynow_offer(soup):
+def _is_buynow_offer(soup: BeautifulSoup) -> bool:
     buy_now_button = soup.find(
         "button",
         attrs={
@@ -106,13 +109,13 @@ def _is_buynow_offer(soup):
     return buy_now_button is not None
 
 
-def _find_product_name(soup):
+def _find_product_name(soup: BeautifulSoup) -> str:
     product_name = soup.find("meta", attrs={"property": "og:title"}).get("content")
 
     return product_name
 
 
-def _find_product_category(soup):
+def _find_product_category(soup: BeautifulSoup) -> str:
     categories = [
         div
         for div in soup.find_all(
@@ -130,25 +133,22 @@ def _find_product_category(soup):
     return categories[-1].find("a").get("href")
 
 
-def _find_product_price(soup):
+def _find_product_price(soup: BeautifulSoup) -> float:
     product_price = float(soup.find("meta", attrs={"itemprop": "price"}).get("content"))
 
     return product_price
 
 
-def _find_product_seller(soup):
+def _find_product_seller(soup: BeautifulSoup) -> str:
     seller = soup.find(
         "a",
-        attrs={
-            "href": "#aboutSeller",
-            "data-analytics-click-value": "sellerLogin"
-        },
+        attrs={"href": "#aboutSeller", "data-analytics-click-value": "sellerLogin"},
     ).text.split(" - ")[0]
 
     return seller
 
 
-def _find_product_quantity(soup):
+def _find_product_quantity(soup: BeautifulSoup) -> int:
     quantity = soup.find("input", attrs={"type": "number", "name": "quantity"}).get(
         "max"
     )
@@ -156,18 +156,17 @@ def _find_product_quantity(soup):
     return int(quantity)
 
 
-def _find_product_rating(soup):
+def _find_product_rating(soup: BeautifulSoup) -> float:
     rating_object = soup.find("meta", attrs={"itemprop": "ratingValue"})
     if rating_object is not None:
         rating = rating_object.get("content")
     else:
-        # 0 means no reviews
         rating = 0
 
     return float(rating)
 
 
-def _find_product_images(soup):
+def _find_product_images(soup: BeautifulSoup) -> List[str]:
     images = [
         img.find("img").get("src")
         for img in soup.find_all("div", attrs={"role": "button", "tabindex": "0"})
@@ -177,7 +176,7 @@ def _find_product_images(soup):
     return images
 
 
-def _find_product_parameters(soup):
+def _find_product_parameters(soup: BeautifulSoup) -> dict:
     parameters = {}
     parameters_div = soup.find(
         "div",
