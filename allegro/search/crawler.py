@@ -5,6 +5,7 @@ from allegro.types.crawler import Filters, Options
 from allegro.constants import FILTERS
 from allegro.parsers.crawler import parse_website
 from typing import List
+from types import FunctionType
 
 
 def search(search_term: str, proxies: dict = None) -> List[Product]:
@@ -19,7 +20,10 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
     # Products list
     products = []
 
-    soup = parse_website(f"https://allegro.pl/listing?string={search_term}", proxies)
+    # url create url and encode spaces
+    url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
+
+    soup = parse_website(url, proxies)
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -99,20 +103,26 @@ def crawl(
             elif type(value) == list:
                 # we know that value is a list
                 query.extend([FILTERS[key][val] for val in value])  # type: ignore
-            elif type(FILTERS[key]) == function:
+            elif type(FILTERS[key]) == FunctionType:  # type: ignore
                 query.append(FILTERS[key](value))
             elif type(value) == str:
                 if FILTERS[key] is not None:
                     query.append(FILTERS[key])
+            else:
+                logging.warning(f"Unhandled type {type(value)} of value {value}")
 
     # Create query string
     if len(query) >= 1:
-        query_string = "&".join(query).replace(" ", "%20")
+        query_string = "&".join(query)
     else:
         query_string = ""
 
+    # create url and encode spaces
+    url = f"https://allegro.pl/listing?string={search_term}&{query_string}".replace(" ", "%20")
+
+    # parse website
     soup = parse_website(
-        f"https://allegro.pl/listing?string={search_term}{query_string}", proxies
+        url, proxies
     )
 
     # Find all products on a page, each section is one product
@@ -130,6 +140,7 @@ def crawl(
     # Number of products found
     products_number = len(sections)
 
+    # FIXME: Scrapping is not ready yet
     logging.info(f"Found {products_number} products")
     for index, section in enumerate(sections):
         # Find url to product in a tag

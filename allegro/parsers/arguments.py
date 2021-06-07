@@ -41,6 +41,7 @@ def _parse_misc(parser: ArgumentParser):
         "--verbose",
         "-v",
         action="store_true",
+        default=None,
         help="Will print more logging messages",
     )
 
@@ -70,6 +71,7 @@ def _parse_filters(parser: ArgumentParser):
         "--smart-free-shipping",
         "-sfs",
         action="store_true",
+        default=None,
         help="Allegro Smart! free shipping"
     )
 
@@ -175,14 +177,13 @@ def _parse_filters(parser: ArgumentParser):
         "--city",
         "-ct",
         type=str,
-        help="Maximum price"
+        help="City"
     )
-
 
     # Voivodeship
     parser.add_argument(
-        "--delivery-options",
-        "-do",
+        "--voivodeship",
+        "-vo",
         nargs="+",
         type=str,
         help="Voivodeship",
@@ -223,6 +224,7 @@ def _parse_filters(parser: ArgumentParser):
         "--vat-invoice",
         "-vat",
         action="store_true",
+        default=None,
         help="Vat invoice"
     )
 

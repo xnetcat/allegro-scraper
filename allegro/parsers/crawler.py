@@ -2,6 +2,7 @@ import requests
 
 from bs4 import BeautifulSoup
 
+
 def parse_website(url: str, proxies: dict = None):
     # Default headers
     headers = {

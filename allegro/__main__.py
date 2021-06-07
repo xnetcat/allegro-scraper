@@ -46,7 +46,13 @@ def console_entry_point():
                 "price_max": arguments.price_max,
                 "delivery_time:": arguments.delivery_time,
                 "delivery_methods": arguments.delivery_methods,
-                "delivery_options": arguments.delivery_options
+                "delivery_options": arguments.delivery_options,
+                "city": arguments.city,
+                "voivodeship": arguments.voivodeship,
+                "product_rating": arguments.product_rating,
+                "vat_invoice": arguments.vat_invoice,
+                "allegro_programs": arguments.allegro_programs,
+                "occasions": arguments.occasions
             }
 
             results = crawler.crawl(query, filters=filters)
