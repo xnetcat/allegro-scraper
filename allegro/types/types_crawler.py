@@ -8,7 +8,7 @@ class Options(TypedDict):
     start_page: Optional[int]
 
 
-class Parameters(TypedDict):
+class Filters(TypedDict):
     sorting: Optional[
         Literal[
             "relevance_highest",

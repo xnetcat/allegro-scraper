@@ -1,8 +1,7 @@
-from allegro.types.types_crawler import Parameters
+from allegro.types.types_crawler import Filters
 import argparse
 import json
 import logging
-import sys
 
 from dataclasses import asdict
 from allegro.search.product import Product
@@ -207,7 +206,7 @@ def console_entry_point():
     # Crawl specified search terms
     if len(arguments.crawl) >= 1:
         for query in arguments.crawl:
-            parameters: Parameters = {  # type: ignore
+            filters: Filters = {  # type: ignore
                 "sorting": arguments.sorting,
                 "smart_free_shipping": arguments.smart_free_shipping,
                 "product_condition": arguments.product_condition,
@@ -219,7 +218,7 @@ def console_entry_point():
                 "delivery_options": arguments.delivery_options
             }
 
-            results = crawler.crawl(query, parameters=parameters)
+            results = crawler.crawl(query, filters=filters)
 
     # Convert products to dicts
     products = [asdict(var) for var in products if var is not None]

@@ -3,7 +3,7 @@ import logging
 
 from bs4 import BeautifulSoup
 from allegro.search.product import Product
-from allegro.types.types_crawler import Parameters, Options
+from allegro.types.types_crawler import Filters, Options
 from typing import List
 
 PARAMETERS = {
@@ -137,14 +137,14 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
 def crawl(
     search_term: str,
     options: Options = None,
-    parameters: Parameters = None,
+    filters: Filters = None,
     proxies: dict = None,
 ) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
     - options: `Options` search options
-    - parameters: `Parameters` product parameters
+    - filters: `Filters` product filters
     - proxies: `dict` dictionary containing proxies
 
     ### Returns
@@ -152,16 +152,16 @@ def crawl(
     """
 
     # No options so we default to results from first page
-    if options is None and parameters is None:
-        logging.warning("No options and parameters, scraping only first page")
+    if options is None and filters is None:
+        logging.warning("No options and filters, scraping only first page")
         return search(search_term)
 
-    # List containing query parameters for product
+    # List containing query filters for product
     query = []
 
-    if parameters is not None:
-        for index, (key, value) in enumerate(parameters.items()):
-            # skip parameters with None value
+    if filters is not None:
+        for index, (key, value) in enumerate(filters.items()):
+            # skip filters with None value
             if value is None:
                 continue
 
@@ -195,7 +195,7 @@ def crawl(
     # init query string
     query_string = ""
 
-    # join all query parameters
+    # join all query filters
     for param in query:
         # param is string
         query_string += f"&{param.replace(' ', '%20')}"  # type: ignore
