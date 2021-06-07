@@ -106,8 +106,8 @@ def crawl(
             elif type(FILTERS[key]) == FunctionType:  # type: ignore
                 query.append(FILTERS[key](value))  # type: ignore
             elif type(value) == str:
-                if FILTERS[key] is not None:
-                    query.append(FILTERS[key])
+                if FILTERS[key][value] is not None:
+                    query.append(FILTERS[key][value])
             else:
                 logging.warning(f"Unhandled type {type(value)} of value {value}")
 
@@ -155,7 +155,7 @@ def crawl(
         if logging.DEBUG >= logging.root.level:
             logging.debug(
                 f'Scraping "{product.name}" with url "{product.url}" '
-                "[{index + 1}/{products_number}]"
+                f"[{index + 1}/{products_number}]"
             )
         else:
             logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
