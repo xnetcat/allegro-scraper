@@ -106,8 +106,8 @@ def crawl(
             elif type(FILTERS[key]) == FunctionType:  # type: ignore
                 query.append(FILTERS[key](value))  # type: ignore
             elif type(value) == str:
-                if FILTERS[key][value] is not None:
-                    query.append(FILTERS[key][value])
+                if FILTERS[key][value] is not None:  # type: ignore
+                    query.append(FILTERS[key][value])  # type: ignore
             else:
                 logging.warning(f"Unhandled type {type(value)} of value {value}")
 
