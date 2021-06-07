@@ -1,11 +1,11 @@
-from allegro.types.types_crawler import Filters
+from allegro.types.crawler import Filters
 import json
 import logging
 
 from dataclasses import asdict
 from allegro.search.product import Product
 from allegro.search import crawler
-from allegro.argparser import parse_arguments
+from allegro.parsers.arguments import parse_arguments
 
 
 def console_entry_point():

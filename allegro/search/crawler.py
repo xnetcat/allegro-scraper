@@ -1,100 +1,10 @@
-import requests
 import logging
 
-from bs4 import BeautifulSoup
 from allegro.search.product import Product
-from allegro.types.types_crawler import Filters, Options
+from allegro.types.crawler import Filters, Options
+from allegro.constants import FILTERS
+from allegro.parsers.crawler import parse_website
 from typing import List
-
-PARAMETERS = {
-    "sorting": {
-        "relevance_highest": None,
-        "price_from_lowest": "order=p",
-        "price_from_highest": "order=pd",
-        "price_with_delivery_from_lowest": "order=d",
-        "price_with_delivery_from_highest": "order=dd",
-        "popularity_highest": "order=qd",
-        "tome_to_end_least": "order=t",
-        "time_added_latest": "order=n",
-    },
-    "smart_free_shipping": "allegro-smart-standard=1",
-    "product_condition": {
-        "new": "stan=nowe",
-        "used": "stan=używane",
-        "incomplete_set": "stan=niepełny komplet",
-        "new_without_tags": "stan=nowe bez metki",
-        "new_with_defect": "stan=nowe z defektem",
-        "after_return": "stan=po zwrocie",
-        "aftermarket": "stan=powystawowe",
-        "regenerated": "stan=regenerowane",
-        "damaged": "stan=uszkodzone",
-        "refurbished": "stan=odnowione przez sprzedawcę",
-        "for_renovation": "stan=do renowacji",
-        "not_requiring_renovation": "stan=niewymagające renowacji",
-    },
-    "offer_type": {
-        "buy_now": "offerTypeBuyNow=1",
-        "auction": "offerTypeAuction=2",
-        "advertisement": "offerTypeAdvert=3",
-    },
-    "price_min": lambda value: f"price_from={str(value)}",
-    "price_max": lambda value: f"price_to={str(value)}",
-    "delivery_time": {
-        "today": "delivery_time=today",
-        "one_day": "delivery_time=one_day",
-        "two_day": "delivery_time=two_days",
-    },
-    "delivery_methods": {
-        "courier": "dostawa-kurier=1",
-        "inpost_parcel_locker": "dostawa-paczkomaty-inpost=1",
-        "overseas_delivery": "dostawa-dostawa-za-granice=1",
-        "pickup_at_the_point": "dostawa-odbior-w-punkcie=1",
-        "letter": "dostawa-list=1",
-        "package": "dostawa-paczka=1",
-        "pickup": "dostawa-odbior-osobisty=1",
-        "email": "dostawa-przesylka-elektroniczna=1",
-    },
-    "delivery_options": {
-        "free_shipping": "freeShipping=1",
-        "free_return": "freeReturn=1",
-    },
-    "city": lambda value: f"city={str(value)}",
-    "voivodeship": {
-        "dolnośląskie": "state=1",
-        "kujawsko_pomorskie": "state=2",
-        "lubelskie": "state=3",
-        "lubuskie": "state=4",
-        "łódzkie": "state=5",
-        "małopolskie": "state=6",
-        "mazowieckie": "state=7",
-        "opolskie": "state=8",
-        "podkarpackie": "state=9",
-        "podlaskie": "state=10",
-        "pomorskie": "state=11",
-        "śląskie": "state=12",
-        "świętokrzyskie": "state=13",
-        "warmińsko_mazurskie": "state=14",
-        "wielkopolskie": "state=15",
-        "zachodniopomorskie": "state=16",
-    },
-    "product_rating": {
-        "from4.9": "ocena-produktu=od-4.9",
-        "from4.8": "ocena-produktu=od-4.8",
-        "from4.5": "ocena-produktu=od-4.5"
-    },
-    "vat_invoice": "vat_invoice=1",
-    "allegro_programs": {
-        "allegro_coins": "monety=1",
-        "brand_zone": "sm=1",
-        "great_seller": "super-sprzedawca=1",
-        "allegro_charity": "cel-charytatywny=wszystkie"
-    },
-    "occasions": {
-        "installments_of_zero_percent": "raty-zero=1",
-        "opportunity_zone": "ok=1",
-        "great_price": "price-subsidy=1"
-    }
-}
 
 
 def search(search_term: str, proxies: dict = None) -> List[Product]:
@@ -109,27 +19,7 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
     # Products list
     products = []
 
-    # Default headers
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-        "DNT": "1",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Pragma": "no-cache",
-        "Cache-Control": "no-cache",
-    }
-
-    # Send http GET request
-    request = requests.get(
-        f"https://allegro.pl/listing?string={search_term}",
-        headers=headers,
-        proxies=proxies,
-    )
-
-    # Parse html with BeautifulSoup
-    soup = BeautifulSoup(request.text, "html.parser")
+    soup = parse_website(f"https://allegro.pl/listing?string={search_term}", proxies)
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -158,7 +48,7 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
         if logging.DEBUG >= logging.root.level:
             logging.debug(
                 f'Scraping "{product.name}" with url "{product.url}" '
-                '[{index + 1}/{products_number}]'
+                "[{index + 1}/{products_number}]"
             )
         else:
             logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
@@ -195,6 +85,9 @@ def crawl(
     # List containing query filters for product
     query = []
 
+    # Products list
+    products = []
+
     if filters is not None:
         for index, (key, value) in enumerate(filters.items()):
             # skip filters with None value
@@ -202,49 +95,25 @@ def crawl(
                 continue
 
             if type(value) == bool and value is True:
-                query.append(PARAMETERS[key])
+                query.append(FILTERS[key])
             elif type(value) == list:
                 # we know that value is a list
-                query.extend([PARAMETERS[key][val] for val in value])  # type: ignore
-            elif type(PARAMETERS[key]) == function:
-                # we know that PARAMETERS[key] is a lambda function
-                query.append(PARAMETERS[key](value))  # type: ignore
+                query.extend([FILTERS[key][val] for val in value])  # type: ignore
+            elif type(FILTERS[key]) == function:
+                query.append(FILTERS[key](value))
             elif type(value) == str:
-                if PARAMETERS[key] is not None:
-                    query.append(PARAMETERS[key])
+                if FILTERS[key] is not None:
+                    query.append(FILTERS[key])
 
-    # Products list
-    products = []
+    # Create query string
+    if len(query) >= 1:
+        query_string = "&".join(query).replace(" ", "%20")
+    else:
+        query_string = ""
 
-    # Default headers
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-        "DNT": "1",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Pragma": "no-cache",
-        "Cache-Control": "no-cache",
-    }
-
-    # init query string
-    query_string = ""
-
-    # join all query filters
-    for param in query:
-        # param is string
-        query_string += f"&{param.replace(' ', '%20')}"  # type: ignore
-
-    # Send http GET request
-    request = requests.get(
-        f"https://allegro.pl/listing?string={search_term}{query_string}",
-        headers=headers,
-        proxies=proxies,
+    soup = parse_website(
+        f"https://allegro.pl/listing?string={search_term}{query_string}", proxies
     )
-
-    # Parse html with BeautifulSoup
-    soup = BeautifulSoup(request.text, "html.parser")
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -273,7 +142,7 @@ def crawl(
         if logging.DEBUG >= logging.root.level:
             logging.debug(
                 f'Scraping "{product.name}" with url "{product.url}" '
-                '[{index + 1}/{products_number}]'
+                "[{index + 1}/{products_number}]"
             )
         else:
             logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
