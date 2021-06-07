@@ -58,6 +58,42 @@ PARAMETERS = {
         "free_shipping": "freeShipping=1",
         "free_return": "freeReturn=1",
     },
+    "city": lambda value: f"city={str(value)}",
+    "voivodeship": {
+        "dolnośląskie": "state=1",
+        "kujawsko_pomorskie": "state=2",
+        "lubelskie": "state=3",
+        "lubuskie": "state=4",
+        "łódzkie": "state=5",
+        "małopolskie": "state=6",
+        "mazowieckie": "state=7",
+        "opolskie": "state=8",
+        "podkarpackie": "state=9",
+        "podlaskie": "state=10",
+        "pomorskie": "state=11",
+        "śląskie": "state=12",
+        "świętokrzyskie": "state=13",
+        "warmińsko_mazurskie": "state=14",
+        "wielkopolskie": "state=15",
+        "zachodniopomorskie": "state=16",
+    },
+    "product_rating": {
+        "from4.9": "ocena-produktu=od-4.9",
+        "from4.8": "ocena-produktu=od-4.8",
+        "from4.5": "ocena-produktu=od-4.5"
+    },
+    "vat_invoice": "vat_invoice=1",
+    "allegro_programs": {
+        "allegro_coins": "monety=1",
+        "brand_zone": "sm=1",
+        "great_seller": "super-sprzedawca=1",
+        "allegro_charity": "cel-charytatywny=wszystkie"
+    },
+    "occasions": {
+        "installments_of_zero_percent": "raty-zero=1",
+        "opportunity_zone": "ok=1",
+        "great_price": "price-subsidy=1"
+    }
 }
 
 

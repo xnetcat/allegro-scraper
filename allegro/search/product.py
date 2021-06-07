@@ -198,7 +198,7 @@ def _find_product_parameters(soup: BeautifulSoup) -> dict:
                 data_container = parameter_object.find("div")
                 objects = data_container.find_all("div")
 
-                key = objects[0].text
+                key = objects[0].text[:-1]
                 value = objects[1].text
 
                 parameters[key] = value

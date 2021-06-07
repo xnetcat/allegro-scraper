@@ -59,3 +59,34 @@ class Filters(TypedDict):
         ]
     ]
     delivery_options: Optional[List[Literal["free_shipping", "free_return"]]]
+    city: Optional[str]
+    voivodeship: Optional[
+        List[
+            Literal[
+                "dolnośląskie",
+                "kujawsko_pomorskie",
+                "lubelskie",
+                "lubuskie",
+                "łódzkie",
+                "małopolskie",
+                "mazowieckie",
+                "opolskie",
+                "podkarpackie",
+                "podlaskie",
+                "pomorskie",
+                "śląskie",
+                "świętokrzyskie",
+                "warmińsko_mazurskie",
+                "wielkopolskie",
+                "zachodniopomorskie",
+            ]
+        ]
+    ]
+    product_rating: Optional[Literal["from4.9", "from4.8", "from4.5"]]
+    vat_invoice: Optional[bool]
+    allegro_programs: Optional[
+        List[Literal["allegro_coins", "brand_zone", "great_seller", "allegro_charity"]]
+    ]
+    occasions: Optional[
+        List[Literal["installments_of_zero_percent", "opportunity_zone", "great_price"]]
+    ]

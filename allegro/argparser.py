@@ -170,6 +170,91 @@ def _parse_filters(parser: ArgumentParser):
         }
     )
 
+    # City
+    parser.add_argument(
+        "--city",
+        "-ct",
+        type=str,
+        help="Maximum price"
+    )
+
+
+    # Voivodeship
+    parser.add_argument(
+        "--delivery-options",
+        "-do",
+        nargs="+",
+        type=str,
+        help="Voivodeship",
+        choices={
+            "dolnośląskie",
+            "kujawsko_pomorskie",
+            "lubelskie",
+            "lubuskie",
+            "łódzkie",
+            "małopolskie",
+            "mazowieckie",
+            "opolskie",
+            "podkarpackie",
+            "podlaskie",
+            "pomorskie",
+            "śląskie",
+            "świętokrzyskie",
+            "warmińsko_mazurskie",
+            "wielkopolskie",
+            "zachodniopomorskie"
+        }
+    )
+
+    # Product rating
+    parser.add_argument(
+        "--product-rating",
+        "-pr",
+        help="Product rating",
+        choices={
+            "from4.9",
+            "from4.8",
+            "from4.5"
+        }
+    )
+
+    # Vat invoice
+    parser.add_argument(
+        "--vat-invoice",
+        "-vat",
+        action="store_true",
+        help="Vat invoice"
+    )
+
+    # Allegro programs
+    parser.add_argument(
+        "--allegro-programs",
+        "-al",
+        nargs="+",
+        type=str,
+        help="Allegro programs",
+        choices={
+            "allegro_coins",
+            "brand_zone",
+            "great_seller",
+            "allegro_charity"
+        }
+    )
+
+    # Occasions
+    parser.add_argument(
+        "--occasions",
+        "-oc",
+        nargs="+",
+        type=str,
+        help="Allegro programs",
+        choices={
+            "installments_of_zero_percent",
+            "opportunity_zone",
+            "great_price"
+        }
+    )
+
     return parser
 
 
