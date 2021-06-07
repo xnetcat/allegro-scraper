@@ -1,5 +1,6 @@
 from typing import List, Literal, Optional, TypedDict
 
+
 class Options(TypedDict):
     sponsored_offers: Optional[bool]
     max_results: Optional[int]
@@ -14,7 +15,7 @@ class Options(TypedDict):
             "price_with_delivery_from_highest",
             "popularity_highest",
             "tome_to_end_least",
-            "time_added_latest"
+            "time_added_latest",
         ]
     ]
 
