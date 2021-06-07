@@ -206,7 +206,7 @@ def crawl(
             elif type(value) == list:
                 # we know that value is a list
                 query.extend([PARAMETERS[key][val] for val in value])  # type: ignore
-            elif type(value) == float and "price" in key:
+            elif type(PARAMETERS[key]) == function:
                 # we know that PARAMETERS[key] is a lambda function
                 query.append(PARAMETERS[key](value))  # type: ignore
             elif type(value) == str:
