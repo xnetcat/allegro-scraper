@@ -1,9 +1,9 @@
 import logging
 
 from allegro.search.product import Product
-from allegro.types.crawler import Filters, Options
+from allegro.types.types_crawler import Filters, Options
 from allegro.constants import FILTERS
-from allegro.parsers.crawler import parse_website
+from allegro.parsers.website import parse_website
 from typing import List
 from types import FunctionType
 
@@ -104,21 +104,23 @@ def crawl(
                 # we know that value is a list
                 query.extend([FILTERS[key][val] for val in value])  # type: ignore
             elif type(FILTERS[key]) == FunctionType:  # type: ignore
-                query.append(FILTERS[key](value))
+                query.append(FILTERS[key](value))  # type: ignore
             elif type(value) == str:
                 if FILTERS[key] is not None:
                     query.append(FILTERS[key])
             else:
                 logging.warning(f"Unhandled type {type(value)} of value {value}")
 
+    # init empty query string
+    query_string = ""
+
     # Create query string
     if len(query) >= 1:
-        query_string = "&".join(query)
-    else:
-        query_string = ""
+        for q in query:
+            query_string += f"&{q}"
 
     # create url and encode spaces
-    url = f"https://allegro.pl/listing?string={search_term}&{query_string}".replace(" ", "%20")
+    url = f"https://allegro.pl/listing?string={search_term}{query_string}".replace(" ", "%20")
 
     # parse website
     soup = parse_website(

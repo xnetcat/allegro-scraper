@@ -1,4 +1,4 @@
-from allegro.types.crawler import Filters
+from allegro.types.types_crawler import Filters
 import json
 import logging
 

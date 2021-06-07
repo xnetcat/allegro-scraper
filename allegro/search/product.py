@@ -4,7 +4,7 @@ import requests
 from dataclasses import dataclass
 from typing import List
 from bs4 import BeautifulSoup
-from allegro.parsers.product import (
+from allegro.parsers.offer import (
     _find_product_category,
     _find_product_images,
     _find_product_name,
