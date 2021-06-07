@@ -7,6 +7,16 @@ from allegro.types.types_crawler import Parameters, Options
 from typing import List
 
 PARAMETERS = {
+    "sorting": {
+        "relevance_highest": None,
+        "price_from_lowest": "order=p",
+        "price_from_highest": "order=pd",
+        "price_with_delivery_from_lowest": "order=d",
+        "price_with_delivery_from_highest": "order=dd",
+        "popularity_highest": "order=qd",
+        "tome_to_end_least": "order=t",
+        "time_added_latest": "order=n",
+    },
     "smart_free_shipping": "allegro-smart-standard=1",
     "product_condition": {
         "new": "stan=nowe",
@@ -164,7 +174,8 @@ def crawl(
                 # we know that PARAMETERS[key] is a lambda function
                 query.append(PARAMETERS[key](value))  # type: ignore
             elif type(value) == str:
-                query.append(PARAMETERS[key])
+                if PARAMETERS[key] is not None:
+                    query.append(PARAMETERS[key])
 
     # Products list
     products = []

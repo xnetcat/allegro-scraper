@@ -6,6 +6,9 @@ class Options(TypedDict):
     max_results: Optional[int]
     pages_to_fetch: Optional[int]
     start_page: Optional[int]
+
+
+class Parameters(TypedDict):
     sorting: Optional[
         Literal[
             "relevance_highest",
@@ -18,9 +21,6 @@ class Options(TypedDict):
             "time_added_latest",
         ]
     ]
-
-
-class Parameters(TypedDict):
     smart_free_shipping: Optional[bool]
     product_condition: Optional[
         List[
