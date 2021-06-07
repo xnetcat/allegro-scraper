@@ -65,7 +65,7 @@ class Product:
         soup = BeautifulSoup(request.text, "html.parser")
 
         if not _is_buynow_offer(soup):
-            raise NotImplementedError("Auctions and offers are not supported")
+            raise NotImplementedError("Auctions and advertisements are not supported")
 
         name = _find_product_name(soup)
         price = _find_product_price(soup)
