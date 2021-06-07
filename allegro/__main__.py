@@ -2,6 +2,7 @@ from allegro.types.types_crawler import Parameters
 import argparse
 import json
 import logging
+import sys
 
 from dataclasses import asdict
 from allegro.search.product import Product
@@ -10,13 +11,14 @@ from allegro.search import crawler
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        prog="spotdl-spider",
+        prog="allegro-spider",
         description="Allegro spider, product scrapper",
     )
 
-    # Search querries
+    # Search mode
     parser.add_argument(
-        "queries",
+        "--search",
+        "-s",
         type=str,
         nargs="+",
         help="search queries"
@@ -26,14 +28,19 @@ def parse_arguments():
     parser.add_argument(
         "--crawl",
         "-c",
-        action="store_true",
+        type=str,
+        nargs="+",
         help="Enables crawling"
     )
+
+    opts, _ = parser.parse_known_args()
+    if opts.search is None and opts.crawl is None:
+        parser.error("--crawl/-c or --search/-s is required")
 
     # Sorting
     parser.add_argument(
         "--sorting",
-        "-s",
+        "-so",
         help="Sorting method",
         choices={
             "relevance_highest",
@@ -184,31 +191,35 @@ def console_entry_point():
 
     # List containing Product objects
     products = []
-    for query in arguments.queries:
-        # Single allegro offer
-        if "allegro.pl/oferta/" in query:
-            product = Product.from_url(query)
-            products.append(product)
-        else:
-            if arguments.crawl:
-                # Parameters
-                parameters: Parameters = {  # type: ignore
-                    "sorting": arguments.sorting,
-                    "smart_free_shipping": arguments.smart_free_shipping,
-                    "product_condition": arguments.product_condition,
-                    "offer_type": arguments.offer_type,
-                    "price_min": arguments.price_min,
-                    "price_max": arguments.price_max,
-                    "delivery_time:": arguments.delivery_time,
-                    "delivery_methods": arguments.delivery_methods,
-                    "delivery_options": arguments.delivery_options
-                }
 
-                results = crawler.crawl(query, parameters=parameters)
+    # Search for specified products
+    if len(arguments.search) >= 1:
+        for query in arguments.search:
+            # Single allegro offer
+            if "allegro.pl/oferta/" in query:
+                product = Product.from_url(query)
+                products.append(product)
             else:
                 # Search term (we get only first page of results)
                 results = crawler.search(query)
                 products.extend(results)
+
+    # Crawl specified search terms
+    if len(arguments.crawl) >= 1:
+        for query in arguments.crawl:
+            parameters: Parameters = {  # type: ignore
+                "sorting": arguments.sorting,
+                "smart_free_shipping": arguments.smart_free_shipping,
+                "product_condition": arguments.product_condition,
+                "offer_type": arguments.offer_type,
+                "price_min": arguments.price_min,
+                "price_max": arguments.price_max,
+                "delivery_time:": arguments.delivery_time,
+                "delivery_methods": arguments.delivery_methods,
+                "delivery_options": arguments.delivery_options
+            }
+
+            results = crawler.crawl(query, parameters=parameters)
 
     # Convert products to dicts
     products = [asdict(var) for var in products if var is not None]
