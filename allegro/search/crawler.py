@@ -111,7 +111,8 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
         # Display what product we are scraping
         if logging.DEBUG >= logging.root.level:
             logging.debug(
-                f'Scraping "{product.name}" with url "{product.url}" [{index + 1}/{products_number}]'
+                f'Scraping "{product.name}" with url "{product.url}" '
+                '[{index + 1}/{products_number}]'
             )
         else:
             logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
@@ -185,7 +186,8 @@ def crawl(
 
     # join all query parameters
     for param in query:
-        query_string += f"&{param.replace(' ', '%20')}"
+        # param is string
+        query_string += f"&{param.replace(' ', '%20')}"  # type: ignore
 
     # Send http GET request
     request = requests.get(
@@ -223,7 +225,8 @@ def crawl(
         # Display what product we are scraping
         if logging.DEBUG >= logging.root.level:
             logging.debug(
-                f'Scraping "{product.name}" with url "{product.url}" [{index + 1}/{products_number}]'
+                f'Scraping "{product.name}" with url "{product.url}" '
+                '[{index + 1}/{products_number}]'
             )
         else:
             logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
