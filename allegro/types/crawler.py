@@ -1,5 +1,23 @@
 from typing import List, Literal, Optional, TypedDict
 
+class Options(TypedDict):
+    sponsored_offers: Optional[bool]
+    max_results: Optional[int]
+    pages_to_fetch: Optional[int]
+    start_page: Optional[int]
+    sorting: Optional[
+        Literal[
+            "relevance_highest",
+            "price_from_lowest",
+            "price_from_highest",
+            "price_with_delivery_from_lowest",
+            "price_with_delivery_from_highest",
+            "popularity_highest",
+            "tome_to_end_least",
+            "time_added_latest"
+        ]
+    ]
+
 
 class Parameters(TypedDict):
     smart_free_shipping: Optional[bool]
