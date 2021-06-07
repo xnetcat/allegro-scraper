@@ -1,7 +1,7 @@
 from typing import List, Literal, Optional, TypedDict
 
 
-class Options(TypedDict):
+class Parameters(TypedDict):
     smart_free_shipping: Optional[bool]
     product_condition: Optional[
         List[

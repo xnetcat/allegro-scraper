@@ -3,7 +3,7 @@ import logging
 
 from bs4 import BeautifulSoup
 from allegro.search.product import Product
-from allegro.types.crawler import Options
+from allegro.types.crawler import Parameters
 from typing import List
 
 
@@ -73,7 +73,7 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
 
 def crawl(
     search_term: str,
-    options: Options = None,
+    options: Parameters = None,
     proxies: dict = None,
 ) -> List[Product]:
     """
