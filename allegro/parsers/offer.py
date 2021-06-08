@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
 from typing import List
+from bs4 import BeautifulSoup
 
 
 def _is_buynow_offer(soup: BeautifulSoup) -> bool:

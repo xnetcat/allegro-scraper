@@ -1,7 +1,7 @@
 import json
 
-from dataclasses import dataclass
 from typing import List
+from dataclasses import dataclass
 from allegro.parsers.website import parse_website
 from allegro.parsers.offer import (
     _find_product_category,

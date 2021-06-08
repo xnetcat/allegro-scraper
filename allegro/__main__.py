@@ -1,14 +1,15 @@
-from allegro.types.types_crawler import Filters
 import json
 import logging
 
 from dataclasses import asdict
-from allegro.search.product import Product
 from allegro.search import crawler
+from allegro.search.product import Product
+from allegro.types.types_crawler import Filters
 from allegro.parsers.arguments import parse_arguments
 
 
 def console_entry_point():
+    # Namespace containing parsed arguments
     arguments = parse_arguments()
 
     # Set up logging
@@ -24,19 +25,28 @@ def console_entry_point():
 
     # Search for specified products
     if arguments.search is not None and len(arguments.search) >= 1:
+        # Iterate over all search arguments
         for query in arguments.search:
             # Single allegro offer
             if "allegro.pl/oferta/" in query:
+                # Create product object using url
                 product = Product.from_url(query)
+
+                # Add product to products list
                 products.append(product)
+            # Search term (we get only first page of results)
             else:
-                # Search term (we get only first page of results)
+                # Start crawling
                 results = crawler.search(query)
+
+                # Extend product list with search results
                 products.extend(results)
 
     # Crawl specified search terms
     if arguments.crawl is not None and len(arguments.crawl) >= 1:
+        # Iterate over all crawl argumets
         for query in arguments.crawl:
+            # Create filters dict
             filters: Filters = {  # type: ignore
                 "sorting": arguments.sorting,
                 "smart_free_shipping": arguments.smart_free_shipping,
@@ -55,7 +65,10 @@ def console_entry_point():
                 "occasions": arguments.occasions
             }
 
+            # Start crawling
             results = crawler.crawl(query, filters=filters)
+
+            # Add results to products list
             products.extend(results)
 
     # Convert products to dicts
