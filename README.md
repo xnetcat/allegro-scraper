@@ -165,7 +165,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider --smart-free-shipping
+  allegro-spider -c "rtx 3090" --smart-free-shipping
   ```
 
 - #### Product condition
@@ -456,6 +456,76 @@ Allegro scraping tool
     <summary style="font-size:1.25em">
         <strong>Crawling options</strong>
     </summary>
+
+- #### Include sponsored offers
+
+  ```bash
+  --include-sponsored-offers/-iso
+  ```
+
+  type: `boolean`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" --include-sponsored-offers
+  ```
+
+- #### Max results
+
+  ```bash
+  --max-results/-rmax [results]
+  ```
+
+  type: `int`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -rmax 100
+  ```
+
+- #### Pages to fetch
+
+  ```bash
+  --pages-to-fetch/-ptf [pages]
+  ```
+
+  type: `int`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ptf 5
+  ```
+
+- #### Start page
+
+  ```bash
+  --start-page/-sp [page]
+  ```
+
+  type: `int`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -sp 1
+  ```
+
+- #### Avoid duplicates
+
+  ```bash
+  --avoid-duplicates/-ad
+  ```
+
+  type: `bool`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ad
+  ```
 
 </details>
 

@@ -202,6 +202,31 @@ def _parse_filters(parser: ArgumentParser):
     return parser
 
 
+def _parse_options(parser: ArgumentParser):
+    # Include sponsored offers
+    parser.add_argument(
+        "--include-sponsored-offers", "-iso", action="store_true", default=None, help="Include sponsored offers"
+    )
+
+    # Max results
+    parser.add_argument(
+        "--max-results", "-rmax", type=int, help="Max results"
+    )
+
+    # Pages to fetch
+    parser.add_argument("--pages-to-fetch", "-ptf", type=int, help="Pages to fetch")
+
+    # Start page
+    parser.add_argument("--start-page", "-sp", type=int, help="Start page")
+
+    # Avoid duplicates
+    parser.add_argument(
+        "--avoid-duplicates", "-ad", action="store_true", default=None, help="Avoid duplicates"
+    )
+
+    return parser
+
+
 def parse_arguments():
     # Initialize argument parser
     parser = ArgumentParser(
@@ -217,6 +242,9 @@ def parse_arguments():
 
     # Parse filter arguments
     parser = _parse_filters(parser)
+
+    # Parse options arguments
+    parser = _parse_options(parser)
 
     # Return parsed arguments
     return parser.parse_args()
