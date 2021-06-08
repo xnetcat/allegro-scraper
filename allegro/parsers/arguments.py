@@ -3,29 +3,14 @@ from argparse import ArgumentParser
 
 def _parse_basic(parser: ArgumentParser):
     # Search mode
-    parser.add_argument(
-        "--search",
-        "-s",
-        type=str,
-        nargs="+",
-        help="search queries"
-    )
+    parser.add_argument("--search", "-s", type=str, nargs="+", help="search queries")
 
     # Crawl mode
-    parser.add_argument(
-        "--crawl",
-        "-c",
-        type=str,
-        nargs="+",
-        help="Enables crawling"
-    )
+    parser.add_argument("--crawl", "-c", type=str, nargs="+", help="Enables crawling")
 
     # Output file
     parser.add_argument(
-        "--output",
-        "-o",
-        help="Output file ex. C:/test/file.json",
-        required=True
+        "--output", "-o", help="Output file ex. C:/test/file.json", required=True
     )
 
     opts, _ = parser.parse_known_args()
@@ -62,8 +47,8 @@ def _parse_filters(parser: ArgumentParser):
             "price_with_delivery_from_highest",
             "popularity_highest",
             "time_to_end_least",
-            "time_added_latest"
-        }
+            "time_added_latest",
+        },
     )
 
     # Allegro Smart! free shipping
@@ -72,7 +57,7 @@ def _parse_filters(parser: ArgumentParser):
         "-sfs",
         action="store_true",
         default=None,
-        help="Allegro Smart! free shipping"
+        help="Allegro Smart! free shipping",
     )
 
     # Product condition
@@ -94,8 +79,8 @@ def _parse_filters(parser: ArgumentParser):
             "damaged",
             "refurbished",
             "for_renovation",
-            "not_requiring_renovation"
-        }
+            "not_requiring_renovation",
+        },
     )
 
     # Offer type
@@ -105,39 +90,21 @@ def _parse_filters(parser: ArgumentParser):
         nargs="+",
         type=str,
         help="Offer type",
-        choices={
-            "buy_now",
-            "auction",
-            "advertisement"
-        }
+        choices={"buy_now", "auction", "advertisement"},
     )
 
     # Minimal price
-    parser.add_argument(
-        "--price-min",
-        "-pmin",
-        type=float,
-        help="Minimal price"
-    )
+    parser.add_argument("--price-min", "-pmin", type=float, help="Minimal price")
 
     # Maximum price
-    parser.add_argument(
-        "--price-max",
-        "-pmax",
-        type=float,
-        help="Maximum price"
-    )
+    parser.add_argument("--price-max", "-pmax", type=float, help="Maximum price")
 
     # Delivery time
     parser.add_argument(
         "--delivery-time",
         "-dt",
         help="Delivery time",
-        choices={
-            "today",
-            "one_day",
-            "two_day"
-        }
+        choices={"today", "one_day", "two_day"},
     )
 
     # Delivery methods
@@ -156,7 +123,7 @@ def _parse_filters(parser: ArgumentParser):
             "package",
             "pickup",
             "email",
-        }
+        },
     )
 
     # Delivery options
@@ -166,19 +133,11 @@ def _parse_filters(parser: ArgumentParser):
         nargs="+",
         type=str,
         help="Delivery options",
-        choices={
-            "free_shipping",
-            "free_return"
-        }
+        choices={"free_shipping", "free_return"},
     )
 
     # City
-    parser.add_argument(
-        "--city",
-        "-ct",
-        type=str,
-        help="City"
-    )
+    parser.add_argument("--city", "-ct", type=str, help="City")
 
     # Voivodeship
     parser.add_argument(
@@ -203,8 +162,8 @@ def _parse_filters(parser: ArgumentParser):
             "świętokrzyskie",
             "warmińsko_mazurskie",
             "wielkopolskie",
-            "zachodniopomorskie"
-        }
+            "zachodniopomorskie",
+        },
     )
 
     # Product rating
@@ -212,20 +171,12 @@ def _parse_filters(parser: ArgumentParser):
         "--product-rating",
         "-pr",
         help="Product rating",
-        choices={
-            "from4.9",
-            "from4.8",
-            "from4.5"
-        }
+        choices={"from4.9", "from4.8", "from4.5"},
     )
 
     # Vat invoice
     parser.add_argument(
-        "--vat-invoice",
-        "-vat",
-        action="store_true",
-        default=None,
-        help="Vat invoice"
+        "--vat-invoice", "-vat", action="store_true", default=None, help="Vat invoice"
     )
 
     # Allegro programs
@@ -235,12 +186,7 @@ def _parse_filters(parser: ArgumentParser):
         nargs="+",
         type=str,
         help="Allegro programs",
-        choices={
-            "allegro_coins",
-            "brand_zone",
-            "great_seller",
-            "allegro_charity"
-        }
+        choices={"allegro_coins", "brand_zone", "great_seller", "allegro_charity"},
     )
 
     # Occasions
@@ -250,11 +196,7 @@ def _parse_filters(parser: ArgumentParser):
         nargs="+",
         type=str,
         help="Allegro programs",
-        choices={
-            "installments_of_zero_percent",
-            "opportunity_zone",
-            "great_price"
-        }
+        choices={"installments_of_zero_percent", "opportunity_zone", "great_price"},
     )
 
     return parser

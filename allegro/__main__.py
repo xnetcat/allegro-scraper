@@ -29,7 +29,7 @@ def console_entry_point():
         "product_rating": arguments.product_rating,
         "vat_invoice": arguments.vat_invoice,
         "allegro_programs": arguments.allegro_programs,
-        "occasions": arguments.occasions
+        "occasions": arguments.occasions,
     }
 
     # Create options dict

@@ -72,18 +72,18 @@ FILTERS = {
     "product_rating": {
         "from4.9": "ocena-produktu=od-4.9",
         "from4.8": "ocena-produktu=od-4.8",
-        "from4.5": "ocena-produktu=od-4.5"
+        "from4.5": "ocena-produktu=od-4.5",
     },
     "vat_invoice": "vat_invoice=1",
     "allegro_programs": {
         "allegro_coins": "monety=1",
         "brand_zone": "sm=1",
         "great_seller": "super-sprzedawca=1",
-        "allegro_charity": "cel-charytatywny=wszystkie"
+        "allegro_charity": "cel-charytatywny=wszystkie",
     },
     "occasions": {
         "installments_of_zero_percent": "raty-zero=1",
         "opportunity_zone": "ok=1",
-        "great_price": "price-subsidy=1"
-    }
+        "great_price": "price-subsidy=1",
+    },
 }

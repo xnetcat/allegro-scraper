@@ -1,8 +1,10 @@
 import json
+import requests
 
 from typing import List
 from dataclasses import dataclass
-from allegro.parsers.website import parse_website
+from bs4 import BeautifulSoup
+
 from allegro.parsers.offer import (
     _find_product_category,
     _find_product_images,
@@ -14,7 +16,6 @@ from allegro.parsers.offer import (
     _find_product_seller,
     _is_buynow_offer,
 )
-
 
 @dataclass(frozen=True)
 class Product:
@@ -60,7 +61,27 @@ class Product:
             ):
                 raise Exception(f"Passed url is not that of a product: {url}")
 
-        soup = parse_website(url, proxy)
+        # Default headers
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+            "DNT": "1",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "Pragma": "no-cache",
+            "Cache-Control": "no-cache",
+        }
+
+        # Send http GET request
+        request = requests.get(
+            url,
+            headers=headers,
+            proxies=proxy,
+        )
+
+        # Parse html with BeautifulSoup
+        soup = BeautifulSoup(request.text, "html.parser")
 
         if not _is_buynow_offer(soup):
             raise NotImplementedError("Auctions and advertisements are not supported")

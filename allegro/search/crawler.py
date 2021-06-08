@@ -1,12 +1,12 @@
 import logging
 
-from allegro.search.product import Product
-from allegro.types.filters import Filters
-from allegro.types.options import Options
-from allegro.constants import FILTERS
-from allegro.parsers.website import parse_website
 from typing import List
 from types import FunctionType
+from allegro.parsers.website import parse_products, parse_website
+from allegro.types.options import Options
+from allegro.constants import FILTERS
+from allegro.search.product import Product
+from allegro.types.filters import Filters
 
 
 def search(search_term: str, proxy: dict = None) -> List[Product]:
@@ -49,14 +49,11 @@ def search(search_term: str, proxy: dict = None) -> List[Product]:
         # Create product object using url
         product = Product.from_url(product_link.get("href"))
 
-        # Display what product we are scraping
-        if logging.DEBUG >= logging.root.level:
-            logging.debug(
-                f'Scraping "{product.name}" with url "{product.url}" '
-                "[{index + 1}/{products_number}]"
-            )
-        else:
-            logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
+        logging.info(
+            f'Scraping "{product.name}"'
+            f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
+            f" [{index + 1}/{products_number}]"
+        )
 
         # Add product to list
         products.append(product)
@@ -105,7 +102,6 @@ def crawl(
             if type(value) == bool and value is True:
                 query.append(FILTERS[key])
             elif type(value) == list:
-                # we know that value is a list
                 query.extend([FILTERS[key][val] for val in value])  # type: ignore
             elif type(FILTERS[key]) == FunctionType:  # type: ignore
                 query.append(FILTERS[key](value))  # type: ignore
@@ -120,55 +116,64 @@ def crawl(
             for q in query:
                 query_string += f"&{q}"
 
-    # create url and encode spaces
-    url = f"https://allegro.pl/listing?string={search_term}{query_string}".replace(" ", "%20")
+    if options is not None:
+        start_page = options.get("start_page")
+        pages_to_fetch = options.get("pages_to_fetch")
+        max_results = options.get("max_results")
 
-    # parse website
-    soup = parse_website(
-        url, proxy
-    )
+        if start_page is None:
+            start_page = 1
+    else:
+        start_page = 1
+        pages_to_fetch = None
+        max_results = None
 
-    # Find all products on a page, each section is one product
-    sections = soup.find_all(
-        "article",
-        attrs={
-            "data-role": "offer",
-            "data-analytics-view-custom-index0": True,
-            "data-analytics-view-custom-deliverylabel": True,
-            "data-analytics-view-custom-page": True,
-            "data-analytics-view-value": True,
-        },
-    )
+    if max_results is not None:
+        logging.info(f"Max results {max_results}")
 
-    # Number of products found
-    products_number = len(sections)
+    if pages_to_fetch is not None:
+        logging.info(f"Will fetch {pages_to_fetch} pages")
+        for page_num in range(start_page, pages_to_fetch + 1):
+            logging.info(f"Fetching {page_num} page")
 
-    # FIXME: Scrapping is not ready yet
-    logging.info(f"Found {products_number} products")
-    for index, section in enumerate(sections):
-        # Find url to product in a tag
-        product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
-        product_url = product_link.get("href")
-
-        # Create product object using url
-        try:
-            product = Product.from_url(product_url)
-        # Ignore adverts and auctions
-        except NotImplementedError:
-            logging.info(f'Ignoring "{product_url}" as it\'s advert or auction')
-            continue
-
-        # Display what product we are scraping
-        if logging.DEBUG >= logging.root.level:
-            logging.debug(
-                f'Scraping "{product.name}" with url "{product.url}" '
-                f"[{index + 1}/{products_number}]"
+            # Fetch offers
+            offers = parse_products(
+                search_term=search_term,
+                page_num=page_num,
+                query_string=query_string,
+                max_results=max_results - len(products),
+                proxy=proxy
             )
-        else:
-            logging.info(f'Scraping "{product.name}" [{index + 1}/{products_number}]')
 
-        # Add product to list
-        products.append(product)
+            # add new products to products list
+            products.extend(offers[0])
 
-    # Return list with products
+            # Stop crawling
+            if offers[1] is False:
+                break
+    else:
+        # Start number
+        page_num = start_page
+
+        # Start loop
+        while True:
+            offers = parse_products(
+                search_term=search_term,
+                query_string=query_string,
+                page_num=page_num,
+                max_results=max_results,
+                proxy=proxy,
+            )
+
+            # add new products to products list
+            products.extend(offers[0])
+
+            # Stop crawling
+            if offers[1] is False:
+                break
+
+            # increase page num
+            page_num += 1
+
+    # return products
     return products
