@@ -47,7 +47,11 @@ def search(search_term: str, proxy: dict = None) -> List[Product]:
         product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
 
         # Create product object using url
-        product = Product.from_url(product_link.get("href"))
+        try:
+            product = Product.from_url(product_link.get("href"))
+        except NotImplementedError:
+            logging.info(f'Ignoring "{product_link}" because it\'s advert or auction')
+            continue
 
         logging.info(
             f'Scraping "{product.name}"'
@@ -88,7 +92,7 @@ def crawl(
     query = []
 
     # Products list
-    products = []
+    products: List[Product] = []
 
     # init empty query string
     query_string = ""

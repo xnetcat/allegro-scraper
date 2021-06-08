@@ -1,7 +1,5 @@
 import logging
 import requests
-from requests.api import options
-
 
 from allegro.search.product import Product
 from bs4 import BeautifulSoup
@@ -44,8 +42,10 @@ def parse_products(
     max_results: int = None,
 ) -> Optional[Tuple[List[Product], bool]]:
     # create url and encode spaces
-    url = f"https://allegro.pl/listing?string={search_term}{query_string}&p={str(page_num)}".replace(
-        " ", "%20"
+    url = (
+        f"https://allegro.pl/listing?string={search_term}"
+        f"{query_string}&p={str(page_num)}"
+        .replace(" ", "%20")
     )
 
     # parse website
@@ -68,7 +68,6 @@ def parse_products(
 
     # Number of products found
     sections_len = len(sections)
-    products_len = len(products)
 
     if max_results is not None and sections_len > max_results:
         logging.info(
@@ -82,7 +81,7 @@ def parse_products(
         index += 1
 
         # max products
-        if options is not None and max_results == len(products):
+        if max_results == len(products):
             return products, False
 
         # Find url to product in a tag
