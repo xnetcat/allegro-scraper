@@ -1,3 +1,4 @@
+from allegro.types.options import Options
 import json
 import logging
 
@@ -11,6 +12,33 @@ from allegro.parsers.arguments import parse_arguments
 def console_entry_point():
     # Namespace containing parsed arguments
     arguments = parse_arguments()
+
+    # Create filters dict
+    filters: Filters = {  # type: ignore
+        "sorting": arguments.sorting,
+        "smart_free_shipping": arguments.smart_free_shipping,
+        "product_condition": arguments.product_condition,
+        "offer_type": arguments.offer_type,
+        "price_min": arguments.price_min,
+        "price_max": arguments.price_max,
+        "delivery_time:": arguments.delivery_time,
+        "delivery_methods": arguments.delivery_methods,
+        "delivery_options": arguments.delivery_options,
+        "city": arguments.city,
+        "voivodeship": arguments.voivodeship,
+        "product_rating": arguments.product_rating,
+        "vat_invoice": arguments.vat_invoice,
+        "allegro_programs": arguments.allegro_programs,
+        "occasions": arguments.occasions
+    }
+
+    # Create options dict
+    options: Options = {  # type: ignore
+        "sponsored_offers": arguments.sponsored_offers,
+        "max_results": arguments.max_results,
+        "pages_to_fetch": arguments.pages_to_fetch,
+        "start_page": arguments.start_page
+    }
 
     # Set up logging
     logging.basicConfig(
@@ -46,27 +74,8 @@ def console_entry_point():
     if arguments.crawl is not None and len(arguments.crawl) >= 1:
         # Iterate over all crawl argumets
         for query in arguments.crawl:
-            # Create filters dict
-            filters: Filters = {  # type: ignore
-                "sorting": arguments.sorting,
-                "smart_free_shipping": arguments.smart_free_shipping,
-                "product_condition": arguments.product_condition,
-                "offer_type": arguments.offer_type,
-                "price_min": arguments.price_min,
-                "price_max": arguments.price_max,
-                "delivery_time:": arguments.delivery_time,
-                "delivery_methods": arguments.delivery_methods,
-                "delivery_options": arguments.delivery_options,
-                "city": arguments.city,
-                "voivodeship": arguments.voivodeship,
-                "product_rating": arguments.product_rating,
-                "vat_invoice": arguments.vat_invoice,
-                "allegro_programs": arguments.allegro_programs,
-                "occasions": arguments.occasions
-            }
-
             # Start crawling
-            results = crawler.crawl(query, filters=filters)
+            results = crawler.crawl(query, filters=filters, options=options)
 
             # Add results to products list
             products.extend(results)
