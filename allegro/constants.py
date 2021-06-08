@@ -6,7 +6,7 @@ FILTERS = {
         "price_with_delivery_from_lowest": "order=d",
         "price_with_delivery_from_highest": "order=dd",
         "popularity_highest": "order=qd",
-        "tome_to_end_least": "order=t",
+        "time_to_end_least": "order=t",
         "time_added_latest": "order=n",
     },
     "smart_free_shipping": "allegro-smart-standard=1",

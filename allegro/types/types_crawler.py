@@ -17,7 +17,7 @@ class Filters(TypedDict):
             "price_with_delivery_from_lowest",
             "price_with_delivery_from_highest",
             "popularity_highest",
-            "tome_to_end_least",
+            "time_to_end_least",
             "time_added_latest",
         ]
     ]
