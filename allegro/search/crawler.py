@@ -128,7 +128,7 @@ def crawl(
         avoid_duplicates = None
 
     if start_page is None:
-            start_page = 1
+        start_page = 1
 
     if max_results is not None:
         logging.info(f"Max results {max_results}")
@@ -143,7 +143,9 @@ def crawl(
                 search_term=search_term,
                 page_num=page_num,
                 query_string=query_string,
-                max_results=max_results - len(products) if max_results is not None else None,
+                max_results=max_results - len(products)
+                if max_results is not None
+                else None,
                 avoid_duplicates=avoid_duplicates,
                 proxy=proxy,
             )

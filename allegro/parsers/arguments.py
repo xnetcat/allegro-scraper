@@ -205,13 +205,15 @@ def _parse_filters(parser: ArgumentParser):
 def _parse_options(parser: ArgumentParser):
     # Include sponsored offers
     parser.add_argument(
-        "--include-sponsored-offers", "-iso", action="store_true", default=None, help="Include sponsored offers"
+        "--include-sponsored-offers",
+        "-iso",
+        action="store_true",
+        default=None,
+        help="Include sponsored offers",
     )
 
     # Max results
-    parser.add_argument(
-        "--max-results", "-rmax", type=int, help="Max results"
-    )
+    parser.add_argument("--max-results", "-rmax", type=int, help="Max results")
 
     # Pages to fetch
     parser.add_argument("--pages-to-fetch", "-ptf", type=int, help="Pages to fetch")
@@ -221,7 +223,11 @@ def _parse_options(parser: ArgumentParser):
 
     # Avoid duplicates
     parser.add_argument(
-        "--avoid-duplicates", "-ad", action="store_true", default=None, help="Avoid duplicates"
+        "--avoid-duplicates",
+        "-ad",
+        action="store_true",
+        default=None,
+        help="Avoid duplicates",
     )
 
     return parser
