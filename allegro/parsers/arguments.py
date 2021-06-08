@@ -20,6 +20,14 @@ def _parse_basic(parser: ArgumentParser):
         help="Enables crawling"
     )
 
+    # Output file
+    parser.add_argument(
+        "--output",
+        "-o",
+        help="Output file ex. C:/test/file.json",
+        required=True
+    )
+
     opts, _ = parser.parse_known_args()
     if opts.search is None and opts.crawl is None:
         parser.error("--crawl/-c or --search/-s is required")
@@ -28,14 +36,6 @@ def _parse_basic(parser: ArgumentParser):
 
 
 def _parse_misc(parser: ArgumentParser):
-    # Output file
-    parser.add_argument(
-        "--output",
-        "-o",
-        help=r"Output file ex. C:/test/file.json",
-        required=True
-    )
-
     # Verbose mode
     parser.add_argument(
         "--verbose",
