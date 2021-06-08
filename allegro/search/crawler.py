@@ -93,6 +93,9 @@ def crawl(
     # Products list
     products = []
 
+    # init empty query string
+    query_string = ""
+
     if filters is not None:
         for index, (key, value) in enumerate(filters.items()):
             # skip filters with None value
@@ -112,13 +115,10 @@ def crawl(
             else:
                 logging.warning(f"Unhandled type {type(value)} of value {value}")
 
-    # init empty query string
-    query_string = ""
-
-    # Create query string
-    if len(query) >= 1:
-        for q in query:
-            query_string += f"&{q}"
+        # Create query string
+        if len(query) >= 1:
+            for q in query:
+                query_string += f"&{q}"
 
     # create url and encode spaces
     url = f"https://allegro.pl/listing?string={search_term}{query_string}".replace(" ", "%20")
