@@ -1,9 +1,8 @@
 import json
-import requests
 
 from dataclasses import dataclass
 from typing import List
-from bs4 import BeautifulSoup
+from allegro.parsers.website import parse_website
 from allegro.parsers.offer import (
     _find_product_category,
     _find_product_images,
@@ -61,32 +60,36 @@ class Product:
             ):
                 raise Exception(f"Passed url is not that of a product: {url}")
 
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
-            "DNT": "1",
-            "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
-            "Pragma": "no-cache",
-            "Cache-Control": "no-cache",
-        }
-
-        request = requests.get(url, proxies=proxy, headers=headers)
-        soup = BeautifulSoup(request.text, "html.parser")
+        soup = parse_website(url, proxy)
 
         if not _is_buynow_offer(soup):
             raise NotImplementedError("Auctions and advertisements are not supported")
 
+        # Find name in parsed website
         name = _find_product_name(soup)
+
+        # Find price in parsed website
         price = _find_product_price(soup)
+
+        # Find category in parsed website
         category = _find_product_category(soup)
+
+        # Find seller in parsed website
         seller = _find_product_seller(soup)
+
+        # Find quantity in parsed website
         quantity = _find_product_quantity(soup)
+
+        # Find rating in parsed website
         rating = _find_product_rating(soup)
+
+        # Find images in parsed website
         images = _find_product_images(soup)
+
+        # Find parameters in parsed website
         parameters = _find_product_parameters(soup)
 
+        # Return product object
         return cls(
             url, name, category, price, seller, quantity, rating, images, parameters
         )
@@ -102,6 +105,8 @@ class Product:
         - `Product` that contains the metadata of a product.
         """
 
+        # Create dict frm json string
         data_dict = json.loads(data)
 
+        # Return product object
         return cls(**data_dict)

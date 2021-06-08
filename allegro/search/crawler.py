@@ -8,7 +8,7 @@ from typing import List
 from types import FunctionType
 
 
-def search(search_term: str, proxies: dict = None) -> List[Product]:
+def search(search_term: str, proxy: dict = None) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
@@ -23,7 +23,7 @@ def search(search_term: str, proxies: dict = None) -> List[Product]:
     # url create url and encode spaces
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
 
-    soup = parse_website(url, proxies)
+    soup = parse_website(url, proxy)
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -68,7 +68,7 @@ def crawl(
     search_term: str,
     options: Options = None,
     filters: Filters = None,
-    proxies: dict = None,
+    proxy: dict = None,
 ) -> List[Product]:
     """
     ### Args
@@ -124,7 +124,7 @@ def crawl(
 
     # parse website
     soup = parse_website(
-        url, proxies
+        url, proxy
     )
 
     # Find all products on a page, each section is one product

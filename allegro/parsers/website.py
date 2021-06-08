@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def parse_website(url: str, proxies: dict = None):
+def parse_website(url: str, proxy: dict = None):
     # Default headers
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
@@ -20,7 +20,7 @@ def parse_website(url: str, proxies: dict = None):
     request = requests.get(
         url,
         headers=headers,
-        proxies=proxies,
+        proxies=proxy,
     )
 
     # Parse html with BeautifulSoup
