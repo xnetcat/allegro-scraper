@@ -70,7 +70,9 @@ def parse_products(
     products_len = len(products)
 
     if max_results is not None and sections_len > max_results:
-        logging.info(f"Found {sections_len} products, but only scraping {max_results} products")
+        logging.info(
+            f"Found {sections_len} products, but only scraping {max_results} products"
+        )
     else:
         logging.info(f"Found {sections_len} products")
 

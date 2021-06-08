@@ -8,14 +8,14 @@ from allegro.__main__ import console_entry_point
 
 def test_no_search_or_crawl(capsys, monkeypatch):
     monkeypatch.setattr(
-            sys,
-            "argv",
-            [
-                "dummy",
-                "-o",
-                "typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json"
-            ],
-        )
+        sys,
+        "argv",
+        [
+            "dummy",
+            "-o",
+            "typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json",
+        ],
+    )
 
     with pytest.raises(SystemExit) as e:
         console_entry_point()
@@ -23,6 +23,7 @@ def test_no_search_or_crawl(capsys, monkeypatch):
     out, err = capsys.readouterr()
 
     assert "allegro-spider: error: --crawl/-c or --search/-s is required\n" in err
+
 
 @pytest.mark.vcr()
 def test_scrape_single_product(caplog, monkeypatch):
@@ -34,7 +35,7 @@ def test_scrape_single_product(caplog, monkeypatch):
             "-s"
             "https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",
             "-o",
-            "typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json"
+            "typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json",
         ],
     )
 
@@ -45,7 +46,7 @@ def test_scrape_single_product(caplog, monkeypatch):
     assert (
         "root",
         logging.INFO,
-        "Saving 1 products to typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json"
+        "Saving 1 products to typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535.json",
     ) in caplog.record_tuples
 
 
@@ -54,13 +55,7 @@ def test_scrape_first_page(caplog, monkeypatch):
     monkeypatch.setattr(
         sys,
         "argv",
-        [
-            "dummy",
-            "-s"
-            "kabel usb",
-            "-o",
-            "kable.json"
-        ],
+        ["dummy", "-s" "kabel usb", "-o", "kable.json"],
     )
 
     caplog.set_level(logging.INFO)
@@ -70,7 +65,7 @@ def test_scrape_first_page(caplog, monkeypatch):
     assert (
         "root",
         logging.INFO,
-        "Saving 0 products to kable.json"
+        "Saving 0 products to kable.json",
     ) not in caplog.record_tuples
 
 
@@ -83,8 +78,7 @@ def test_wrong_search(caplog, monkeypatch):
             "dummy",
             "-s",
             "sadvnasdvjkasvdkjbasvdabsdvjkabsj",
-            "-o"
-            "does_not_exist.json"
+            "-o" "does_not_exist.json",
         ],
     )
 
@@ -95,5 +89,5 @@ def test_wrong_search(caplog, monkeypatch):
     assert (
         "root",
         logging.INFO,
-        "Saving 0 products to does_not_exist.json"
+        "Saving 0 products to does_not_exist.json",
     ) in caplog.record_tuples

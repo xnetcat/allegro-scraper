@@ -37,7 +37,7 @@ def console_entry_point():
         "sponsored_offers": arguments.sponsored_offers,
         "max_results": arguments.max_results,
         "pages_to_fetch": arguments.pages_to_fetch,
-        "start_page": arguments.start_page
+        "start_page": arguments.start_page,
     }
 
     # Set up logging

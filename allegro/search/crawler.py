@@ -142,7 +142,7 @@ def crawl(
                 page_num=page_num,
                 query_string=query_string,
                 max_results=max_results - len(products),
-                proxy=proxy
+                proxy=proxy,
             )
 
             # add new products to products list

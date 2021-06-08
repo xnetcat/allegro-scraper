@@ -17,6 +17,7 @@ from allegro.parsers.offer import (
     _is_buynow_offer,
 )
 
+
 @dataclass(frozen=True)
 class Product:
     """
