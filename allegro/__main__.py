@@ -38,7 +38,7 @@ def console_entry_point():
         "max_results": arguments.max_results,
         "pages_to_fetch": arguments.pages_to_fetch,
         "start_page": arguments.start_page,
-        "avoid_duplicates": arguments.avoid_duplicates  # not implemented yet
+        "avoid_duplicates": arguments.avoid_duplicates
     }
 
     # Set up logging
