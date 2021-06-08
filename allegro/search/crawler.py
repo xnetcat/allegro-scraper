@@ -120,13 +120,15 @@ def crawl(
         start_page = options.get("start_page")
         pages_to_fetch = options.get("pages_to_fetch")
         max_results = options.get("max_results")
-
-        if start_page is None:
-            start_page = 1
+        avoid_duplicates = options.get("avoid_duplicates")
     else:
-        start_page = 1
+        start_page = None
         pages_to_fetch = None
         max_results = None
+        avoid_duplicates = None
+
+    if start_page is None:
+            start_page = 1
 
     if max_results is not None:
         logging.info(f"Max results {max_results}")
@@ -141,7 +143,8 @@ def crawl(
                 search_term=search_term,
                 page_num=page_num,
                 query_string=query_string,
-                max_results=max_results - len(products),
+                max_results=max_results - len(products) if max_results is not None else None,
+                avoid_duplicates=avoid_duplicates,
                 proxy=proxy,
             )
 
