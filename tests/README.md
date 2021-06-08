@@ -20,7 +20,7 @@ pytest
 To see code coverage use:
 
 ```shell
-pytest --cov=spotdl
+pytest --cov=allegro
 ```
 
 ## Enable network communication
