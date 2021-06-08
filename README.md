@@ -17,7 +17,7 @@ Allegro scraping tool
 - Recommended Stable Version:
 
   ```bash
-  pip install allegro-spider
+  pip install https://codeload.github.com/xnetcat/allegro-spider/zip/main
   ```
 
 - Dev Version: **(NOT STABLE)**
@@ -261,9 +261,9 @@ Allegro scraping tool
   choices:
 
   ```python
-    "today"
-    "one_day"
-    "two_day"
+  "today"
+  "one_day"
+  "two_day"
   ```
 
   example:
@@ -459,7 +459,10 @@ Allegro scraping tool
 
 </details>
 
-## `pipx` Isolated Environment Alternative
+<details>
+    <summary style="font-size:1.25em">
+        <strong>pipx Isolated Environment Alternative</strong>
+    </summary>
 
 For users who are not familiar with `pipx`, it can be used to run scripts **without**
 installing the allegro-spider package and all the dependencies globally with pip.
@@ -476,6 +479,8 @@ Next, you can jump directly to running allegro-spider with:
 ```bash
 pipx run allegro-spider ...
 ```
+
+</details>
 
 ## Authors
 
