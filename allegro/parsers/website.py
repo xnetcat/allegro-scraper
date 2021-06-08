@@ -97,7 +97,7 @@ def parse_products(
             continue
 
         # TODO: NOT TESTED
-        if product.url in (prod.url for prod in products):
+        if avoid_duplicates is True and product.url in (prod.url for prod in products):
             continue
 
         if max_results is not None:
