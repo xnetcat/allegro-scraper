@@ -40,6 +40,7 @@ def parse_products(
     query_string: str = "",
     page_num: int = 1,
     proxy: dict = None,
+    avoid_duplicates: bool = None,
     max_results: int = None,
 ) -> Optional[Tuple[List[Product], bool]]:
     # create url and encode spaces
@@ -93,7 +94,11 @@ def parse_products(
             product = Product.from_url(product_url)
         # Ignore adverts and auctions
         except NotImplementedError:
-            logging.info(f'Ignoring "{product_url}" as it\'s advert or auction')
+            logging.info(f'Ignoring "{product_url}" because it\'s advert or auction')
+            continue
+
+        # TODO: NOT TESTED
+        if product.url in (prod.url for prod in products):
             continue
 
         if max_results is not None:
