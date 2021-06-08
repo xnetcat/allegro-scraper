@@ -127,6 +127,329 @@ Allegro scraping tool
         <strong>Crawling filters</strong>
     </summary>
 
+- #### Sorting
+
+  ```bash
+  --sorting/-so [sorting]
+  ```
+
+  type: `choice`
+
+  choices:
+
+  ```python
+  "relevance_highest"
+  "price_from_lowest"
+  "price_from_highest"
+  "price_with_delivery_from_lowest"
+  "price_with_delivery_from_highest"
+  "popularity_highest"
+  "time_to_end_least"
+  "time_added_latest"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" --sorting time_added_latest
+  ```
+
+- #### Allegro Smart! free shipping
+
+  ```bash
+  --smart-free-shipping/-sfs
+  ```
+
+  type: `boolean`
+
+  example:
+
+  ```bash
+  allegro-spider --smart-free-shipping
+  ```
+
+- #### Product condition
+
+  ```bash
+  --product-condition/-pc [conditions]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "new"
+  "used"
+  "incomplete_set"
+  "new_without_tags"
+  "new_with_defect"
+  "after_return"
+  "aftermarket"
+  "regenerated"
+  "damaged"
+  "refurbished"
+  "for_renovation"
+  "not_requiring_renovation"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -pc new used damaged
+  ```
+
+- #### Offer type
+
+  ```bash
+  --offer-type/-ot [types]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "buy_now"
+  "auction"
+  "advertisement"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ot buy_now auction
+  ```
+
+- #### Minimal price
+
+  ```bash
+  --price-min/-pmin [price]
+  ```
+
+  type: `float`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -pmin 5000.25
+  ```
+
+- #### Maximum price
+
+  ```bash
+  --price-max/-pmax [price]
+  ```
+
+  type: `float`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -pmax 15000.00
+  ```
+
+- #### Delivery time
+
+  ```bash
+  --delivery-time/-dt [time]
+  ```
+
+  type: `choice
+  `
+
+  choices:
+
+  ```python
+    "today"
+    "one_day"
+    "two_day"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -dt today
+  ```
+
+- #### Delivery methods
+
+  ```bash
+  --delivery-methods/-dm [methods]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "courier"
+  "inpost_parcel_locker"
+  "overseas_delivery"
+  "pickup_at_the_point"
+  "letter"
+  "package"
+  "pickup"
+  "email"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -dm email pickup package
+  ```
+
+- #### Delivery options
+
+  ```bash
+  --delivery-options/-do [options]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "free_shipping",
+  "free_return"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -do free_shipping free_return
+  ```
+
+- #### City
+
+  ```bash
+  --city/-ct [city]
+  ```
+
+  type: `string`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ct warszawa
+  ```
+
+- #### Voivodeship
+
+  ```bash
+  --voivodeship/-vo [voivodeship]
+  ```
+
+  type: `choice`
+
+  choices:
+
+  ```python
+  "dolnośląskie"
+  "kujawsko_pomorskie"
+  "lubelskie"
+  "lubuskie"
+  "łódzkie"
+  "małopolskie"
+  "mazowieckie"
+  "opolskie"
+  "podkarpackie"
+  "podlaskie"
+  "pomorskie"
+  "śląskie"
+  "świętokrzyskie"
+  "warmińsko_mazurskie"
+  "wielkopolskie"
+  "zachodniopomorskie"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -vo lubuskie
+  ```
+
+- #### Product rating
+
+  ```bash
+  --product-rating/-pr [rating]
+  ```
+
+  type: `choice`
+
+  choices:
+
+  ```python
+  "from4.9"
+  "from4.8"
+  "from4.5"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -pr "from4.5"
+  ```
+
+- #### Vat invoice
+
+  ```bash
+  --vat-invoice/-vat
+  ```
+
+  type: `boolean`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" --vat-invoice
+  ```
+
+- #### Allegro programs
+
+  ```bash
+  --allegro-programs/-ap [programs]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "allegro_coins"
+  "brand_zone"
+  "great_seller"
+  "allegro_charity"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ap great_seller allegro_charity
+  ```
+
+- #### Occasions
+
+  ```bash
+  --occasions/-oc [occasions]
+  ```
+
+  type: `list`
+
+  choices:
+
+  ```python
+  "installments_of_zero_percent"
+  "opportunity_zone"
+  "great_price"
+  ```
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -oc great_price opportunity_zone
+  ```
+
 </details>
 
 <details>
