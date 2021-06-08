@@ -4,17 +4,6 @@ import sys
 import pytest
 
 from allegro.__main__ import console_entry_point
-from allegro.search import crawler, product
-from allegro.search.product import Product
-
-LOGGER = logging.getLogger(__name__)
-
-
-@pytest.fixture()
-def patch_dependencies(mocker, monkeypatch):
-    """This is a helper fixture to patch out everything that shouldn't be called here"""
-    mocker.patch.object(crawler, "search", autospec=True)
-    mocker.patch.object(Product, "from_url", autospec=True)
 
 
 def test_no_search_or_crawl(capsys, monkeypatch):
