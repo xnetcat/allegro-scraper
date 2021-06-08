@@ -147,9 +147,15 @@ def crawl(
     for index, section in enumerate(sections):
         # Find url to product in a tag
         product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
+        product_url = product_link.get("href")
 
         # Create product object using url
-        product = Product.from_url(product_link.get("href"))
+        try:
+            product = Product.from_url(product_url)
+        # Ignore adverts and auctions
+        except NotImplementedError:
+            logging.info(f'Ignoring "{product_url}" as it\'s advert or auction')
+            continue
 
         # Display what product we are scraping
         if logging.DEBUG >= logging.root.level:
