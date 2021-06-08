@@ -1,7 +1,8 @@
 import logging
 
 from allegro.search.product import Product
-from allegro.types.types_crawler import Filters, Options
+from allegro.types.filters import Filters
+from allegro.types.options import Options
 from allegro.constants import FILTERS
 from allegro.parsers.website import parse_website
 from typing import List
@@ -75,7 +76,7 @@ def crawl(
     - search_term: `str` name of the searched item
     - options: `Options` search options
     - filters: `Filters` product filters
-    - proxies: `dict` dictionary containing proxies
+    - proxy: `dict` dictionary containing proxy
 
     ### Returns
     - `List[Product]` list containing scrapped products

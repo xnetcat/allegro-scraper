@@ -4,7 +4,7 @@ import logging
 from dataclasses import asdict
 from allegro.search import crawler
 from allegro.search.product import Product
-from allegro.types.types_crawler import Filters
+from allegro.types.filters import Filters
 from allegro.parsers.arguments import parse_arguments
 
 
