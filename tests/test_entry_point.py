@@ -1,7 +1,7 @@
 import logging
 import sys
 
-import pytest
+import pytest  # type: ignore
 
 from allegro.__main__ import console_entry_point
 
