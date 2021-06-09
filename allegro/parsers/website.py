@@ -1,13 +1,11 @@
-from itertools import cycle
 import logging
-from random import random
 import requests
 
-from allegro.search.product import Product
-from allegro.parsers.offer import is_captcha_required
+from itertools import cycle
 from bs4 import BeautifulSoup
 from typing import List, Optional, Tuple
-
+from allegro.search.product import Product
+from allegro.parsers.offer import is_captcha_required
 
 def parse_website(url: str, proxy: str = None):
     # Default headers
