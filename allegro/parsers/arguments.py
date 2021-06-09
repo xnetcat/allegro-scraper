@@ -230,6 +230,24 @@ def _parse_options(parser: ArgumentParser):
         help="Avoid duplicates",
     )
 
+    # Use free proxies
+    parser.add_argument(
+        "--use-free-proxies",
+        "-ufp",
+        action="store_true",
+        default=None,
+        help="Use proxies from http://www.freeproxylists.net/",
+    )
+
+    # Check proxies
+    parser.add_argument(
+        "--check-proxies",
+        "-cp",
+        action="store_true",
+        default=None,
+        help="Check if proxies are not banned"
+    )
+
     return parser
 
 
