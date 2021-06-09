@@ -79,10 +79,7 @@ def console_entry_point():
             # Single allegro offer
             if "allegro.pl/oferta/" in query:
                 # Create product object using url
-                product = Product.from_url(
-                    url=query,
-                    proxy=random.choice(proxies)
-                )
+                product = Product.from_url(url=query, proxy=random.choice(proxies))
 
                 # Add product to products list
                 products.append(product)

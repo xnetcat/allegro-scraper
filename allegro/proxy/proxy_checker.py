@@ -8,7 +8,7 @@ def is_good_proxy(proxy: str) -> bool:
     try:
         Product.from_url(
             url="https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",
-            proxy=proxy
+            proxy=proxy,
         )
     except:
         return False
@@ -25,6 +25,8 @@ def filter_proxies(proxies: List[str]) -> List[str]:
         if proxy_is_working is True:
             good_proxies.append(proxy)
 
-        logging.info(f"Proxy \"{proxy}\" is{' ' if proxy_is_working is True else ' not '}working [{index + 1}/{len(proxies)}]")
+        logging.info(
+            f"Proxy \"{proxy}\" is{' ' if proxy_is_working is True else ' not '}working [{index + 1}/{len(proxies)}]"
+        )
 
     return good_proxies

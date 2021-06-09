@@ -245,7 +245,7 @@ def _parse_options(parser: ArgumentParser):
         "-cp",
         action="store_true",
         default=None,
-        help="Check if proxies are not banned"
+        help="Check if proxies are not banned",
     )
 
     return parser
