@@ -1,3 +1,4 @@
+from allegro.proxy.proxy_file import proxies_from_file
 import json
 import logging
 import random
@@ -53,7 +54,8 @@ def console_entry_point():
         "use_free_proxies": arguments.use_free_proxies,
         "check_proxies": arguments.check_proxies,
         "request_timeout": arguments.request_timeout,
-        "request_delay": arguments.request_delay
+        "request_delay": arguments.request_delay,
+        "proxies_file": arguments.proxies_file
     }
 
     # Set up logging
@@ -64,15 +66,34 @@ def console_entry_point():
         else "[%(levelname)s] %(message)s",
     )
 
+    # Use free proxies
     if options.get("use_free_proxies") is True:
         logging.info("Gathering proxies...")
-        proxies = scrape_free_proxy_lists()
+        proxies.extend(scrape_free_proxy_lists())
         logging.info(f"Finished gatgering proxies, found {len(proxies)} proxies")
 
+    # Load proxies from file
+    proxies_file = options.get("proxies_file")
+    if proxies_file is not None:
+        logging.info(f"Loading proxies from file {proxies_file}")
+
+        # Load proxies
+        new_proxies = proxies_from_file(proxies_file)
+
+        # Add loaded proxies
+        if len(new_proxies) >= 1:
+            proxies.extend(new_proxies)
+            logging.info(f"Loaded {len(new_proxies)} proxies")
+
+    # Check proxies
     if options.get("check_proxies") is True and len(proxies) >= 1:
         logging.info(f"Checking {len(proxies)} proxies")
         proxies = filter_proxies(proxies, options.get("request_timeout"))
         logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
+
+    # Set proxies to None if list is empty
+    if len(proxies) == 0:
+        proxies = None
 
     # Search for specified products
     if arguments.search is not None and len(arguments.search) >= 1:
@@ -83,7 +104,7 @@ def console_entry_point():
                 # Create product object using url
                 product = Product.from_url(
                     url=query,
-                    proxy=random.choice(proxies),
+                    proxy=random.choice(proxies) if proxies is not None else None,
                     timeout=options.get("request_timeout"),
                 )
 

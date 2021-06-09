@@ -254,6 +254,14 @@ def _parse_options(parser: ArgumentParser):
     # Request delay
     parser.add_argument("--request-delay", "-rd", type=int, help="Request delay")
 
+    # Proxy file
+    parser.add_argument(
+        "--proxies-file",
+        "-pf",
+        type=str,
+        help="Path to file with proxies"
+    )
+
     return parser
 
 
