@@ -44,8 +44,7 @@ def parse_products(
     # create url and encode spaces
     url = (
         f"https://allegro.pl/listing?string={search_term}"
-        f"{query_string}&p={str(page_num)}"
-        .replace(" ", "%20")
+        f"{query_string}&p={str(page_num)}".replace(" ", "%20")
     )
 
     # parse website
