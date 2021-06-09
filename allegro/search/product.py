@@ -15,6 +15,7 @@ from allegro.parsers.offer import (
     _find_product_rating,
     _find_product_seller,
     _is_buynow_offer,
+    _is_captcha_required
 )
 
 
@@ -65,14 +66,14 @@ class Product:
 
         # Default headers
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.5",
-            "DNT": "1",
-            "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
-            "Pragma": "no-cache",
-            "Cache-Control": "no-cache",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
+            "Referer": "https://allegro.pl",
+            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
+            "Sec-Fetch-Dest": "image",
+            "Sec-Fetch-Mode": "no-cors",
+            "Sec-Fetch-Site": "same-origin",
+            "Sec-Gpc": "1"
         }
 
         # Create proxies object
@@ -87,7 +88,10 @@ class Product:
         # Parse html with BeautifulSoup
         soup = BeautifulSoup(request.text, "html.parser")
 
-        if not _is_buynow_offer(soup):
+        if _is_captcha_required(soup):
+            raise ValueError("Captcha is required")
+
+        if not (_is_buynow_offer(soup)):
             raise NotImplementedError("Auctions and advertisements are not supported")
 
         # Find name in parsed website
