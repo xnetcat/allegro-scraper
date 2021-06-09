@@ -212,6 +212,8 @@ def crawl(
             # add new products to products list
             products.extend(offers[0])
 
+            logging.info(f"Fetched {len(products)} products from {page_num} pages")
+
             # Stop crawling
             if offers[1] is False:
                 break
@@ -234,6 +236,8 @@ def crawl(
 
             # add new products to products list
             products.extend(offers[0])
+
+            logging.info(f"Fetched {len(products)} products from {page_num} pages")
 
             # Stop crawling
             if offers[1] is False:
