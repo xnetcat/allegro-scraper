@@ -1,10 +1,10 @@
-from allegro.types.options import Options
 from itertools import cycle
 import logging
 from random import random
 import requests
 
 from allegro.search.product import Product
+from allegro.parsers.offer import is_captcha_required
 from bs4 import BeautifulSoup
 from typing import List, Optional, Tuple
 
@@ -12,14 +12,14 @@ from typing import List, Optional, Tuple
 def parse_website(url: str, proxy: str = None):
     # Default headers
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",  # noqa: E501
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-        "DNT": "1",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Pragma": "no-cache",
-        "Cache-Control": "no-cache",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
+        "Referer": "https://allegro.pl",
+        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
+        "Sec-Fetch-Dest": "image",
+        "Sec-Fetch-Mode": "no-cors",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Gpc": "1"
     }
 
     # Create proxies object
@@ -67,6 +67,10 @@ def parse_products(
     # parse website
     soup = parse_website(url, random.choice(proxies) if proxies is not None else None)
 
+    # Check for captcha
+    if is_captcha_required(soup):
+        raise ValueError("Captcha is required")
+
     # Products list
     products: List[Product] = []
 
@@ -97,7 +101,7 @@ def parse_products(
         proxy_cycle = cycle(proxies)
         proxy = next(proxy_cycle)
 
-    # FIXME: Scrapping is not ready yet
+    # FIXME: Proxy cycling is probaly not working
     for index, section in enumerate(sections):
         index += 1
 
@@ -120,14 +124,22 @@ def parse_products(
         # Create product object using url
         try:
             if proxy_cycle is not None and proxy is not None:
-                # Get next proxy
-                proxy = next(proxy_cycle)
+                while True:
+                    try:
+                        # Get next proxy
+                        proxy = next(proxy_cycle)
 
-                product = Product.from_url(
-                    url=product_url, proxy=proxy, timeout=timeout
-                )
+                        product = Product.from_url(
+                            url=product_url, proxy=proxy, timeout=timeout
+                        )
+                        break
+                    except ValueError:
+                        logging.info("Changing proxy")
+                        next(proxy_cycle)
             else:
-                product = Product.from_url(product_url, timeout=timeout)
+                product = Product.from_url(
+                    url=product_url, timeout=timeout
+                )
 
             # TODO: NOT TESTED
             if avoid_duplicates is True and product.url in (
