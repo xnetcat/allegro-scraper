@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 def is_captcha_required(soup: BeautifulSoup) -> bool:
     analytics_captcha_failed = soup.find("div", attrs={"id": "analyticsCaptchaPassed"})
 
-    if "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):
+    if analytics_captcha_failed is not None and "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):
         return True
 
     # less than 10 divs so we probably got warning to enable javascript
