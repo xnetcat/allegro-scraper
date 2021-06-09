@@ -2,6 +2,19 @@ from typing import List
 from bs4 import BeautifulSoup
 
 
+def _is_captcha_required(soup: BeautifulSoup) -> bool:
+    analytics_captcha_failed = soup.find("div", attrs={"id": "analyticsCaptchaPassed"})
+
+    if "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):
+        return True
+
+    # less than 10 divs so we probably got warning to enable javascript
+    if len(soup.find_all("div")) < 10:
+        return True
+
+    return False
+
+
 def _is_buynow_offer(soup: BeautifulSoup) -> bool:
     buy_now_button = soup.find(
         "button",
