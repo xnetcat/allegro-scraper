@@ -1,15 +1,18 @@
 import logging
+from math import prod
+import random
 
 from typing import List
+from itertools import cycle
 from types import FunctionType
-from allegro.parsers.website import parse_products, parse_website
-from allegro.types.options import Options
 from allegro.constants import FILTERS
-from allegro.search.product import Product
+from allegro.types.options import Options
 from allegro.types.filters import Filters
+from allegro.search.product import Product
+from allegro.parsers.website import parse_products, parse_website
 
 
-def search(search_term: str, proxy: dict = None) -> List[Product]:
+def search(search_term: str, proxies: List[str] = None) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
@@ -21,10 +24,19 @@ def search(search_term: str, proxy: dict = None) -> List[Product]:
     # Products list
     products = []
 
+    # Current product
+    product = None
+
+    # Proxy cycle vars
+    proxy_cycle = None
+    proxy = None
+
     # url create url and encode spaces
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
 
-    soup = parse_website(url, proxy)
+    soup = parse_website(
+        url=url, proxy=random.choice(proxies) if proxies is not None else None
+    )
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -41,26 +53,44 @@ def search(search_term: str, proxy: dict = None) -> List[Product]:
     # Number of products found
     products_number = len(sections)
 
+    # Init proxy cycle
+    if proxies is not None:
+        proxy_cycle = cycle(proxies)
+
+        proxy = next(proxy_cycle)
+
     logging.info(f"Found {products_number} products")
     for index, section in enumerate(sections):
         # Find url to product in a tag
         product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
 
-        # Create product object using url
         try:
-            product = Product.from_url(product_link.get("href"))
+            if proxy_cycle is not None and proxy is not None:
+                # Get next proxy
+                proxy = next(proxy_cycle)
+
+                product = Product.from_url(url=product_link.get("href"), proxy=proxy)
+            else:
+                product = Product.from_url(product_link.get("href"))
+
+            if product is not None:
+                logging.info(
+                    f'Scraping "{product.name}" ',
+                    f"with url {product.url} "
+                    if logging.DEBUG >= logging.root.level
+                    else " ",
+                    f"[{index + 1}/{products_number}]",
+                )
+
+                # Add product to list
+                products.append(product)
         except NotImplementedError:
-            logging.info(f'Ignoring "{product_link}" because it\'s advert or auction')
+            logging.info(
+                f'Ignoring "{product_link}" '
+                "because it's advert or auction "
+                f"[{index + 1}/{products_number}]"
+            )
             continue
-
-        logging.info(
-            f'Scraping "{product.name}"'
-            f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
-            f" [{index + 1}/{products_number}]"
-        )
-
-        # Add product to list
-        products.append(product)
 
     # Return list with products
     return products
@@ -70,7 +100,7 @@ def crawl(
     search_term: str,
     options: Options = None,
     filters: Filters = None,
-    proxy: dict = None,
+    proxies: List[str] = None,
 ) -> List[Product]:
     """
     ### Args
@@ -151,7 +181,7 @@ def crawl(
                 if max_results is not None
                 else None,
                 avoid_duplicates=avoid_duplicates,
-                proxy=proxy,
+                proxies=proxies,
             )
 
             # add new products to products list
@@ -171,7 +201,7 @@ def crawl(
                 query_string=query_string,
                 page_num=page_num,
                 max_results=max_results,
-                proxy=proxy,
+                proxies=proxies,
             )
 
             # add new products to products list
