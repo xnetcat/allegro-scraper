@@ -47,7 +47,7 @@ class Product:
     parameters: dict
 
     @classmethod
-    def from_url(cls, url: str, proxy: str = None):
+    def from_url(cls, url: str, proxy: str = None, timeout: int = None):
         """
         ### Args
         - url: `str` a url of a product that we want to scrape
@@ -82,11 +82,7 @@ class Product:
             proxies = None
 
         # Send http GET request
-        request = requests.get(
-            url,
-            headers=headers,
-            proxies=proxies,
-        )
+        request = requests.get(url, headers=headers, proxies=proxies, timeout=timeout)
 
         # Parse html with BeautifulSoup
         soup = BeautifulSoup(request.text, "html.parser")

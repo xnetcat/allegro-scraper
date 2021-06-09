@@ -248,6 +248,12 @@ def _parse_options(parser: ArgumentParser):
         help="Check if proxies are not banned",
     )
 
+    # Request timeout
+    parser.add_argument("--request-timeout", "-rt", type=int, help="Request timeout")
+
+    # Request delay
+    parser.add_argument("--request-delay", "-rd", type=int, help="Request delay")
+
     return parser
 
 
