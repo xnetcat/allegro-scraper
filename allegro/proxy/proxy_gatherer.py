@@ -51,7 +51,7 @@ def scrape_free_proxy_lists():
 
             # Find ip
             ip = re.search(
-                ">(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})<", unquote(tds[0])
+                r">(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})<", unquote(tds[0])
             ).group(1)
 
             # Find port
