@@ -1,17 +1,28 @@
-from allegro.types.options import Options
 import json
 import logging
+import random
 
 from dataclasses import asdict
+
+import requests
 from allegro.search import crawler
-from allegro.search.product import Product
 from allegro.types.filters import Filters
+from allegro.types.options import Options
+from allegro.search.product import Product
 from allegro.parsers.arguments import parse_arguments
+from allegro.proxy.proxy_checker import filter_proxies
+from allegro.proxy.proxy_gatherer import scrape_free_proxy_lists
 
 
 def console_entry_point():
     # Namespace containing parsed arguments
     arguments = parse_arguments()
+
+    # Proxies list
+    proxies = []
+
+    # List containing Product objects
+    products = []
 
     # Create filters dict
     filters: Filters = {  # type: ignore
@@ -39,6 +50,8 @@ def console_entry_point():
         "pages_to_fetch": arguments.pages_to_fetch,
         "start_page": arguments.start_page,
         "avoid_duplicates": arguments.avoid_duplicates,
+        "use_free_proxies": arguments.use_free_proxies,
+        "check_proxies": arguments.check_proxies,
     }
 
     # Set up logging
@@ -49,8 +62,15 @@ def console_entry_point():
         else "[%(levelname)s] %(message)s",
     )
 
-    # List containing Product objects
-    products = []
+    if options.get("use_free_proxies") is True:
+        logging.info("Gathering proxies...")
+        proxies = scrape_free_proxy_lists()
+        logging.info(f"Finished gatgering proxies, found {len(proxies)} proxies")
+
+    if options.get("check_proxies") is True and len(proxies) >= 1:
+        logging.info(f"Checking {len(proxies)} proxies")
+        proxies = filter_proxies(proxies)
+        logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
 
     # Search for specified products
     if arguments.search is not None and len(arguments.search) >= 1:
@@ -59,7 +79,10 @@ def console_entry_point():
             # Single allegro offer
             if "allegro.pl/oferta/" in query:
                 # Create product object using url
-                product = Product.from_url(query)
+                product = Product.from_url(
+                    url=query,
+                    proxy={"https": f"https://{random.choice(proxies)}"}
+                )
 
                 # Add product to products list
                 products.append(product)
