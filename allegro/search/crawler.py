@@ -46,6 +46,13 @@ def search(search_term: str, options: Options = None) -> List[Product]:
         url=url, proxy=random.choice(proxies) if proxies is not None else None
     )
 
+    captcha_title = soup.find("div", attrs={"class": "captcha__human__title"})
+
+    analytics_captcha_failed = soup.find("div", attrs={"id": "analyticsCaptchaPassed"})
+
+    if "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):
+        raise ValueError("Captcha is required")
+
     # Find all products on a page, each section is one product
     sections = soup.find_all(
         "article",
@@ -173,6 +180,8 @@ def crawl(
         avoid_duplicates = None
         timeout = None
 
+    remaining_items = None
+
     if start_page is None:
         start_page = 1
 
@@ -181,10 +190,13 @@ def crawl(
 
     if pages_to_fetch is not None:
         logging.info(f"Will fetch {pages_to_fetch} pages")
+
         for page_num in range(start_page, pages_to_fetch + 1):
+            # TODO: CHECK IF WE'VE REACHED LAST PAGE
             logging.info(f"Fetching {page_num} page")
 
-            max_results = max_results - len(products)
+            if max_results is not None:
+                remaining_items = max_results - len(products)
 
             # Fetch offers
             offers = parse_products(
@@ -194,7 +206,7 @@ def crawl(
                 avoid_duplicates=avoid_duplicates,
                 proxies=proxies,
                 timeout=timeout,
-                max_results=max_results,
+                max_results=remaining_items,
             )
 
             # add new products to products list
