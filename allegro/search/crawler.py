@@ -12,7 +12,7 @@ from allegro.search.product import Product
 from allegro.parsers.website import parse_products, parse_website
 
 
-def search(search_term: str, proxies: List[str] = None) -> List[Product]:
+def search(search_term: str, options: Options = None) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
@@ -30,6 +30,14 @@ def search(search_term: str, proxies: List[str] = None) -> List[Product]:
     # Proxy cycle vars
     proxy_cycle = None
     proxy = None
+
+    # Set settings
+    if options is not None:
+        proxies = options.get("proxies")
+        timeout = options.get("request_timeout")
+    else:
+        proxies = None
+        timeout = None
 
     # url create url and encode spaces
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
@@ -69,9 +77,11 @@ def search(search_term: str, proxies: List[str] = None) -> List[Product]:
                 # Get next proxy
                 proxy = next(proxy_cycle)
 
-                product = Product.from_url(url=product_link.get("href"), proxy=proxy)
+                product = Product.from_url(
+                    url=product_link.get("href"), proxy=proxy, timeout=timeout
+                )
             else:
-                product = Product.from_url(product_link.get("href"))
+                product = Product.from_url(product_link.get("href"), timeout=timeout)
 
             if product is not None:
                 logging.info(
@@ -155,11 +165,13 @@ def crawl(
         pages_to_fetch = options.get("pages_to_fetch")
         max_results = options.get("max_results")
         avoid_duplicates = options.get("avoid_duplicates")
+        timeout = options.get("request_timeout")
     else:
         start_page = None
         pages_to_fetch = None
         max_results = None
         avoid_duplicates = None
+        timeout = None
 
     if start_page is None:
         start_page = 1
@@ -172,16 +184,17 @@ def crawl(
         for page_num in range(start_page, pages_to_fetch + 1):
             logging.info(f"Fetching {page_num} page")
 
+            max_results = max_results - len(products)
+
             # Fetch offers
             offers = parse_products(
                 search_term=search_term,
                 page_num=page_num,
                 query_string=query_string,
-                max_results=max_results - len(products)
-                if max_results is not None
-                else None,
                 avoid_duplicates=avoid_duplicates,
                 proxies=proxies,
+                timeout=timeout,
+                max_results=max_results,
             )
 
             # add new products to products list
@@ -196,12 +209,15 @@ def crawl(
 
         # Start loop
         while True:
+            # Fetch offers
             offers = parse_products(
                 search_term=search_term,
-                query_string=query_string,
                 page_num=page_num,
-                max_results=max_results,
+                query_string=query_string,
+                avoid_duplicates=avoid_duplicates,
                 proxies=proxies,
+                timeout=timeout,
+                max_results=max_results,
             )
 
             # add new products to products list

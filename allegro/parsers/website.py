@@ -1,3 +1,4 @@
+from allegro.types.options import Options
 from itertools import cycle
 import logging
 from random import random
@@ -48,6 +49,7 @@ def parse_products(
     proxies: List[str] = None,
     avoid_duplicates: bool = None,
     max_results: int = None,
+    timeout: int = None,
 ) -> Optional[Tuple[List[Product], bool]]:
     # create url and encode spaces
     url = (
@@ -63,7 +65,7 @@ def parse_products(
     proxy = None
 
     # parse website
-    soup = parse_website(url, random.choice(proxies))
+    soup = parse_website(url, random.choice(proxies) if proxies is not None else None)
 
     # Products list
     products: List[Product] = []
@@ -93,7 +95,6 @@ def parse_products(
     # Init proxy cycle
     if proxies is not None:
         proxy_cycle = cycle(proxies)
-
         proxy = next(proxy_cycle)
 
     # FIXME: Scrapping is not ready yet
@@ -122,12 +123,16 @@ def parse_products(
                 # Get next proxy
                 proxy = next(proxy_cycle)
 
-                product = Product.from_url(url=product_link.get("href"), proxy=proxy)
+                product = Product.from_url(
+                    url=product_url, proxy=proxy, timeout=timeout
+                )
             else:
-                product = Product.from_url(product_link.get("href"))
+                product = Product.from_url(product_url, timeout=timeout)
 
             # TODO: NOT TESTED
-            if avoid_duplicates is True and product.url in (prod.url for prod in products):
+            if avoid_duplicates is True and product.url in (
+                prod.url for prod in products
+            ):
                 continue
 
             logging.info(

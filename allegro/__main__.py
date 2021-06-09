@@ -52,6 +52,8 @@ def console_entry_point():
         "avoid_duplicates": arguments.avoid_duplicates,
         "use_free_proxies": arguments.use_free_proxies,
         "check_proxies": arguments.check_proxies,
+        "request_timeout": arguments.request_timeout,
+        "request_delay": arguments.request_delay
     }
 
     # Set up logging
@@ -69,7 +71,7 @@ def console_entry_point():
 
     if options.get("check_proxies") is True and len(proxies) >= 1:
         logging.info(f"Checking {len(proxies)} proxies")
-        proxies = filter_proxies(proxies)
+        proxies = filter_proxies(proxies, options.get("request_timeout"))
         logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
 
     # Search for specified products
@@ -90,7 +92,7 @@ def console_entry_point():
             # Search term (we get only first page of results)
             else:
                 # Start crawling
-                results = crawler.search(query)
+                results = crawler.search(query, options)
 
                 # Extend product list with search results
                 products.extend(results)
