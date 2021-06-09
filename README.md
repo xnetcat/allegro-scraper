@@ -527,6 +527,34 @@ Allegro scraping tool
   allegro-spider -c "rtx 3090" -ad
   ```
 
+- #### Use free proxies
+
+  ```bash
+  --use-free-proxies/-ufp
+  ```
+
+  type: `bool`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -ufp
+  ```
+
+- #### Check proxies
+
+  ```bash
+  --check-proxies/-cp
+  ```
+
+  type: `bool`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" --use-free-proxies -cp
+  ```
+
 </details>
 
 <details>
