@@ -47,10 +47,11 @@ class Product:
     parameters: dict
 
     @classmethod
-    def from_url(cls, url, proxy=None):
+    def from_url(cls, url: str, proxy: dict=None):
         """
         ### Args
         - url: `str` a url of a product that we want to scrape
+        - proxy: `dict` object with proxy
 
         ### Returns
         - `Product` that contains the metadata of a product.
