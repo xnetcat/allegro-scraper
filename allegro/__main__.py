@@ -81,7 +81,7 @@ def console_entry_point():
                 # Create product object using url
                 product = Product.from_url(
                     url=query,
-                    proxy={"https": f"https://{random.choice(proxies)}"}
+                    proxy=random.choice(proxies)
                 )
 
                 # Add product to products list

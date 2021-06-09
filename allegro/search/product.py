@@ -47,7 +47,7 @@ class Product:
     parameters: dict
 
     @classmethod
-    def from_url(cls, url: str, proxy: dict=None):
+    def from_url(cls, url: str, proxy: str=None):
         """
         ### Args
         - url: `str` a url of a product that we want to scrape
@@ -75,11 +75,20 @@ class Product:
             "Cache-Control": "no-cache",
         }
 
+        # Create proxies object
+        if proxy is not None:
+            proxies = {
+                "http": f"https://{proxy}",
+                "https": f"https://{proxy}"
+            }
+        else:
+            proxies = None
+
         # Send http GET request
         request = requests.get(
             url,
             headers=headers,
-            proxies=proxy,
+            proxies=proxies
         )
 
         # Parse html with BeautifulSoup
