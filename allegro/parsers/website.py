@@ -62,10 +62,29 @@ def parse_products(
 
     # Proxy cycle vars
     proxy_cycle = None
+    start_proxy = None
     proxy = None
 
-    # parse website
-    soup = parse_website(url, random.choice(proxies) if proxies is not None else None)
+    # Init proxy cycle
+    if proxies is not None:
+        proxy_cycle = cycle(proxies)
+        proxy = next(proxy_cycle)
+
+    try:
+        # parse website
+        soup = parse_website(url, proxy)
+    except ValueError as e:
+        if proxy_cycle is not None:
+            # while loop acts like a do while
+            while True:
+                try:
+                    # parse website
+                    soup = parse_website(url, proxy)
+                except ValueError:
+                    proxy = next(proxy_cycle)
+        else:
+            logging.error("Couldn't parse website")
+            raise e
 
     # Check for captcha
     if is_captcha_required(soup):
@@ -96,11 +115,6 @@ def parse_products(
     else:
         logging.info(f"Found {sections_len} products")
 
-    # Init proxy cycle
-    if proxies is not None:
-        proxy_cycle = cycle(proxies)
-        proxy = next(proxy_cycle)
-
     # FIXME: Proxy cycling is probaly not working
     for index, section in enumerate(sections):
         index += 1
@@ -126,9 +140,6 @@ def parse_products(
             if proxy_cycle is not None and proxy is not None:
                 while True:
                     try:
-                        # Get next proxy
-                        proxy = next(proxy_cycle)
-
                         product = Product.from_url(
                             url=product_url, proxy=proxy, timeout=timeout
                         )
