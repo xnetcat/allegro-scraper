@@ -11,8 +11,11 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
             proxy=proxy,
             timeout=timeout,
         )
-    except Exception as e:
-        logging.debug(e)
+    except ValueError:
+        logging.debug("Captcha is required")
+        return False
+    except:
+        logging.debug("Can't connect to proxy server")
         return False
 
     return True
