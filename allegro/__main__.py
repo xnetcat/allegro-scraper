@@ -71,7 +71,7 @@ def console_entry_point():
 
     # Use free proxies
     if options.get("use_free_proxies") is True:
-        logging.info("Gathering proxies...")
+        logging.info("Gathering proxies")
         proxies.extend(scrape_free_proxy_lists())
         logging.info(f"Finished gatgering proxies, found {len(proxies)} proxies")
 
@@ -95,7 +95,7 @@ def console_entry_point():
         logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
 
     # Set proxies to None if list is empty
-    if len(proxies) == 0 and (options.get("check_proxies") is True or options.get("use_free_proxies") is not None or options.get("proxies_file") is not None) :
+    if len(proxies) == 0 and (options.get("check_proxies") is True or options.get("use_free_proxies") is True or options.get("proxies_file") is not None) :
         logging.error("Aborting, no working proxies found")
         sys.exit(1)
 
