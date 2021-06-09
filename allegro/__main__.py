@@ -1,17 +1,17 @@
-from allegro.proxy.proxy_file import proxies_from_file
+import sys
 import json
 import logging
 import random
 
 from dataclasses import asdict
-
-import requests
 from allegro.search import crawler
 from allegro.types.filters import Filters
 from allegro.types.options import Options
 from allegro.search.product import Product
 from allegro.parsers.arguments import parse_arguments
+from allegro.proxy.proxy_file import proxies_from_file
 from allegro.proxy.proxy_checker import filter_proxies
+from urllib3.connectionpool import log as urllib_logger
 from allegro.proxy.proxy_gatherer import scrape_free_proxy_lists
 
 
@@ -66,6 +66,9 @@ def console_entry_point():
         else "[%(levelname)s] %(message)s",
     )
 
+    if arguments.verbose:
+        urllib_logger.setLevel(logging.WARNING)
+
     # Use free proxies
     if options.get("use_free_proxies") is True:
         logging.info("Gathering proxies...")
@@ -92,8 +95,9 @@ def console_entry_point():
         logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
 
     # Set proxies to None if list is empty
-    if len(proxies) == 0:
-        proxies = None
+    if len(proxies) == 0 and (options.get("check_proxies") is True or options.get("use_free_proxies") is not None or options.get("proxies_file") is not None) :
+        logging.error("Aborting, no working proxies found")
+        sys.exit(1)
 
     # Search for specified products
     if arguments.search is not None and len(arguments.search) >= 1:

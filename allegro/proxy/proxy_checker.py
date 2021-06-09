@@ -11,7 +11,8 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
             proxy=proxy,
             timeout=timeout,
         )
-    except:
+    except Exception as e:
+        logging.debug(e)
         return False
 
     return True
