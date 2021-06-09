@@ -2,7 +2,7 @@ from typing import List
 from bs4 import BeautifulSoup
 
 
-def _is_captcha_required(soup: BeautifulSoup) -> bool:
+def is_captcha_required(soup: BeautifulSoup) -> bool:
     analytics_captcha_failed = soup.find("div", attrs={"id": "analyticsCaptchaPassed"})
 
     if "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):

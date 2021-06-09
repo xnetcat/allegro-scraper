@@ -15,7 +15,7 @@ from allegro.parsers.offer import (
     _find_product_rating,
     _find_product_seller,
     _is_buynow_offer,
-    _is_captcha_required
+    is_captcha_required
 )
 
 
@@ -88,7 +88,7 @@ class Product:
         # Parse html with BeautifulSoup
         soup = BeautifulSoup(request.text, "html.parser")
 
-        if _is_captcha_required(soup):
+        if is_captcha_required(soup):
             raise ValueError("Captcha is required")
 
         if not (_is_buynow_offer(soup)):
