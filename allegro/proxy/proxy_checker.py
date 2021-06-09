@@ -1,32 +1,30 @@
 import logging
-import requests
 
 from typing import List
+from allegro.search.product import Product
 
 
-def is_bad_proxy(proxy: str) -> bool:
+def is_good_proxy(proxy: str) -> bool:
     try:
-        requests.get(
-            url="https://google.com/",
-            proxies={
-                "https": f"https://{proxy}"
-            },
-            timeout=1
+        Product.from_url(
+            url="https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",
+            proxy=proxy
         )
-
-        return True
     except:
         return False
+
+    return True
 
 
 def filter_proxies(proxies: List[str]) -> List[str]:
     good_proxies = []
 
     for index, proxy in enumerate(proxies):
-        logging.info(f"Checking proxy [{index + 1}/{len(proxies)}]")
-        is_good_proxy = not is_bad_proxy(proxy)
+        proxy_is_working = is_good_proxy(proxy)
 
-        if is_good_proxy is True:
+        if proxy_is_working is True:
             good_proxies.append(proxy)
 
-    return proxies
+        logging.info(f"Proxy \"{proxy}\" is{' ' if proxy_is_working is True else ' not '}working [{index + 1}/{len(proxies)}]")
+
+    return good_proxies
