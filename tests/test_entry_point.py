@@ -146,6 +146,6 @@ def test_wrong_search(caplog, monkeypatch, tmpdir):
 
     assert (
         "root",
-        logging.INFO,
-        "Saving 0 products to does_not_exist.json",
+        logging.WARNING,
+        "Didn't find any products",
     ) in caplog.record_tuples
