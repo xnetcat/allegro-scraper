@@ -2,7 +2,7 @@ import logging
 import json
 
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 from allegro.utils import get_soup
 from allegro.parsers import (
     find_product_category,
@@ -122,7 +122,7 @@ def parse_products(
     proxies: List[str] = None,
     max_results: int = None,
     timeout: int = None,
-) -> Optional[Tuple[List[Product], bool]]:
+) -> Tuple[List[Product], bool]:
     # create url and encode spaces
     url = (
         f"https://allegro.pl/listing?string={search_term}"

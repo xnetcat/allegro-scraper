@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from allegro.parsers.arguments_parser import parse_arguments
 from allegro.parsers.product_parser import (
     is_buynow_offer,
