@@ -4,7 +4,7 @@ from typing import List
 from types import FunctionType
 from allegro.constants import FILTERS
 from allegro.types import Filters, Options
-from allegro.search import Product
+from allegro.search.product import Product
 from allegro.utils import get_soup
 from allegro.parsers import parse_products
 

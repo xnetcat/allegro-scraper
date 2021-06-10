@@ -1,8 +1,32 @@
 import logging
+import requests
 
 from itertools import cycle
-from typing import List
-from allegro.utils import check_soup
+
+from bs4 import BeautifulSoup
+from typing import Optional, List
+from allegro.constants import HEADERS
+from allegro.utils.check import check_captcha
+
+
+def check_soup(
+    url: str, proxies: dict = None, timeout: int = None
+) -> Optional[BeautifulSoup]:
+    try:
+        # Send http GET request
+        request = requests.get(url, headers=HEADERS, proxies=proxies, timeout=timeout)
+    except Exception as e:
+        logging.debug("Failed to get response from server")
+        logging.debug(e)
+        return None
+
+    # Parse website
+    soup = BeautifulSoup(request.text, "html.parser")
+
+    if check_captcha(soup):
+        return None
+    else:
+        return soup
 
 
 def get_soup(url: str, proxies: List[str] = None, timeout: int = None):
