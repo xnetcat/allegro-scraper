@@ -1,3 +1,4 @@
+import logging
 import re
 import requests
 
@@ -59,8 +60,10 @@ def scrape_free_proxy_lists():
 
             # Add proxy to list
             proxies.append("%s:%s" % (ip, port))
-    except:
+    except Exception as e:
         # Return empty array if we've failed
+        logging.info("Failed to get proxies from http://www.freeproxylists.net/")
+        logging.error(e)
         return []
 
     # Return proxies list

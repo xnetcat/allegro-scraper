@@ -36,8 +36,9 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
             return False
         else:
             return True
-    except:
+    except Exception as e:
         logging.debug("Can't connect to proxy server")
+        logging.debug(e)
         return False
 
 

@@ -83,7 +83,9 @@ def get_soup_check(
     try:
         # Send http GET request
         request = requests.get(url, headers=headers, proxies=proxies, timeout=timeout)
-    except:
+    except Exception as e:
+        logging.debug("Failed to get response from server")
+        logging.debug(e)
         return None
 
     # Parse website
