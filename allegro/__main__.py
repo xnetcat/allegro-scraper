@@ -108,7 +108,7 @@ def console_entry_point():
                 # Create product object using url
                 product = Product.from_url(
                     url=query,
-                    proxy=random.choice(proxies) if proxies is not None else None,
+                    proxies=proxies,
                     timeout=options.get("request_timeout"),
                 )
 
@@ -117,7 +117,7 @@ def console_entry_point():
             # Search term (we get only first page of results)
             else:
                 # Start crawling
-                results = crawler.search(query, options)
+                results = crawler.search(query, options, proxies)
 
                 # Extend product list with search results
                 products.extend(results)
@@ -127,7 +127,7 @@ def console_entry_point():
         # Iterate over all crawl argumets
         for query in arguments.crawl:
             # Start crawling
-            results = crawler.crawl(query, filters=filters, options=options)
+            results = crawler.crawl(query, filters=filters, options=options, proxies=proxies)
 
             # Add results to products list
             products.extend(results)

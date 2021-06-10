@@ -7,7 +7,55 @@ from typing import List, Optional, Tuple
 from allegro.search.product import Product
 from allegro.parsers.offer import is_captcha_required
 
-def parse_website(url: str, proxy: str = None):
+
+def parse_website(url: str, proxies: List[str] = None):
+    # Init proxy cycle
+    if proxies is not None:
+        proxy_cycle = cycle(proxies)
+        current_proxy = next(proxy_cycle)
+        start_proxy = current_proxy
+        proxy_object = {
+            "http": f"https://{current_proxy}",
+            "https": f"https://{current_proxy}"
+        }
+    else:
+        proxy_cycle = None
+        current_proxy = None
+        start_proxy = None
+        proxy_object = None
+
+    soup = get_soup_check(url, proxies=proxy_object)
+
+    # captcha is required
+    if soup is None:
+        while True:
+            if proxy_cycle is not None and current_proxy is not None:
+                # We've run out of proxies to use
+                if start_proxy == current_proxy:
+                    raise OSError("We can't bypass IP block")
+
+                print("trying other proxy")
+
+                # Update proxy object
+                proxy_object = {"http": f"https://{current_proxy}", "https": f"https://{current_proxy}"}
+
+                # Get soup
+                soup = get_soup_check(url=url, proxies=proxy_object)
+
+                # soup is fine return it
+                if soup is not None:
+                    return soup
+                else:
+                    # Soup is wrong, try again
+                    current_proxy = next(proxy_cycle)
+            else:
+                raise OSError("You are being IP restricted")
+    else:
+        # soup is fine return it
+        return soup
+
+
+def get_soup_check(url: str, proxies: dict = None) -> Optional[BeautifulSoup]:
     # Default headers
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
@@ -20,24 +68,20 @@ def parse_website(url: str, proxy: str = None):
         "Sec-Gpc": "1"
     }
 
-    # Create proxies object
-    if proxy is not None:
-        proxies = {"http": f"https://{proxy}", "https": f"https://{proxy}"}
-    else:
-        proxies = None
-
     # Send http GET request
     request = requests.get(
         url,
         headers=headers,
-        proxies=proxies,
+        proxies=proxies
     )
 
-    # Parse html with BeautifulSoup
+    # Parse website
     soup = BeautifulSoup(request.text, "html.parser")
 
-    # return soup
-    return soup
+    if is_captcha_required(soup):
+        return None
+    else:
+        return soup
 
 
 def parse_products(
@@ -58,35 +102,8 @@ def parse_products(
     # Current product
     product = None
 
-    # Proxy cycle vars
-    proxy_cycle = None
-    start_proxy = None
-    proxy = None
-
-    # Init proxy cycle
-    if proxies is not None:
-        proxy_cycle = cycle(proxies)
-        proxy = next(proxy_cycle)
-
-    try:
-        # parse website
-        soup = parse_website(url, proxy)
-    except ValueError as e:
-        if proxy_cycle is not None:
-            # while loop acts like a do while
-            while True:
-                try:
-                    # parse website
-                    soup = parse_website(url, proxy)
-                except ValueError:
-                    proxy = next(proxy_cycle)
-        else:
-            logging.error("Couldn't parse website")
-            raise e
-
-    # Check for captcha
-    if is_captcha_required(soup):
-        raise ValueError("Captcha is required")
+    # try to parse website
+    soup = parse_website(url, proxies)
 
     # Products list
     products: List[Product] = []
@@ -135,20 +152,9 @@ def parse_products(
 
         # Create product object using url
         try:
-            if proxy_cycle is not None and proxy is not None:
-                while True:
-                    try:
-                        product = Product.from_url(
-                            url=product_url, proxy=proxy, timeout=timeout
-                        )
-                        break
-                    except ValueError:
-                        logging.info("Changing proxy")
-                        next(proxy_cycle)
-            else:
-                product = Product.from_url(
-                    url=product_url, timeout=timeout
-                )
+            product = Product.from_url(
+                url=product_url, proxies=proxies, timeout=timeout
+            )
 
             # TODO: NOT TESTED
             if avoid_duplicates is True and product.url in (

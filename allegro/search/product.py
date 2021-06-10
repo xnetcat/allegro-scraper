@@ -15,7 +15,8 @@ from allegro.parsers.offer import (
     _find_product_rating,
     _find_product_seller,
     _is_buynow_offer,
-    is_captcha_required
+    is_captcha_required,
+    parse_product
 )
 
 
@@ -48,7 +49,7 @@ class Product:
     parameters: dict
 
     @classmethod
-    def from_url(cls, url: str, proxy: str = None, timeout: int = None):
+    def from_url(cls, url: str, proxies: List[str] = None, timeout: int = None):
         """
         ### Args
         - url: `str` a url of a product that we want to scrape
@@ -64,32 +65,12 @@ class Product:
             ):
                 raise Exception(f"Passed url is not that of a product: {url}")
 
-        # Default headers
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
-            "Referer": "https://allegro.pl",
-            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
-            "Sec-Fetch-Dest": "image",
-            "Sec-Fetch-Mode": "no-cors",
-            "Sec-Fetch-Site": "same-origin",
-            "Sec-Gpc": "1"
-        }
-
-        # Create proxies object
-        if proxy is not None:
-            proxies = {"http": f"https://{proxy}", "https": f"https://{proxy}"}
-        else:
-            proxies = None
-
-        # Send http GET request
-        request = requests.get(url, headers=headers, proxies=proxies, timeout=timeout)
-
-        # Parse html with BeautifulSoup
-        soup = BeautifulSoup(request.text, "html.parser")
-
-        if is_captcha_required(soup):
-            raise ValueError("Captcha is required")
+        # try to parse product
+        soup = parse_product(
+            url=url,
+            proxies=proxies,
+            timeout=timeout
+        )
 
         if not (_is_buynow_offer(soup)):
             raise NotImplementedError("Auctions and advertisements are not supported")

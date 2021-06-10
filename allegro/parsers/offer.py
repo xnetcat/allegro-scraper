@@ -1,5 +1,85 @@
-from typing import List
+import requests
+
+from itertools import cycle
 from bs4 import BeautifulSoup
+from typing import List, Optional
+
+
+# It's the same as parse_website but we can't use parse_website
+def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
+    # Init proxy cycle
+    if proxies is not None:
+        proxy_cycle = cycle(proxies)
+        current_proxy = next(proxy_cycle)
+        start_proxy = current_proxy
+        proxy_object = {
+            "http": f"https://{current_proxy}",
+            "https": f"https://{current_proxy}"
+        }
+    else:
+        proxy_cycle = None
+        current_proxy = None
+        start_proxy = None
+        proxy_object = None
+
+    # try to get soup
+    soup = get_soup_check(url, proxies=proxy_object)
+
+    # captcha is required
+    if soup is None:
+        while True:
+            if proxy_cycle is not None and current_proxy is not None:
+                # We've run out of proxies to use
+                if start_proxy == current_proxy:
+                    raise OSError("We can't bypass IP block")
+
+                # Update proxy object
+                proxy_object = {"http": f"https://{current_proxy}", "https": f"https://{current_proxy}"}
+
+                # Get soup
+                soup = get_soup_check(url=url, proxies=proxy_object, timeout=timeout)
+
+                # soup is fine return it
+                if soup is not None:
+                    return soup
+                else:
+                    # Soup is wrong, try again
+                    current_proxy = next(proxy_cycle)
+            else:
+                raise OSError("You are being IP restricted")
+    else:
+        # soup is fine return it
+        return soup
+
+
+def get_soup_check(url: str, proxies: dict = None, timeout: int = None) -> Optional[BeautifulSoup]:
+    # Default headers
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
+        "Referer": "https://allegro.pl",
+        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
+        "Sec-Fetch-Dest": "image",
+        "Sec-Fetch-Mode": "no-cors",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Gpc": "1"
+    }
+
+    # Send http GET request
+    request = requests.get(
+        url,
+        headers=headers,
+        proxies=proxies,
+        timeout=timeout
+    )
+
+    # Parse website
+    soup = BeautifulSoup(request.text, "html.parser")
+
+    if is_captcha_required(soup):
+        return None
+    else:
+        return soup
 
 
 def is_captcha_required(soup: BeautifulSoup) -> bool:

@@ -1,6 +1,5 @@
-import logging
-from math import prod
 import random
+import logging
 
 from typing import List
 from itertools import cycle
@@ -12,7 +11,7 @@ from allegro.search.product import Product
 from allegro.parsers.website import parse_products, parse_website
 
 
-def search(search_term: str, options: Options = None) -> List[Product]:
+def search(search_term: str, options: Options = None, proxies: List[str] = None) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
@@ -27,31 +26,19 @@ def search(search_term: str, options: Options = None) -> List[Product]:
     # Current product
     product = None
 
-    # Proxy cycle vars
-    proxy_cycle = None
-    proxy = None
-
     # Set settings
     if options is not None:
-        proxies = options.get("proxies")
         timeout = options.get("request_timeout")
     else:
-        proxies = None
         timeout = None
 
     # url create url and encode spaces
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
 
+    # Try to parse url
     soup = parse_website(
-        url=url, proxy=random.choice(proxies) if proxies is not None else None
+        url=url, proxies=proxies
     )
-
-    captcha_title = soup.find("div", attrs={"class": "captcha__human__title"})
-
-    analytics_captcha_failed = soup.find("div", attrs={"id": "analyticsCaptchaPassed"})
-
-    if "false" in analytics_captcha_failed.get("data-analytics-captcha-passed"):
-        raise ValueError("Captcha is required")
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(
@@ -68,27 +55,15 @@ def search(search_term: str, options: Options = None) -> List[Product]:
     # Number of products found
     products_number = len(sections)
 
-    # Init proxy cycle
-    if proxies is not None:
-        proxy_cycle = cycle(proxies)
-
-        proxy = next(proxy_cycle)
-
     logging.info(f"Found {products_number} products")
     for index, section in enumerate(sections):
         # Find url to product in a tag
         product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
 
         try:
-            if proxy_cycle is not None and proxy is not None:
-                # Get next proxy
-                proxy = next(proxy_cycle)
-
-                product = Product.from_url(
-                    url=product_link.get("href"), proxy=proxy, timeout=timeout
-                )
-            else:
-                product = Product.from_url(product_link.get("href"), timeout=timeout)
+            product = Product.from_url(
+                url=product_link.get("href"), proxies=proxies, timeout=timeout
+            )
 
             if product is not None:
                 logging.info(
@@ -124,7 +99,7 @@ def crawl(
     - search_term: `str` name of the searched item
     - options: `Options` search options
     - filters: `Filters` product filters
-    - proxy: `dict` dictionary containing proxy
+    - proxies: `List[str]` dictionary containing proxy
 
     ### Returns
     - `List[Product]` list containing scrapped products
