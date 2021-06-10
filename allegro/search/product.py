@@ -60,7 +60,7 @@ class Product:
                 "allegro.pl/events/clicks" not in url
                 and "&redirect=https%3A%2F%2Fallegro.pl%2Foferta" not in url
             ):
-                raise Exception(f"Passed url is not that of a product: {url}")
+                raise ValueError(f"Passed url is not that of a product: {url}")
 
         # try to parse product
         soup = parse_product(url=url, proxies=proxies, timeout=timeout)
