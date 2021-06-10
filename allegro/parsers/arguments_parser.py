@@ -238,6 +238,14 @@ def _parse_options(parser: ArgumentParser):
     # Request timeout
     parser.add_argument("--request-timeout", "-rt", type=int, help="Request timeout")
 
+    # Threads
+    parser.add_argument(
+        "--threads",
+        "-t",
+        type=int,
+        help="Number of threads to use"
+    )
+
     return parser
 
 
