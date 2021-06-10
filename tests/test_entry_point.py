@@ -39,10 +39,11 @@ def test_no_search_or_crawl(capsys, monkeypatch):
 
 
 @pytest.mark.vcr()
-def test_scrape_single_product(caplog, monkeypatch):
+def test_scrape_single_product(caplog, monkeypatch, tmpdir):
     """
     This will scrape single product
     """
+    monkeypatch.chdir(tmpdir)
     monkeypatch.setattr(
         sys,
         "argv",
@@ -67,10 +68,11 @@ def test_scrape_single_product(caplog, monkeypatch):
 
 
 @pytest.mark.vcr()
-def test_scrape_first_page(caplog, monkeypatch):
+def test_scrape_first_page(caplog, monkeypatch, tmpdir):
     """
     This will search first page
     """
+    monkeypatch.chdir(tmpdir)
     monkeypatch.setattr(
         sys,
         "argv",
@@ -89,10 +91,11 @@ def test_scrape_first_page(caplog, monkeypatch):
 
 
 @pytest.mark.vcr()
-def test_crawl(caplog, monkeypatch):
+def test_crawl(caplog, monkeypatch, tmpdir):
     """
     This will try to fetch 20 pages but will stop on 5 results
     """
+    monkeypatch.chdir(tmpdir)
     monkeypatch.setattr(
         sys,
         "argv",
@@ -121,10 +124,11 @@ def test_crawl(caplog, monkeypatch):
 
 
 @pytest.mark.vcr()
-def test_wrong_search(caplog, monkeypatch):
+def test_wrong_search(caplog, monkeypatch, tmpdir):
     """
     This will try to search for products but will fail
     """
+    monkeypatch.chdir(tmpdir)
     monkeypatch.setattr(
         sys,
         "argv",
