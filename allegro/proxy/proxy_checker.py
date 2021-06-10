@@ -22,7 +22,7 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
 
         # Send http GET request
         request = requests.get(
-            url="https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",
+            url="https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",  # noqa: E501
             headers=headers,
             timeout=timeout,
             proxies={"http": f"https://{proxy}", "https": f"https://{proxy}"},
@@ -51,7 +51,9 @@ def filter_proxies(proxies: List[str], timeout: int = None) -> List[str]:
             good_proxies.append(proxy)
 
         logging.info(
-            f"Proxy \"{proxy}\" is{' ' if proxy_is_working is True else ' not '}working [{index + 1}/{len(proxies)}]"
+            f"Proxy \"{proxy}\" is"
+            ' ' if proxy_is_working is True else ' not '
+            f"working [{index + 1}/{len(proxies)}]"
         )
 
     return good_proxies

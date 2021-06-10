@@ -1,9 +1,7 @@
 import json
-import requests
 
 from typing import List
 from dataclasses import dataclass
-from bs4 import BeautifulSoup
 
 from allegro.parsers.offer import (
     _find_product_category,
@@ -15,7 +13,6 @@ from allegro.parsers.offer import (
     _find_product_rating,
     _find_product_seller,
     _is_buynow_offer,
-    is_captcha_required,
     parse_product,
 )
 

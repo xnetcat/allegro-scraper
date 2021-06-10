@@ -1,7 +1,6 @@
 import sys
 import json
 import logging
-import random
 
 from dataclasses import asdict
 from allegro.search import crawler

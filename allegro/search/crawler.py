@@ -1,8 +1,6 @@
-import random
 import logging
 
 from typing import List
-from itertools import cycle
 from types import FunctionType
 from allegro.constants import FILTERS
 from allegro.types.options import Options

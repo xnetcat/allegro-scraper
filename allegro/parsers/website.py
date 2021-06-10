@@ -9,20 +9,22 @@ from allegro.parsers.offer import is_captcha_required
 
 
 def parse_website(url: str, proxies: List[str] = None, timeout: int = None):
+    # Default values
+    proxy_cycle = None
+    current_proxy = None
+    start_proxy = None
+    proxy_object = None
+
     # Init proxy cycle
     if proxies is not None and len(proxies) >= 1:
         proxy_cycle = cycle(proxies)
         current_proxy = next(proxy_cycle)
         start_proxy = current_proxy
-        proxy_object = {
-            "http": f"https://{current_proxy}",
-            "https": f"https://{current_proxy}",
-        }
-    else:
-        proxy_cycle = None
-        current_proxy = None
-        start_proxy = None
-        proxy_object = None
+        if current_proxy is not None:
+            proxy_object = {
+                "http": f"https://{current_proxy}",
+                "https": f"https://{current_proxy}",
+            }
 
     # try to get soup
     soup = get_soup_check(url, proxies=proxy_object, timeout=timeout)
