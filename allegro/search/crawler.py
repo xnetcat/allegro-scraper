@@ -62,18 +62,8 @@ def search(
             product = Product.from_url(
                 url=product_link.get("href"), proxies=proxies, timeout=timeout
             )
-
-            if product is not None:
-                logging.info(
-                    f'Scraping "{product.name}" ',
-                    f"with url {product.url} "
-                    if logging.DEBUG >= logging.root.level
-                    else " ",
-                    f"[{index + 1}/{products_number}]",
-                )
-
-                # Add product to list
-                products.append(product)
+        except ValueError as e:
+            raise e
         except NotImplementedError:
             logging.info(
                 f'Ignoring "{product_link}" '
@@ -81,6 +71,24 @@ def search(
                 f"[{index + 1}/{products_number}]"
             )
             continue
+
+        if product is not None:
+            if logging.DEBUG >= logging.root.level:
+                message = (
+                    f"Scraping \"{product.name}\" "
+                    f"with url \"{product.url}\" "
+                    f"[{index + 1}/{products_number}]"
+                )
+            else:
+                message = (
+                    f"Scraping \"{product.name}\" "
+                    f"[{index + 1}/{products_number}]"
+                )
+
+            logging.info(message)
+
+            # Add product to list
+            products.append(product)
 
     # Return list with products
     return products
