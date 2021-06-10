@@ -5,7 +5,7 @@ import json
 import pytest
 
 from dataclasses import asdict
-from allegro.search.product import Product
+from allegro.search import Product
 
 
 @pytest.mark.vcr()

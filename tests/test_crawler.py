@@ -1,7 +1,7 @@
 import pytest
 
-from allegro.types.options import Options
-from allegro.search.crawler import search, crawl
+from allegro.types import Options
+from allegro.search import search, crawl
 
 
 @pytest.mark.vcr()

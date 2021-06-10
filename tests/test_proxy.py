@@ -1,6 +1,4 @@
-from allegro.proxy.proxy_gatherer import scrape_free_proxy_lists
-from allegro.proxy.proxy_checker import filter_proxies
-from allegro.proxy.proxy_file import proxies_from_file
+from allegro.proxy import load_from_file, filter_proxies, scrape_free_proxy_lists
 
 import pytest
 
@@ -41,7 +39,7 @@ def test_proxies_from_file(monkeypatch, tmpdir):
             175.165.228.78:9999"""
         )
 
-    proxies = proxies_from_file("proxies.txt")
+    proxies = load_from_file("proxies.txt")
 
     assert len(proxies) == 19
 

@@ -4,8 +4,7 @@ import sys
 import pytest
 
 from allegro.__main__ import console_entry_point
-from allegro.search import crawler
-from allegro.search.product import Product
+from allegro.search import crawler, Product
 
 
 @pytest.fixture()
