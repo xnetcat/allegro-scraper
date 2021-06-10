@@ -11,7 +11,9 @@ from allegro.search.product import Product
 from allegro.parsers.website import parse_products, parse_website
 
 
-def search(search_term: str, options: Options = None, proxies: List[str] = None) -> List[Product]:
+def search(
+    search_term: str, options: Options = None, proxies: List[str] = None
+) -> List[Product]:
     """
     ### Args
     - search_term: `str` name of the searched item
@@ -36,9 +38,7 @@ def search(search_term: str, options: Options = None, proxies: List[str] = None)
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
 
     # Try to parse url
-    soup = parse_website(
-        url=url, proxies=proxies
-    )
+    soup = parse_website(url=url, proxies=proxies)
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(

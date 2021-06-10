@@ -5,18 +5,19 @@ from typing import List
 from bs4 import BeautifulSoup
 from allegro.parsers.offer import is_captcha_required
 
+
 def is_good_proxy(proxy: str, timeout: int = None) -> bool:
     try:
         # Default headers
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",  # noqa: E501
             "Referer": "https://allegro.pl",
             "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
             "Sec-Fetch-Dest": "image",
             "Sec-Fetch-Mode": "no-cors",
             "Sec-Fetch-Site": "same-origin",
-            "Sec-Gpc": "1"
+            "Sec-Gpc": "1",
         }
 
         # Send http GET request
@@ -24,10 +25,7 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
             url="https://allegro.pl/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535",
             headers=headers,
             timeout=timeout,
-            proxies={
-                "http": f"https://{proxy}",
-                "https": f"https://{proxy}"
-            }
+            proxies={"http": f"https://{proxy}", "https": f"https://{proxy}"},
         )
 
         # Parse website

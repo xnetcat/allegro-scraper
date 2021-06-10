@@ -16,7 +16,7 @@ from allegro.parsers.offer import (
     _find_product_seller,
     _is_buynow_offer,
     is_captcha_required,
-    parse_product
+    parse_product,
 )
 
 
@@ -66,11 +66,7 @@ class Product:
                 raise Exception(f"Passed url is not that of a product: {url}")
 
         # try to parse product
-        soup = parse_product(
-            url=url,
-            proxies=proxies,
-            timeout=timeout
-        )
+        soup = parse_product(url=url, proxies=proxies, timeout=timeout)
 
         if _is_buynow_offer(soup) is False:
             raise NotImplementedError("Auctions and advertisements are not supported")

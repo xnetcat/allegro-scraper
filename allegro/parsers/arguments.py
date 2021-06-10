@@ -232,10 +232,7 @@ def _parse_options(parser: ArgumentParser):
 
     # Proxies file
     parser.add_argument(
-        "--proxies-file",
-        "-pf",
-        type=str,
-        help="Path to file with proxies"
+        "--proxies-file", "-pf", type=str, help="Path to file with proxies"
     )
 
     # Use free proxies

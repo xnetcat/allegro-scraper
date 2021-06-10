@@ -15,7 +15,7 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
         start_proxy = current_proxy
         proxy_object = {
             "http": f"https://{current_proxy}",
-            "https": f"https://{current_proxy}"
+            "https": f"https://{current_proxy}",
         }
     else:
         proxy_cycle = None
@@ -31,7 +31,7 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
         # Proxy failed so we change proxy
         if proxy_cycle is not None:
             current_proxy = next(proxy_cycle)
-            logging.debug(f"Changing proxy to \"{current_proxy}\"")
+            logging.debug(f'Changing proxy to "{current_proxy}"')
 
         while True:
             if proxy_cycle is not None and current_proxy is not None:
@@ -40,7 +40,10 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
                     raise OSError("We can't bypass IP block")
 
                 # Update proxy object
-                proxy_object = {"http": f"https://{current_proxy}", "https": f"https://{current_proxy}"}
+                proxy_object = {
+                    "http": f"https://{current_proxy}",
+                    "https": f"https://{current_proxy}",
+                }
 
                 # Get soup
                 soup = get_soup_check(url=url, proxies=proxy_object)
@@ -51,7 +54,7 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
                 else:
                     # Soup is wrong, try again
                     current_proxy = next(proxy_cycle)
-                    logging.debug(f"Changing proxy to \"{current_proxy}\"")
+                    logging.debug(f'Changing proxy to "{current_proxy}"')
             else:
                 raise OSError("You are being IP restricted, please use proxies")
     else:
@@ -59,27 +62,24 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
         return soup
 
 
-def get_soup_check(url: str, proxies: dict = None, timeout: int = None) -> Optional[BeautifulSoup]:
+def get_soup_check(
+    url: str, proxies: dict = None, timeout: int = None
+) -> Optional[BeautifulSoup]:
     # Default headers
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",  # noqa: E501
         "Referer": "https://allegro.pl",
         "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
         "Sec-Fetch-Dest": "image",
         "Sec-Fetch-Mode": "no-cors",
         "Sec-Fetch-Site": "same-origin",
-        "Sec-Gpc": "1"
+        "Sec-Gpc": "1",
     }
 
     try:
         # Send http GET request
-        request = requests.get(
-            url,
-            headers=headers,
-            proxies=proxies,
-            timeout=timeout
-        )
+        request = requests.get(url, headers=headers, proxies=proxies, timeout=timeout)
     except:
         return None
 

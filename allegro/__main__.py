@@ -94,7 +94,11 @@ def console_entry_point():
         logging.info(f"Finished checking proxies, working proxies: {len(proxies)}")
 
     # Set proxies to None if list is empty
-    if len(proxies) == 0 and (options.get("check_proxies") is True or options.get("use_free_proxies") is True or options.get("proxies_file") is not None) :
+    if len(proxies) == 0 and (
+        options.get("check_proxies") is True
+        or options.get("use_free_proxies") is True
+        or options.get("proxies_file") is not None
+    ):
         logging.error("Aborting, no working proxies found")
         sys.exit(1)
 
@@ -126,7 +130,9 @@ def console_entry_point():
         # Iterate over all crawl argumets
         for query in arguments.crawl:
             # Start crawling
-            results = crawler.crawl(query, filters=filters, options=options, proxies=proxies)
+            results = crawler.crawl(
+                query, filters=filters, options=options, proxies=proxies
+            )
 
             # Add results to products list
             products.extend(results)

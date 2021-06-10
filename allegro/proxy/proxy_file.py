@@ -3,6 +3,7 @@ import logging
 from typing import List
 from pathlib import Path
 
+
 def proxies_from_file(file_input: str) -> List[str]:
     file_object = Path(file_input)
     if file_object.exists():
@@ -19,7 +20,7 @@ def proxies_from_file(file_input: str) -> List[str]:
                 if proxy.count(".") == 3 and ":" in proxy:
                     proxy_list.append(proxy)
                 else:
-                    logging.warning(f"Wrong format for proxy \"{proxy}\"")
+                    logging.warning(f'Wrong format for proxy "{proxy}"')
 
             return proxy_list
     else:
