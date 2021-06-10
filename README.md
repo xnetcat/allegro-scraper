@@ -457,20 +457,6 @@ Allegro scraping tool
         <strong>Crawling options</strong>
     </summary>
 
-- #### Include sponsored offers
-
-  ```bash
-  --include-sponsored-offers/-iso
-  ```
-
-  type: `boolean`
-
-  example:
-
-  ```bash
-  allegro-spider -c "rtx 3090" --include-sponsored-offers
-  ```
-
 - #### Max results
 
   ```bash
@@ -511,20 +497,6 @@ Allegro scraping tool
 
   ```bash
   allegro-spider -c "rtx 3090" -sp 1
-  ```
-
-- #### Avoid duplicates
-
-  ```bash
-  --avoid-duplicates/-ad
-  ```
-
-  type: `bool`
-
-  example:
-
-  ```bash
-  allegro-spider -c "rtx 3090" -ad
   ```
 
 - #### Proxies file
