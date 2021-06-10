@@ -3,15 +3,11 @@ import json
 import logging
 
 from dataclasses import asdict
-from allegro.search import crawler
-from allegro.types.filters import Filters
-from allegro.types.options import Options
-from allegro.search.product import Product
-from allegro.parsers.arguments import parse_arguments
-from allegro.proxy.proxy_file import proxies_from_file
-from allegro.proxy.proxy_checker import filter_proxies
 from urllib3.connectionpool import log as urllib_logger
-from allegro.proxy.proxy_gatherer import scrape_free_proxy_lists
+from allegro.search import crawl, search, Product
+from allegro.types import Filters, Options
+from allegro.parsers import parse_arguments
+from allegro.proxy import load_from_file, filter_proxies, scrape_free_proxy_lists
 
 
 def console_entry_point():
@@ -77,7 +73,7 @@ def console_entry_point():
         logging.info(f"Loading proxies from file {proxies_file}")
 
         # Load proxies
-        new_proxies = proxies_from_file(proxies_file)
+        new_proxies = load_from_file(proxies_file)
 
         # Add loaded proxies
         if len(new_proxies) >= 1:
@@ -118,7 +114,7 @@ def console_entry_point():
                 # Search term (we get only first page of results)
                 else:
                     # Start crawling
-                    results = crawler.search(query, options, proxies)
+                    results = search(query, options, proxies)
 
                     # Extend product list with search results
                     products.extend(results)
@@ -128,7 +124,7 @@ def console_entry_point():
             # Iterate over all crawl argumets
             for query in arguments.crawl:
                 # Start crawling
-                results = crawler.crawl(
+                results = crawl(
                     query, filters=filters, options=options, proxies=proxies
                 )
 

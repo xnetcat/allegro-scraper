@@ -4,10 +4,10 @@ import requests
 from typing import List
 from bs4 import BeautifulSoup
 from allegro.constants import HEADERS
-from allegro.parsers.offer import is_captcha_required
+from allegro.utils import check_captcha
 
 
-def is_good_proxy(proxy: str, timeout: int = None) -> bool:
+def check_proxy(proxy: str, timeout: int = None) -> bool:
     try:
         # Send http GET request
         request = requests.get(
@@ -20,7 +20,7 @@ def is_good_proxy(proxy: str, timeout: int = None) -> bool:
         # Parse website
         soup = BeautifulSoup(request.text, "html.parser")
 
-        if is_captcha_required(soup):
+        if check_captcha(soup):
             logging.debug("Captcha is required")
             return False
         else:
@@ -35,7 +35,7 @@ def filter_proxies(proxies: List[str], timeout: int = None) -> List[str]:
     good_proxies = []
 
     for index, proxy in enumerate(proxies):
-        proxy_is_working = is_good_proxy(proxy, timeout)
+        proxy_is_working = check_proxy(proxy, timeout)
 
         if proxy_is_working is True:
             good_proxies.append(proxy)

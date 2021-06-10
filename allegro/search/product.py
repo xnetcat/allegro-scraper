@@ -3,17 +3,17 @@ import json
 from typing import List
 from dataclasses import dataclass
 
-from allegro.parsers.offer import (
-    _find_product_category,
-    _find_product_images,
-    _find_product_name,
-    _find_product_parameters,
-    _find_product_price,
-    _find_product_quantity,
-    _find_product_rating,
-    _find_product_seller,
-    _is_buynow_offer,
-    parse_product,
+from allegro.utils import get_soup
+from allegro.parsers import (
+    find_product_category,
+    find_product_images,
+    find_product_name,
+    find_product_parameters,
+    find_product_price,
+    find_product_quantity,
+    find_product_rating,
+    find_product_seller,
+    is_buynow_offer
 )
 
 
@@ -63,34 +63,34 @@ class Product:
                 raise ValueError(f"Passed url is not that of a product: {url}")
 
         # try to parse product
-        soup = parse_product(url=url, proxies=proxies, timeout=timeout)
+        soup = get_soup(url=url, proxies=proxies, timeout=timeout)
 
-        if _is_buynow_offer(soup) is False:
+        if is_buynow_offer(soup) is False:
             raise NotImplementedError("Auctions and advertisements are not supported")
 
         # Find name in parsed website
-        name = _find_product_name(soup)
+        name = find_product_name(soup)
 
         # Find price in parsed website
-        price = _find_product_price(soup)
+        price = find_product_price(soup)
 
         # Find category in parsed website
-        category = _find_product_category(soup)
+        category = find_product_category(soup)
 
         # Find seller in parsed website
-        seller = _find_product_seller(soup)
+        seller = find_product_seller(soup)
 
         # Find quantity in parsed website
-        quantity = _find_product_quantity(soup)
+        quantity = find_product_quantity(soup)
 
         # Find rating in parsed website
-        rating = _find_product_rating(soup)
+        rating = find_product_rating(soup)
 
         # Find images in parsed website
-        images = _find_product_images(soup)
+        images = find_product_images(soup)
 
         # Find parameters in parsed website
-        parameters = _find_product_parameters(soup)
+        parameters = find_product_parameters(soup)
 
         # Return product object
         return cls(

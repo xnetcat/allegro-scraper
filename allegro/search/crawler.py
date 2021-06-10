@@ -3,10 +3,10 @@ import logging
 from typing import List
 from types import FunctionType
 from allegro.constants import FILTERS
-from allegro.types.options import Options
-from allegro.types.filters import Filters
-from allegro.search.product import Product
-from allegro.parsers.website import parse_products, parse_website
+from allegro.types import Filters, Options
+from allegro.search import Product
+from allegro.utils import get_soup
+from allegro.parsers import parse_products
 
 
 def search(
@@ -36,7 +36,7 @@ def search(
     url = f"https://allegro.pl/listing?string={search_term}".replace(" ", "%20")
 
     # Try to parse url
-    soup = parse_website(url=url, proxies=proxies)
+    soup = get_soup(url=url, proxies=proxies)
 
     # Find all products on a page, each section is one product
     sections = soup.find_all(

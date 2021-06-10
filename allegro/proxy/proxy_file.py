@@ -4,7 +4,7 @@ from typing import List
 from pathlib import Path
 
 
-def proxies_from_file(file_input: str) -> List[str]:
+def load_from_file(file_input: str) -> List[str]:
     file_object = Path(file_input)
     if file_object.exists():
         with open(file_object, "r") as file:
