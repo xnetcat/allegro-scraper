@@ -4,6 +4,7 @@ import requests
 from itertools import cycle
 from bs4 import BeautifulSoup
 from typing import List, Optional, Tuple
+from allegro.constants import HEADERS
 from allegro.search.product import Product
 from allegro.parsers.offer import is_captcha_required
 
@@ -68,21 +69,9 @@ def parse_website(url: str, proxies: List[str] = None, timeout: int = None):
 def get_soup_check(
     url: str, proxies: dict = None, timeout: int = None
 ) -> Optional[BeautifulSoup]:
-    # Default headers
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",  # noqa: E501
-        "Referer": "https://allegro.pl",
-        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9,pl;q=0.8",
-        "Sec-Fetch-Dest": "image",
-        "Sec-Fetch-Mode": "no-cors",
-        "Sec-Fetch-Site": "same-origin",
-        "Sec-Gpc": "1",
-    }
-
     try:
         # Send http GET request
-        request = requests.get(url, headers=headers, proxies=proxies, timeout=timeout)
+        request = requests.get(url, headers=HEADERS, proxies=proxies, timeout=timeout)
     except Exception as e:
         logging.debug("Failed to get response from server")
         logging.debug(e)
