@@ -7,7 +7,7 @@ from typing import List, Optional
 
 
 # It's the same as parse_website but we can't use parse_website
-def parse_website(url: str, proxies: List[str] = None, timeout: int = None):
+def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
     # Default values
     proxy_cycle = None
     current_proxy = None
