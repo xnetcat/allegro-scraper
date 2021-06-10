@@ -100,7 +100,7 @@ def console_entry_point():
         sys.exit(1)
 
     try:
-    # Search for specified products
+        # Search for specified products
         if arguments.search is not None and len(arguments.search) >= 1:
             # Iterate over all search arguments
             for query in arguments.search:

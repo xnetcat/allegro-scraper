@@ -173,9 +173,8 @@ def parse_products(
             )
             continue
 
-    pagination_input = soup.find("input", attrs={
-        "data-role": "page-number-input", "data-page": True
-        }
+    pagination_input = soup.find(
+        "input", attrs={"data-role": "page-number-input", "data-page": True}
     )
 
     last_page = int(pagination_input.get("data-maxpage"))
