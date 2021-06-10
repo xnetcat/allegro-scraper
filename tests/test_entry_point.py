@@ -1,15 +1,15 @@
 import logging
 import sys
 
-import pytest  # type: ignore
+import pytest
 
 from allegro.__main__ import console_entry_point
-from allegro.search import crawler, product
+from allegro.search import crawler
 from allegro.search.product import Product
 
 
 @pytest.fixture()
-def patch_dependencies(mocker, monkeypatch):
+def patch_dependencies(mocker):
     """This is a helper fixture to patch out everything that shouldn't be called here"""
     mocker.patch.object(crawler, "crawl", autospec=True)
     mocker.patch.object(crawler, "search", autospec=True)
