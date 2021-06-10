@@ -8,4 +8,6 @@ class Options(TypedDict):
     start_page: Optional[int]
     avoid_duplicates: Optional[bool]
     use_free_proxies: Optional[bool]
+    proxies_file: Optional[str]
     check_proxies: Optional[bool]
+    request_timeout: Optional[int]
