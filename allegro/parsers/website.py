@@ -131,7 +131,6 @@ def parse_products(
     else:
         logging.info(f"Found {sections_len} products")
 
-    # FIXME: Proxy cycling is probaly not working
     for index, section in enumerate(sections):
         index += 1
 
@@ -173,6 +172,17 @@ def parse_products(
                 f"[{index}/{print_num}]"
             )
             continue
+
+    pagination_input = soup.find("input", attrs={
+        "data-role": "page-number-input", "data-page": True
+        }
+    )
+
+    last_page = int(pagination_input.get("data-maxpage"))
+
+    if page_num == last_page:
+        logging.info("Reached last page, stopping")
+        return products, False
 
     # Return list with products
     return products, True
