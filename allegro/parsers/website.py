@@ -34,8 +34,6 @@ def parse_website(url: str, proxies: List[str] = None):
                 if start_proxy == current_proxy:
                     raise OSError("We can't bypass IP block")
 
-                print("trying other proxy")
-
                 # Update proxy object
                 proxy_object = {"http": f"https://{current_proxy}", "https": f"https://{current_proxy}"}
 
@@ -48,8 +46,9 @@ def parse_website(url: str, proxies: List[str] = None):
                 else:
                     # Soup is wrong, try again
                     current_proxy = next(proxy_cycle)
+                    logging.debug("Changing proxy to \"{current_proxy}\"")
             else:
-                raise OSError("You are being IP restricted")
+                raise OSError("You are being IP restricted, please use proxies")
     else:
         # soup is fine return it
         return soup
@@ -68,12 +67,15 @@ def get_soup_check(url: str, proxies: dict = None) -> Optional[BeautifulSoup]:
         "Sec-Gpc": "1"
     }
 
-    # Send http GET request
-    request = requests.get(
-        url,
-        headers=headers,
-        proxies=proxies
-    )
+    try:
+        # Send http GET request
+        request = requests.get(
+            url,
+            headers=headers,
+            proxies=proxies
+        )
+    except:
+        return None
 
     # Parse website
     soup = BeautifulSoup(request.text, "html.parser")
