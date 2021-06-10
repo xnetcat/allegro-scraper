@@ -20,7 +20,8 @@ def test_proxies_from_file(monkeypatch, tmpdir):
     monkeypatch.chdir(tmpdir)
 
     with open("proxies.txt", "w") as proxies:
-        proxies.write("""159.8.114.37:8123
+        proxies.write(
+            """159.8.114.37:8123
             169.57.1.85:8123
             176.98.75.229:54256
             119.81.71.27:8123
@@ -38,7 +39,8 @@ def test_proxies_from_file(monkeypatch, tmpdir):
             119.81.71.27:80
             103.206.254.170:65103
             161.202.226.194:8123
-            175.165.228.78:9999""")
+            175.165.228.78:9999"""
+        )
 
     proxies = proxies_from_file("proxies.txt")
 

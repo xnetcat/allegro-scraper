@@ -75,14 +75,13 @@ def search(
         if product is not None:
             if logging.DEBUG >= logging.root.level:
                 message = (
-                    f"Scraping \"{product.name}\" "
-                    f"with url \"{product.url}\" "
+                    f'Scraping "{product.name}" '
+                    f'with url "{product.url}" '
                     f"[{index + 1}/{products_number}]"
                 )
             else:
                 message = (
-                    f"Scraping \"{product.name}\" "
-                    f"[{index + 1}/{products_number}]"
+                    f'Scraping "{product.name}" ' f"[{index + 1}/{products_number}]"
                 )
 
             logging.info(message)

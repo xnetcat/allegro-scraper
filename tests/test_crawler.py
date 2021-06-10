@@ -11,11 +11,10 @@ def test_search():
 
     assert len(products) >= 50
 
+
 @pytest.mark.vcr()
 def test_crawl_max_results():
-    options: Options = {  # type: ignore
-        "max_results": 3
-    }
+    options: Options = {"max_results": 3}  # type: ignore
 
     products = crawl("kabel", options=options)
 
