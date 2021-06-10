@@ -72,7 +72,7 @@ class Product:
             timeout=timeout
         )
 
-        if not (_is_buynow_offer(soup)):
+        if _is_buynow_offer(soup) is False:
             raise NotImplementedError("Auctions and advertisements are not supported")
 
         # Find name in parsed website
