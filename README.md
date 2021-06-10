@@ -541,6 +541,20 @@ Allegro scraping tool
   allegro-spider -c "rtx 3090" --use-free-proxies -cp
   ```
 
+- #### Threads
+
+  ```bash
+  --threads/-t [threads]
+  ```
+
+  type: `int`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" --thread 4
+  ```
+
 </details>
 
 <details>
