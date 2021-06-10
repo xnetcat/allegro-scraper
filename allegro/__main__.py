@@ -52,10 +52,9 @@ def console_entry_point():
         "start_page": arguments.start_page,
         "avoid_duplicates": arguments.avoid_duplicates,
         "use_free_proxies": arguments.use_free_proxies,
+        "proxies_file": arguments.proxies_file,
         "check_proxies": arguments.check_proxies,
         "request_timeout": arguments.request_timeout,
-        "request_delay": arguments.request_delay,
-        "proxies_file": arguments.proxies_file
     }
 
     # Set up logging
