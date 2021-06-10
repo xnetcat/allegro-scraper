@@ -203,15 +203,6 @@ def _parse_filters(parser: ArgumentParser):
 
 
 def _parse_options(parser: ArgumentParser):
-    # Include sponsored offers
-    parser.add_argument(
-        "--include-sponsored-offers",
-        "-iso",
-        action="store_true",
-        default=None,
-        help="Include sponsored offers",
-    )
-
     # Max results
     parser.add_argument("--max-results", "-rmax", type=int, help="Max results")
 
@@ -220,15 +211,6 @@ def _parse_options(parser: ArgumentParser):
 
     # Start page
     parser.add_argument("--start-page", "-sp", type=int, help="Start page")
-
-    # Avoid duplicates
-    parser.add_argument(
-        "--avoid-duplicates",
-        "-ad",
-        action="store_true",
-        default=None,
-        help="Avoid duplicates",
-    )
 
     # Proxies file
     parser.add_argument(

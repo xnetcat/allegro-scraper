@@ -45,11 +45,9 @@ def console_entry_point():
 
     # Create options dict
     options: Options = {  # type: ignore
-        "include_sponsored_offers": arguments.include_sponsored_offers,  # not implemented yet
         "max_results": arguments.max_results,
         "pages_to_fetch": arguments.pages_to_fetch,
         "start_page": arguments.start_page,
-        "avoid_duplicates": arguments.avoid_duplicates,
         "use_free_proxies": arguments.use_free_proxies,
         "proxies_file": arguments.proxies_file,
         "check_proxies": arguments.check_proxies,

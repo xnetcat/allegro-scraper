@@ -100,7 +100,6 @@ def parse_products(
     query_string: str = "",
     page_num: int = 1,
     proxies: List[str] = None,
-    avoid_duplicates: bool = None,
     max_results: int = None,
     timeout: int = None,
 ) -> Optional[Tuple[List[Product], bool]]:
@@ -166,12 +165,6 @@ def parse_products(
             product = Product.from_url(
                 url=product_url, proxies=proxies, timeout=timeout
             )
-
-            # TODO: NOT TESTED
-            if avoid_duplicates is True and product.url in (
-                prod.url for prod in products
-            ):
-                continue
 
             logging.info(
                 f'Scraping "{product.name}"'
