@@ -53,7 +53,7 @@ class Product:
         """
         ### Args
         - url: `str` a url of a product that we want to scrape
-        - proxy: `dict` object with proxy
+        - proxies: `List[str]` proxies list
 
         ### Returns
         - `Product` that contains the metadata of a product.
