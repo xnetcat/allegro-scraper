@@ -1,4 +1,5 @@
-from itertools import product
+# flake8: noqa: E501
+
 import json
 
 import pytest
@@ -77,5 +78,5 @@ def test_wrong_product():
     """
     with pytest.raises(
         ValueError, match=r"Passed url is not that of a product: https://allegro.pl/"
-    ) as excinfo:
+    ):
         Product.from_url("https://allegro.pl/")

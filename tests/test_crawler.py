@@ -1,4 +1,3 @@
-from allegro.types.filters import Filters
 import pytest
 
 from allegro.types.options import Options

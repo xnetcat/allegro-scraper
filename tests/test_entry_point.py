@@ -30,7 +30,7 @@ def test_no_search_or_crawl(capsys, monkeypatch):
         ],
     )
 
-    with pytest.raises(SystemExit) as e:
+    with pytest.raises(SystemExit):
         console_entry_point()
 
     out, err = capsys.readouterr()

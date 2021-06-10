@@ -1,9 +1,8 @@
-from _pytest.monkeypatch import monkeypatch
 from allegro.proxy.proxy_gatherer import scrape_free_proxy_lists
 from allegro.proxy.proxy_checker import filter_proxies
 from allegro.proxy.proxy_file import proxies_from_file
 
-import pytest  # type: ignore
+import pytest
 
 
 @pytest.mark.vcr()
