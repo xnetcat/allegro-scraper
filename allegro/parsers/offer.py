@@ -1,3 +1,4 @@
+import logging
 import requests
 
 from itertools import cycle
@@ -8,7 +9,7 @@ from typing import List, Optional
 # It's the same as parse_website but we can't use parse_website
 def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
     # Init proxy cycle
-    if proxies is not None:
+    if proxies is not None and len(proxies) >= 1:
         proxy_cycle = cycle(proxies)
         current_proxy = next(proxy_cycle)
         start_proxy = current_proxy
@@ -23,10 +24,15 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
         proxy_object = None
 
     # try to get soup
-    soup = get_soup_check(url, proxies=proxy_object)
+    soup = get_soup_check(url, proxies=proxy_object, timeout=timeout)
 
     # captcha is required
     if soup is None:
+        # Proxy failed so we change proxy
+        if proxy_cycle is not None:
+            current_proxy = next(proxy_cycle)
+            logging.debug(f"Changing proxy to \"{current_proxy}\"")
+
         while True:
             if proxy_cycle is not None and current_proxy is not None:
                 # We've run out of proxies to use
@@ -37,7 +43,7 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
                 proxy_object = {"http": f"https://{current_proxy}", "https": f"https://{current_proxy}"}
 
                 # Get soup
-                soup = get_soup_check(url=url, proxies=proxy_object, timeout=timeout)
+                soup = get_soup_check(url=url, proxies=proxy_object)
 
                 # soup is fine return it
                 if soup is not None:
@@ -45,8 +51,9 @@ def parse_product(url: str, proxies: List[str] = None, timeout: int = None):
                 else:
                     # Soup is wrong, try again
                     current_proxy = next(proxy_cycle)
+                    logging.debug(f"Changing proxy to \"{current_proxy}\"")
             else:
-                raise OSError("You are being IP restricted")
+                raise OSError("You are being IP restricted, please use proxies")
     else:
         # soup is fine return it
         return soup
@@ -65,13 +72,16 @@ def get_soup_check(url: str, proxies: dict = None, timeout: int = None) -> Optio
         "Sec-Gpc": "1"
     }
 
-    # Send http GET request
-    request = requests.get(
-        url,
-        headers=headers,
-        proxies=proxies,
-        timeout=timeout
-    )
+    try:
+        # Send http GET request
+        request = requests.get(
+            url,
+            headers=headers,
+            proxies=proxies,
+            timeout=timeout
+        )
+    except:
+        return None
 
     # Parse website
     soup = BeautifulSoup(request.text, "html.parser")

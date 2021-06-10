@@ -8,9 +8,9 @@ from allegro.search.product import Product
 from allegro.parsers.offer import is_captcha_required
 
 
-def parse_website(url: str, proxies: List[str] = None):
+def parse_website(url: str, proxies: List[str] = None, timeout: int = None):
     # Init proxy cycle
-    if proxies is not None:
+    if proxies is not None and len(proxies) >= 1:
         proxy_cycle = cycle(proxies)
         current_proxy = next(proxy_cycle)
         start_proxy = current_proxy
@@ -24,10 +24,16 @@ def parse_website(url: str, proxies: List[str] = None):
         start_proxy = None
         proxy_object = None
 
-    soup = get_soup_check(url, proxies=proxy_object)
+    # try to get soup
+    soup = get_soup_check(url, proxies=proxy_object, timeout=timeout)
 
     # captcha is required
     if soup is None:
+        # Proxy failed so we change proxy
+        if proxy_cycle is not None:
+            current_proxy = next(proxy_cycle)
+            logging.debug(f"Changing proxy to \"{current_proxy}\"")
+
         while True:
             if proxy_cycle is not None and current_proxy is not None:
                 # We've run out of proxies to use
@@ -46,7 +52,7 @@ def parse_website(url: str, proxies: List[str] = None):
                 else:
                     # Soup is wrong, try again
                     current_proxy = next(proxy_cycle)
-                    logging.debug("Changing proxy to \"{current_proxy}\"")
+                    logging.debug(f"Changing proxy to \"{current_proxy}\"")
             else:
                 raise OSError("You are being IP restricted, please use proxies")
     else:
@@ -54,7 +60,7 @@ def parse_website(url: str, proxies: List[str] = None):
         return soup
 
 
-def get_soup_check(url: str, proxies: dict = None) -> Optional[BeautifulSoup]:
+def get_soup_check(url: str, proxies: dict = None, timeout: int = None) -> Optional[BeautifulSoup]:
     # Default headers
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36", # noqa: E501
@@ -72,7 +78,8 @@ def get_soup_check(url: str, proxies: dict = None) -> Optional[BeautifulSoup]:
         request = requests.get(
             url,
             headers=headers,
-            proxies=proxies
+            proxies=proxies,
+            timeout=timeout
         )
     except:
         return None
