@@ -1,5 +1,4 @@
 from allegro.parsers.arguments_parser import parse_arguments
-from allegro.parsers.allegro_parser import parse_products
 from allegro.parsers.product_parser import (
     is_buynow_offer,
     find_product_name,
