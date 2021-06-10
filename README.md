@@ -527,6 +527,20 @@ Allegro scraping tool
   allegro-spider -c "rtx 3090" -ad
   ```
 
+- #### Proxies file
+
+  ```bash
+  --proxies-file/-pf [file]
+  ```
+
+  type: `string`
+
+  example:
+
+  ```bash
+  allegro-spider -c "rtx 3090" -pf "C:/test/proxies.ttx"
+  ```
+
 - #### Use free proxies
 
   ```bash

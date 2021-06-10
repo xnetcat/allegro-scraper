@@ -230,6 +230,14 @@ def _parse_options(parser: ArgumentParser):
         help="Avoid duplicates",
     )
 
+    # Proxies file
+    parser.add_argument(
+        "--proxies-file",
+        "-pf",
+        type=str,
+        help="Path to file with proxies"
+    )
+
     # Use free proxies
     parser.add_argument(
         "--use-free-proxies",
@@ -250,17 +258,6 @@ def _parse_options(parser: ArgumentParser):
 
     # Request timeout
     parser.add_argument("--request-timeout", "-rt", type=int, help="Request timeout")
-
-    # Request delay
-    parser.add_argument("--request-delay", "-rd", type=int, help="Request delay")
-
-    # Proxy file
-    parser.add_argument(
-        "--proxies-file",
-        "-pf",
-        type=str,
-        help="Path to file with proxies"
-    )
 
     return parser
 
