@@ -13,7 +13,7 @@ from allegro.parsers import (
     find_product_quantity,
     find_product_rating,
     find_product_seller,
-    is_buynow_offer
+    is_buynow_offer,
 )
 
 

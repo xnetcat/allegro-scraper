@@ -8,5 +8,5 @@ from allegro.parsers.product_parser import (
     find_product_quantity,
     find_product_rating,
     find_product_images,
-    find_product_parameters
+    find_product_parameters,
 )
