@@ -99,51 +99,57 @@ def console_entry_point():
         logging.error("Aborting, no working proxies found")
         sys.exit(1)
 
+    try:
     # Search for specified products
-    if arguments.search is not None and len(arguments.search) >= 1:
-        # Iterate over all search arguments
-        for query in arguments.search:
-            # Single allegro offer
-            if "allegro.pl/oferta/" in query:
-                # Create product object using url
-                product = Product.from_url(
-                    url=query,
-                    proxies=proxies,
-                    timeout=options.get("request_timeout"),
+        if arguments.search is not None and len(arguments.search) >= 1:
+            # Iterate over all search arguments
+            for query in arguments.search:
+                # Single allegro offer
+                if "allegro.pl/oferta/" in query:
+                    # Create product object using url
+                    product = Product.from_url(
+                        url=query,
+                        proxies=proxies,
+                        timeout=options.get("request_timeout"),
+                    )
+
+                    # Add product to products list
+                    products.append(product)
+                # Search term (we get only first page of results)
+                else:
+                    # Start crawling
+                    results = crawler.search(query, options, proxies)
+
+                    # Extend product list with search results
+                    products.extend(results)
+
+        # Crawl specified search terms
+        if arguments.crawl is not None and len(arguments.crawl) >= 1:
+            # Iterate over all crawl argumets
+            for query in arguments.crawl:
+                # Start crawling
+                results = crawler.crawl(
+                    query, filters=filters, options=options, proxies=proxies
                 )
 
-                # Add product to products list
-                products.append(product)
-            # Search term (we get only first page of results)
-            else:
-                # Start crawling
-                results = crawler.search(query, options, proxies)
-
-                # Extend product list with search results
+                # Add results to products list
                 products.extend(results)
+    except Exception as e:
+        logging.error(e)
+    finally:
+        if len(products) >= 1:
+            # Convert products to dicts
+            products = [asdict(var) for var in products if var is not None]
 
-    # Crawl specified search terms
-    if arguments.crawl is not None and len(arguments.crawl) >= 1:
-        # Iterate over all crawl argumets
-        for query in arguments.crawl:
-            # Start crawling
-            results = crawler.crawl(
-                query, filters=filters, options=options, proxies=proxies
-            )
+            # Dump dicts to json string
+            json_dump = json.dumps(products, indent=4, ensure_ascii=False)
 
-            # Add results to products list
-            products.extend(results)
-
-    # Convert products to dicts
-    products = [asdict(var) for var in products if var is not None]
-
-    # Dump dicts to json string
-    json_dump = json.dumps(products, indent=4, ensure_ascii=False)
-
-    # Save json to file
-    with open(arguments.output, "w", encoding="utf-8") as output:
-        logging.info(f"Saving {len(products)} products to {arguments.output}")
-        output.write(json_dump)
+            # Save json to file
+            with open(arguments.output, "w", encoding="utf-8") as output:
+                logging.info(f"Saving {len(products)} products to {arguments.output}")
+                output.write(json_dump)
+        else:
+            logging.warning("Didn't find any products")
 
 
 if __name__ == "__main__":
