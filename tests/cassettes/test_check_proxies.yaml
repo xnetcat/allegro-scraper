@@ -1,0 +1,1097 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en,ru-RU;q=0.9,ru;q=0.8,en-US;q=0.7,uk;q=0.6
+      Connection:
+      - keep-alive
+      Referer:
+      - http://www.freeproxylists.net/
+      Upgrade-Insecure-Requests:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/87.0.4280.88 Safari/537.36
+    method: GET
+    uri: http://www.freeproxylists.net/?c=&pt=&pr=HTTPS&a%5B%5D=0&a%5B%5D=1&a%5B%5D=2&u=0
+  response:
+    body:
+      string: !!binary |
+        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
+        h/8Pcu8B3pPFAAA=
+    headers:
+      Accept-Ranges:
+      - none
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '7535'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Thu, 10 Jun 2021 12:38:04 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - hl=en; expires=Sat, 11-Jun-2022 12:38:03 GMT; path=/
+      - campaign=deleted; expires=Wed, 10-Jun-2020 12:38:02 GMT; path=/
+      - query=deleted; expires=Wed, 10-Jun-2020 12:38:02 GMT; path=/
+      - admin=deleted; expires=Wed, 10-Jun-2020 12:38:02 GMT; path=/
+      - pv=1; expires=Sat, 11-Jun-2022 12:38:03 GMT; path=/
+      - userno=20210610-011830; expires=Sat, 11-Jun-2022 12:38:03 GMT; path=/
+      - from=link; expires=Sat, 11-Jun-2022 12:38:03 GMT; path=/
+      - refdomain=www.freeproxylists.net; expires=Sat, 11-Jun-2022 12:38:03 GMT; path=/
+      - visited=2021%2F06%2F10+21%3A38%3A03; expires=Sat, 11-Jun-2022 12:38:03 GMT;
+        path=/
+      Vary:
+      - Range,Accept-Encoding
+      X-Powered-By:
+      - PHP/5.2.17
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://176.9.63.62:3128/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
+        <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\">
+        <meta name=\"referrer\" content=\"unsafe-url\"> <link rel=\"manifest\" href=\"/manifest.json\">
+        <meta name=\"robots\" content=\"noindex, nofollow\"> <style>html{font-size:62.5%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{font-size:13px;font-size:1.3rem;font-size:1.3em;font-family:Arial,Helvetica
+        Neue,Helvetica,sans-serif;line-height:1.42857143;color:#303030;background-color:#fff;margin:0}a{background-color:transparent;color:#00a790;text-decoration:none}a:focus,a:hover{color:#00a790;text-decoration:underline}a:focus{outline:thin
+        dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}a:visited{color:#00a790}a:active,a:hover{outline:0}p{margin:0
+        0 10px}img{border:0;vertical-align:middle}svg:not(:root){overflow:hidden}h1,h2{font-weight:700;font-family:inherit;line-height:1.1;color:inherit;margin-top:1em;margin-bottom:1em}.m-card{background-color:#fff;padding:8px}.m-header{background-color:#fff}.m-header__center{display:flex;max-width:1600px;margin:0
+        auto;justify-content:space-between;align-items:center;box-sizing:border-box}.m-header__logo-wrapper{margin:0}.m-header__logo{background-size:80px
+        28px;height:28px;width:80px;vertical-align:middle;display:flex}.m-header__border-bottom{border-bottom:1px
+        solid #ddd}.m-header__tall\\@md{height:64px}.error-box{text-align:center;margin-top:30px;margin-bottom:30px}.error-box
+        h2{font-weight:400;margin:0 0 1.5rem;color:#ff7100;font-size:3rem}.error-box
+        p{font-size:1.6rem}.error-box .apache{max-width:500px;width:90%;margin-top:2em;}.indian-msg{padding:6px;text-align:
+        center;}@media only screen and (min-width:24em){.error-box h2{font-size:3rem}}@media
+        only screen and (min-width:34em){.error-box h2{font-size:6rem}.m-header__logo{background-size:96px
+        32px;height:32px;width:96px;margin-right:16px}.m-header__tall\\@md{height:80px}}@media
+        only screen and (min-width:48em){.m-card{padding:16px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{background-size:128px
+        44px;height:44px;width:128px}}@media only screen and (min-width:62em){.m-card{padding:24px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{margin-right:32px}.m-header__tall\\@md{height:96px}}.m-button{-moz-appearance:none;-ms-text-size-adjust:100%;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;appearance:none;background:transparent;border:0;border-radius:2px;box-sizing:border-box;color:#222;cursor:pointer;display:inline-block;font-family:OpenSans,sans-serif;font-size:14px;height:40px;line-height:21px;line-height:40px;margin:0;overflow:hidden;padding:013px;position:relative;text-align:center;text-decoration:none;text-size-adjust:100%;vertical-align:middle;white-space:nowrap;width:auto}.m-button::-moz-focus-inner{border-style:none;padding:0}.m-button:active,.m-button:hover,.m-button:link,.m-button:visited{outline:0;text-decoration:none}.m-button:disabled{color:#c3c3c3;pointer-events:none}.m-button--secondary{color:#00a790;font-weight:500;letter-spacing:2px;text-transform:uppercase}.m-button--secondary:link,.m-button--secondary:visited{color:#00a790}.m-button--secondary:focus,.m-button--secondary:hover{color:#2ab9a3}.m-button--secondary:active{background:#fff;opacity:.3}</style></head><body>
+        <nav class=\"m-header\"> <div class=\"m-header__border-bottom\"> <div class=\"m-header__center
+        m-header__tall@md m-card m-card--no-space-top m-card--no-space-bottom\"> <h2
+        itemscope itemtype=\"http://schema.org/Organization\" class=\"m-header__logo-wrapper\">
+        <a href=\"https://allegro.pl/\"> <svg class=\"m-header__logo\" width=\"145\"
+        height=\"50\" viewBox=\"0 0 145 50\" fill=\"#ff5a00\" xmlns=\"http://www.w3.org/2000/svg\">
+        <path d=\"M141.72 16.69a13.1 13.1 0 0 0-20.7 0 13.59 13.59 0 0 0-2.46 8 13.59
+        13.59 0 0 0 2.46 8 13.1 13.1 0 0 0 20.7 0 13.6 13.6 0 0 0 2.46-8 13.6 13.6
+        0 0 0-2.46-8zm-4.1 11c-.94 2.81-3.17 5-6.26 5.07s-5.32-2.26-6.25-5.07a9.27
+        9.27 0 0 1 0-6c.94-2.81 3.17-5 6.25-5.07s5.32 2.26 6.26 5.07a9.28 9.28 0 0
+        1 0 5.99zm-94.25 9.4a.74.74 0 0 1-.74.74h-4.3a.74.74 0 0 1-.74-.74V1.74a.74.74
+        0 0 1 .74-.74h4.3a.74.74 0 0 1 .74.74v35.35zm-10.1 0a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V1.74a.74.74 0 0 1 .73-.74h4.3a.74.74 0 0 1 .74.74v35.35zm84.32-24v3a.78.78
+        0 0 1-1 .85c-4.86-1-7.85 1.16-7.85 5.65v14.5a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V22.28a10 10 0 0 1 3.17-7.49 11.16 11.16 0 0 1 7.87-3.18 16.69
+        16.69 0 0 1 3 .28c.51.17.59.47.59 1.24zM99.18 24.68a13.41 13.41 0 0 0-2.46-8
+        13.1 13.1 0 0 0-20.7 0 14.07 14.07 0 0 0 0 16 12.73 12.73 0 0 0 10.35 5.07
+        13.2 13.2 0 0 0 7.37-2.22v3.16c0 4.29-3.75 5.07-6.15 5.22a28.26 28.26 0 0
+        1-4.94-.27c-.66-.1-1.12 0-1.12.71v3.8a.65.65 0 0 0 .68.62c5.57.48 9.32.38
+        12.14-1.23a9.18 9.18 0 0 0 4.11-5.23 17.49 17.49 0 0 0 .71-5.22V24.68zm-12.81
+        8.06c-3.09 0-5.32-2.26-6.26-5.07a9.27 9.27 0 0 1 0-6c.94-2.81 3.17-5.07 6.26-5.07
+        6.91 0 7.14 7.05 7.14 8.07s-.23 8.07-7.14 8.07zM23.55 22.09c0-3.41-.76-6-2.4-7.79s-4.94-2.68-8-2.68a17.34
+        17.34 0 0 0-8.75 2.33.55.55 0 0 0-.27.48l.23 3.76a.67.67 0 0 0 1.1.39C9.21
+        16.27 13.71 15.84 16 17a4 4 0 0 1 2 3.61v.55h-6.25c-2.69 0-10.93 1-10.93 8.57v.08a7.34
+        7.34 0 0 0 2.67 6.08 10.56 10.56 0 0 0 6.68 1.91h12.65a.74.74 0 0 0 .74-.74v-15zM18
+        33.18h-7.47a4.62 4.62 0 0 1-2.65-.93 2.94 2.94 0 0 1-1.25-2.46c0-1.35.91-4.05
+        5.46-4.05H18v7.44zm41.2-21.56c-7.65 0-11 5.13-12.07 9.47a14.58 14.58 0 0 0-.44
+        3.58 13.6 13.6 0 0 0 2.46 8 13.13 13.13 0 0 0 10.35 5.07c4.13.15 6.89-.55
+        9-1.75a1.17 1.17 0 0 0 .5-1.27v-3.33c0-.68-.41-1-1-.59a13.05 13.05 0 0 1-8.32
+        2A6.81 6.81 0 0 1 53 26.73h17a.7.7 0 0 0 .7-.69c.3-4.65-1.05-14.42-11.5-14.42zm-6.11
+        10.51a5.78 5.78 0 0 1 6.12-5.51 5.14 5.14 0 0 1 5.44 5.51H53.09z\"/> </svg>
+        </a> </h2> </div></div></nav> <div class=\"m-card\"> <div class=\"error-box\">
+        <h2>Rany Julek!</h2> <p>Co\u015B posz\u0142o nie tak.</p><p>Je\u017Celi sytuacja
+        si\u0119 powtarza, to zg\u0142o\u015B ten przypadek obs\u0142udze klienta
+        za\u0142\u0105czaj\u0105c kod b\u0142\u0119du.</p><p>Pomo\u017Ce nam to w
+        szybszym rozwi\u0105zaniu Twojego problemu.</p><div> <h3>Kod b\u0142\u0119du:
+        cce6a58e52102a5c</h3> </div><a href=\"/pomoc\" class=\"m-button m-button--secondary\">
+        skontaktuj si\u0119 z obs\u0142ug\u0105 klienta </a> </a> </p><svg class=\"apache\"
+        xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 876.73 735.65\"> <defs>
+        <style>.cls-1{fill: #f1f1f1;}.cls-2, .cls-8, .cls-9{fill: #343433;}.cls-3{fill:
+        url(#linear-gradient);}.cls-11, .cls-4{fill: #fff;}.cls-5, .cls-7{fill: none;}.cls-11,
+        .cls-5, .cls-7, .cls-8, .cls-9{stroke: #343433; stroke-miterlimit: 10;}.cls-11,
+        .cls-5, .cls-9{stroke-width: 4px;}.cls-6{fill: #f3f2f2;}.cls-7{stroke-width:
+        2px;}.cls-10{fill: #f05c22;}</style> <linearGradient id=\"linear-gradient\"
+        x1=\"-466.78\" y1=\"147.28\" x2=\"-466.78\" y2=\"607.05\" gradientTransform=\"matrix(-1
+        0 0 1 -28.41 0)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#d1d2d3\"/><stop
+        offset=\"1\" stop-color=\"#d1d2d3\" stop-opacity=\"0\"/></linearGradient>
+        </defs> <ellipse class=\"cls-1\" cx=\"249.38\" cy=\"652.94\" rx=\"53.49\"
+        ry=\"22.61\"/> <path class=\"cls-2\" d=\"M66.12 608.39l33.13-.39 38-.35c14.68-.14
+        31.25-.3 49.32-.38l58.36-.33c20.71-.11 42.54-.27 65.13-.28l141.56-.27 141.56.26c22.59
+        0 44.43.16 65.13.28l58.36.33c18.07.08 34.64.24 49.32.38l38 .36 33.13.39-33.13.39-38
+        .36c-14.68.14-31.25.3-49.32.38l-58.36.33c-20.71.12-42.54.27-65.13.28l-141.56.26-141.56-.27c-22.59
+        0-44.43-.17-65.13-.28l-58.36-.33c-18.07-.08-34.64-.24-49.32-.38l-38-.35z\"/>
+        <path class=\"cls-3\" d=\"M876.73 607.05S864.92 441.74 831 539.16c0-152-87.08-93-87.08-63.47-16.24-183-69.37-332.09-124-163.83-56.09-69.37-78.23-3-84.13
+        64.94-33.95-360.14-62-252.39-62 20.66-8.86-135.79-59-152-69.37-66.42 0 0-70.85-57.56-76.75
+        91.51-93-150.55-157.93-50.18-163.83 54.61-48.71-44.28-109.59-8.86-109.22 60.51C25.09
+        491.92 4.43 539.16 0 607.05z\"/> <ellipse class=\"cls-1\" cx=\"484.51\" cy=\"716.14\"
+        rx=\"192.63\" ry=\"19.51\"/> <path class=\"cls-4\" d=\"M525.14 9.43s-12.67
+        110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/> <path class=\"cls-5\"
+        d=\"M525.14 9.43s-12.67 110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/>
+        <path class=\"cls-4\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-5\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-4\" d=\"M401.06 196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18
+        42.54-86.15 100.65 10 6.39 18.67 6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5
+        6-16 37.5-16 37.5s-17.14-.75-31.14 3.58c-5.33 105.67 125.87 109.56 179.2 95.56
+        15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/> <path class=\"cls-5\" d=\"M401.06
+        196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18 42.54-86.15 100.65 10 6.39 18.67
+        6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5 6-16 37.5-16 37.5s-17.14-.75-31.14
+        3.58c-5.33 105.67 125.87 109.56 179.2 95.56 15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/>
+        <path class=\"cls-6\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66
+        41.58 6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path
+        class=\"cls-7\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66 41.58
+        6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path class=\"cls-6\"
+        d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1 16-106.1 4.25c1 15.54 3.74 71.88
+        3.74 71.88z\"/> <path class=\"cls-7\" d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1
+        16-106.1 4.25c1 15.54 3.74 71.88 3.74 71.88z\"/> <path class=\"cls-4\" d=\"M421
+        473.25s0 42 7.63 56.67\"/> <path class=\"cls-2\" d=\"M423 473.24s-.12 3.55-.12
+        8.93c0 2.69 0 5.82.12 9.17l.19 5.17c.1 1.76.16 3.55.3 5.34s.23 3.58.42 5.33.33
+        3.48.55 5.14l.31 2.45.38 2.33c.13.76.24 1.5.37 2.21l.44 2 .41 1.88.48 1.67a22.3
+        22.3 0 0 0 .86 2.69l.91 2.3-1.07-2.23a22.51 22.51 0 0 1-1.05-2.64l-.6-1.65-.54-1.86-.59-2c-.18-.71-.35-1.44-.53-2.2l-.55-2.33-.48-2.45c-.35-1.66-.63-3.38-.92-5.14s-.54-3.54-.8-5.33-.45-3.58-.67-5.35l-.55-5.19c-.32-3.37-.58-6.52-.77-9.23-.38-5.4-.51-9-.51-9z\"/>
+        <path class=\"cls-8\" d=\"M413.73 648.68L438 670.21l17.85-24.64 22.41 24.81
+        20.21-25.76 17.69 25.76 12.14-21.54 9.48 35.75H415.52l-1.79-35.91z\"/> <path
+        class=\"cls-2\" d=\"M523.48 51.81l13.16 3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99
+        7.43-2.14 36.14-1.66 42.38z\"/> <path class=\"cls-7\" d=\"M523.48 51.81l13.16
+        3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99 7.43-2.14 36.14-1.66 42.38z\"/>
+        <path class=\"cls-4\" d=\"M356.59 330.67s21.2.58 35.2 9.92\"/> <path class=\"cls-2\"
+        d=\"M356.66 328.67h.42l1.22.13c1 .12 2.5.32 4.24.62s3.76.69 5.9 1.19 4.41
+        1.12 6.64 1.82c1.11.38 2.23.71 3.3 1.14s2.14.78 3.14 1.25 2 .83 2.87 1.31
+        1.76.84 2.5 1.3l2.05 1.2c.6.37 1.1.74 1.52 1l1.31.9-1.4-.75c-.45-.23-1-.55-1.61-.85l-2.15-1c-.78-.37-1.68-.65-2.59-1s-1.92-.65-2.94-1-2.1-.59-3.19-.88-2.22-.5-3.33-.75c-2.24-.44-4.5-.81-6.62-1.06s-4.11-.43-5.81-.53-3.12-.14-4.1-.15h-1.53z\"/>
+        <path class=\"cls-4\" d=\"M331.35 377.17s24.5 73.83 152.51 58.63\"/> <path
+        class=\"cls-2\" d=\"M333.24 376.51s.18.56.65 1.71 1.22 2.78 2.31 4.84a80.71
+        80.71 0 0 0 4.38 7.19 91.92 91.92 0 0 0 6.79 8.61 103 103 0 0 0 9.34 9.07
+        110.29 110.29 0 0 0 11.78 8.58c1 .72 2.18 1.31 3.29 2s2.21 1.34 3.39 1.91c2.33
+        1.17 4.65 2.45 7.11 3.49l3.67 1.64 3.75 1.45c2.5 1 5.11 1.8 7.68 2.67 1.28.45
+        2.6.8 3.91 1.16l3.92 1.08c2.62.69 5.27 1.2 7.88 1.8s5.26.93 7.84 1.39c1.29.25
+        2.59.39 3.88.55l3.84.47c2.53.36 5 .5 7.5.7s4.86.4 7.2.44l6.83.23h6.39c4.1
+        0 7.85-.21 11.18-.37l4.66-.24 3.95-.35 7.49-.66-7.48.83-3.94.44-4.66.35c-3.33.24-7.08.56-11.19.63l-6.41.19-6.86-.07c-2.36
+        0-4.77-.13-7.24-.27s-5-.22-7.56-.53l-3.87-.39c-1.3-.13-2.61-.24-3.92-.46-2.62-.41-5.28-.74-7.94-1.22s-5.34-1-8-1.64l-4-1c-1.34-.33-2.67-.65-4-1.08-2.63-.82-5.29-1.54-7.86-2.53l-3.87-1.4-3.77-1.58c-2.53-1-4.93-2.25-7.33-3.4-1.21-.56-2.34-1.26-3.51-1.88s-2.32-1.23-3.41-1.94a113.19
+        113.19 0 0 1-12.31-8.54 106.28 106.28 0 0 1-9.87-9.16 95.33 95.33 0 0 1-7.27-8.8
+        84.35 84.35 0 0 1-4.77-7.44c-1.2-2.15-2-3.91-2.59-5.13-.26-.62-.47-1.09-.6-1.45l-.19-.5zm38.01-85.42l3.1.2c2
+        .15 4.76.37 8.11.74s7.25.85 11.41 1.56a84.34 84.34 0 0 1 12.9 3.1c1.07.36
+        2.17.87 3.1 1.18a3.22 3.22 0 0 0 2.55-.07 3.9 3.9 0 0 0 1.6-2.13 12.17 12.17
+        0 0 0 .64-2.94 30.75 30.75 0 0 0 0-5.91 51.73 51.73 0 0 0-.76-5.3 41.35 41.35
+        0 0 0-2.21-7.72 9.94 9.94 0 0 0-1.05-2 2 2 0 0 0-.55-.57 2 2 0 0 1 .59.54
+        10 10 0 0 1 1.17 1.94 41.67 41.67 0 0 1 2.65 7.66 52.4 52.4 0 0 1 1.07 5.33
+        31.82 31.82 0 0 1 .35 6.11 13.47 13.47 0 0 1-.54 3.3 5.37 5.37 0 0 1-2.12
+        3 4.14 4.14 0 0 1-1.94.61 6.23 6.23 0 0 1-1.92-.2c-1.19-.34-2.14-.73-3.2-1a82.15
+        82.15 0 0 0-12.69-2.29c-4.11-.46-8-.72-11.29-.89s-6.08-.24-8-.27h-3z\"/> <path
+        class=\"cls-9\" d=\"M419 173.1s-11.33-25.2 6-33.53 116.73-28.5 130.4-2.84c19
+        27.67 9.33 74.18 0 81.85s-28.33 146.33-7 192.33c-34.67 8.33-37 44-37 44l-34.59
+        9.67s-4.41-195.33 16.93-247.33S419 173.1 419 173.1z\"/> <path class=\"cls-4\"
+        d=\"M415.52 160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1
+        13.09-61.73s-35.76-60.5-139.92-58.34z\"/> <path class=\"cls-5\" d=\"M415.52
+        160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1 13.09-61.73s-35.76-60.5-139.92-58.34z\"/>
+        <path class=\"cls-10\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21
+        45.39-31.1-5.22 54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/>
+        <path class=\"cls-5\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21 45.39-31.1-5.22
+        54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/> <path class=\"cls-11\"
+        d=\"M198.82 623.12s26.74-23.38 53.93-28.37c20.11-3.69 9.18-24.22 7.37-27.3s32.79
+        23.05 8.19 43.29c-12.54 19.44 5.67 45.79 5.67 45.79l-15 2.17-3.72 9.51s-30.6-27.48-42-25.52-35.82-1.06-36.37-28.22c12.11
+        19.6 21.93 8.65 21.93 8.65z\"/> <path class=\"cls-2\" d=\"M238.12 626.82c3.58
+        1.78 4.75 6.35 2.6 10.21-2.15 3.86-6.79 5.54-10.38 3.76-3.58-1.78-4.82-6.38-2.67-10.24
+        2.15-3.86 6.87-5.51 10.45-3.73zm16.88 1.95c-.58-2-3.11-3.06-5.65-2.4h-.07c-2.54.66-4.13
+        2.81-3.56 4.79v.06c.58 2 3.11 3.05 5.65 2.39h.07c2.54-.66 4.14-2.8 3.56-4.78z\"/>
+        <path class=\"cls-7\" d=\"M198.82 623.12s14.8-1.71 18.54 19.85m39.89-49.61s-5.72
+        9.47 9.47 18.44\"/> </svg> </div><p class=\"indian-msg\">- Dzi\u0119kujemy
+        za wyrozumia\u0142o\u015B\u0107!</p></div></body></html>\n"
+    headers:
+      cache-control:
+      - no-cache
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      connection:
+      - close
+      content-length:
+      - '15321'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      retry-after:
+      - '10'
+      set-cookie:
+      - _cmuid=0d39eb5f-bb9a-43ac-b1c2-7cd2a2300154; Expires=Sat, 10 Jun 2023 12:38:07
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=2PO12x_14zuPBaZrgobKxvwqVh5cYSn~tDZ1p9hwQIVpz.rYno5~d9Qz~sh80q3c_c05qIzLio-7y7xFbF6v5-x3orA0fZo3EUDwpoVk0v;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMA-XaKs1rE8TsAsAk_Pg==
+      x-frame-options:
+      - SAMEORIGIN
+      x-from:
+      - LB
+      x-reason:
+      - Too Many Requests
+    status:
+      code: 429
+      message: Too Many Requests
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://41.223.119.156:3128/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: '<html><head><title>allegro.pl</title><style>#cmsg{animation: A 1.5s;}@keyframes
+        A{0%{opacity:0;}99%{opacity:0;}100%{opacity:1;}}</style></head><body style="margin:0"><p
+        id="cmsg">Please enable JS and disable any ad blocker</p><script>var dd={''cid'':''AHrlqAAAAAMALWW2Irpg1DIAKd93nA=='',''hsh'':''77DC0FFBAA0B77570F6B414F8E5BDB'',''t'':''bv'',''s'':29560,''host'':''geo.captcha-delivery.com''}</script><script
+        src="https://ct.captcha-delivery.com/c.js"></script></body></html>
+
+        '
+    headers:
+      cache-control:
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      content-length:
+      - '459'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      set-cookie:
+      - _cmuid=d2e3f2c6-7fb6-4263-87d6-9ed38d494608; Expires=Sat, 10 Jun 2023 12:38:09
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=_eQhzbiphRpDfnFkF0eLunM6j.ryvoKvwuat5jlWfV5MPAvRsWHw67jd5P_1BdzfukBeiTxMR75RK8ZAe0JAzXL2UupLWcFW7l9h4WQkSS;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMALWW2Irpg1DIAKd93nA==
+      x-frame-options:
+      - SAMEORIGIN
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://195.201.61.51:8000/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
+        <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\">
+        <meta name=\"referrer\" content=\"unsafe-url\"> <link rel=\"manifest\" href=\"/manifest.json\">
+        <meta name=\"robots\" content=\"noindex, nofollow\"> <style>html{font-size:62.5%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{font-size:13px;font-size:1.3rem;font-size:1.3em;font-family:Arial,Helvetica
+        Neue,Helvetica,sans-serif;line-height:1.42857143;color:#303030;background-color:#fff;margin:0}a{background-color:transparent;color:#00a790;text-decoration:none}a:focus,a:hover{color:#00a790;text-decoration:underline}a:focus{outline:thin
+        dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}a:visited{color:#00a790}a:active,a:hover{outline:0}p{margin:0
+        0 10px}img{border:0;vertical-align:middle}svg:not(:root){overflow:hidden}h1,h2{font-weight:700;font-family:inherit;line-height:1.1;color:inherit;margin-top:1em;margin-bottom:1em}.m-card{background-color:#fff;padding:8px}.m-header{background-color:#fff}.m-header__center{display:flex;max-width:1600px;margin:0
+        auto;justify-content:space-between;align-items:center;box-sizing:border-box}.m-header__logo-wrapper{margin:0}.m-header__logo{background-size:80px
+        28px;height:28px;width:80px;vertical-align:middle;display:flex}.m-header__border-bottom{border-bottom:1px
+        solid #ddd}.m-header__tall\\@md{height:64px}.error-box{text-align:center;margin-top:30px;margin-bottom:30px}.error-box
+        h2{font-weight:400;margin:0 0 1.5rem;color:#ff7100;font-size:3rem}.error-box
+        p{font-size:1.6rem}.error-box .apache{max-width:500px;width:90%;margin-top:2em;}.indian-msg{padding:6px;text-align:
+        center;}@media only screen and (min-width:24em){.error-box h2{font-size:3rem}}@media
+        only screen and (min-width:34em){.error-box h2{font-size:6rem}.m-header__logo{background-size:96px
+        32px;height:32px;width:96px;margin-right:16px}.m-header__tall\\@md{height:80px}}@media
+        only screen and (min-width:48em){.m-card{padding:16px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{background-size:128px
+        44px;height:44px;width:128px}}@media only screen and (min-width:62em){.m-card{padding:24px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{margin-right:32px}.m-header__tall\\@md{height:96px}}.m-button{-moz-appearance:none;-ms-text-size-adjust:100%;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;appearance:none;background:transparent;border:0;border-radius:2px;box-sizing:border-box;color:#222;cursor:pointer;display:inline-block;font-family:OpenSans,sans-serif;font-size:14px;height:40px;line-height:21px;line-height:40px;margin:0;overflow:hidden;padding:013px;position:relative;text-align:center;text-decoration:none;text-size-adjust:100%;vertical-align:middle;white-space:nowrap;width:auto}.m-button::-moz-focus-inner{border-style:none;padding:0}.m-button:active,.m-button:hover,.m-button:link,.m-button:visited{outline:0;text-decoration:none}.m-button:disabled{color:#c3c3c3;pointer-events:none}.m-button--secondary{color:#00a790;font-weight:500;letter-spacing:2px;text-transform:uppercase}.m-button--secondary:link,.m-button--secondary:visited{color:#00a790}.m-button--secondary:focus,.m-button--secondary:hover{color:#2ab9a3}.m-button--secondary:active{background:#fff;opacity:.3}</style></head><body>
+        <nav class=\"m-header\"> <div class=\"m-header__border-bottom\"> <div class=\"m-header__center
+        m-header__tall@md m-card m-card--no-space-top m-card--no-space-bottom\"> <h2
+        itemscope itemtype=\"http://schema.org/Organization\" class=\"m-header__logo-wrapper\">
+        <a href=\"https://allegro.pl/\"> <svg class=\"m-header__logo\" width=\"145\"
+        height=\"50\" viewBox=\"0 0 145 50\" fill=\"#ff5a00\" xmlns=\"http://www.w3.org/2000/svg\">
+        <path d=\"M141.72 16.69a13.1 13.1 0 0 0-20.7 0 13.59 13.59 0 0 0-2.46 8 13.59
+        13.59 0 0 0 2.46 8 13.1 13.1 0 0 0 20.7 0 13.6 13.6 0 0 0 2.46-8 13.6 13.6
+        0 0 0-2.46-8zm-4.1 11c-.94 2.81-3.17 5-6.26 5.07s-5.32-2.26-6.25-5.07a9.27
+        9.27 0 0 1 0-6c.94-2.81 3.17-5 6.25-5.07s5.32 2.26 6.26 5.07a9.28 9.28 0 0
+        1 0 5.99zm-94.25 9.4a.74.74 0 0 1-.74.74h-4.3a.74.74 0 0 1-.74-.74V1.74a.74.74
+        0 0 1 .74-.74h4.3a.74.74 0 0 1 .74.74v35.35zm-10.1 0a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V1.74a.74.74 0 0 1 .73-.74h4.3a.74.74 0 0 1 .74.74v35.35zm84.32-24v3a.78.78
+        0 0 1-1 .85c-4.86-1-7.85 1.16-7.85 5.65v14.5a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V22.28a10 10 0 0 1 3.17-7.49 11.16 11.16 0 0 1 7.87-3.18 16.69
+        16.69 0 0 1 3 .28c.51.17.59.47.59 1.24zM99.18 24.68a13.41 13.41 0 0 0-2.46-8
+        13.1 13.1 0 0 0-20.7 0 14.07 14.07 0 0 0 0 16 12.73 12.73 0 0 0 10.35 5.07
+        13.2 13.2 0 0 0 7.37-2.22v3.16c0 4.29-3.75 5.07-6.15 5.22a28.26 28.26 0 0
+        1-4.94-.27c-.66-.1-1.12 0-1.12.71v3.8a.65.65 0 0 0 .68.62c5.57.48 9.32.38
+        12.14-1.23a9.18 9.18 0 0 0 4.11-5.23 17.49 17.49 0 0 0 .71-5.22V24.68zm-12.81
+        8.06c-3.09 0-5.32-2.26-6.26-5.07a9.27 9.27 0 0 1 0-6c.94-2.81 3.17-5.07 6.26-5.07
+        6.91 0 7.14 7.05 7.14 8.07s-.23 8.07-7.14 8.07zM23.55 22.09c0-3.41-.76-6-2.4-7.79s-4.94-2.68-8-2.68a17.34
+        17.34 0 0 0-8.75 2.33.55.55 0 0 0-.27.48l.23 3.76a.67.67 0 0 0 1.1.39C9.21
+        16.27 13.71 15.84 16 17a4 4 0 0 1 2 3.61v.55h-6.25c-2.69 0-10.93 1-10.93 8.57v.08a7.34
+        7.34 0 0 0 2.67 6.08 10.56 10.56 0 0 0 6.68 1.91h12.65a.74.74 0 0 0 .74-.74v-15zM18
+        33.18h-7.47a4.62 4.62 0 0 1-2.65-.93 2.94 2.94 0 0 1-1.25-2.46c0-1.35.91-4.05
+        5.46-4.05H18v7.44zm41.2-21.56c-7.65 0-11 5.13-12.07 9.47a14.58 14.58 0 0 0-.44
+        3.58 13.6 13.6 0 0 0 2.46 8 13.13 13.13 0 0 0 10.35 5.07c4.13.15 6.89-.55
+        9-1.75a1.17 1.17 0 0 0 .5-1.27v-3.33c0-.68-.41-1-1-.59a13.05 13.05 0 0 1-8.32
+        2A6.81 6.81 0 0 1 53 26.73h17a.7.7 0 0 0 .7-.69c.3-4.65-1.05-14.42-11.5-14.42zm-6.11
+        10.51a5.78 5.78 0 0 1 6.12-5.51 5.14 5.14 0 0 1 5.44 5.51H53.09z\"/> </svg>
+        </a> </h2> </div></div></nav> <div class=\"m-card\"> <div class=\"error-box\">
+        <h2>Rany Julek!</h2> <p>Co\u015B posz\u0142o nie tak.</p><p>Je\u017Celi sytuacja
+        si\u0119 powtarza, to zg\u0142o\u015B ten przypadek obs\u0142udze klienta
+        za\u0142\u0105czaj\u0105c kod b\u0142\u0119du.</p><p>Pomo\u017Ce nam to w
+        szybszym rozwi\u0105zaniu Twojego problemu.</p><div> <h3>Kod b\u0142\u0119du:
+        1c2697e6574081d3</h3> </div><a href=\"/pomoc\" class=\"m-button m-button--secondary\">
+        skontaktuj si\u0119 z obs\u0142ug\u0105 klienta </a> </a> </p><svg class=\"apache\"
+        xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 876.73 735.65\"> <defs>
+        <style>.cls-1{fill: #f1f1f1;}.cls-2, .cls-8, .cls-9{fill: #343433;}.cls-3{fill:
+        url(#linear-gradient);}.cls-11, .cls-4{fill: #fff;}.cls-5, .cls-7{fill: none;}.cls-11,
+        .cls-5, .cls-7, .cls-8, .cls-9{stroke: #343433; stroke-miterlimit: 10;}.cls-11,
+        .cls-5, .cls-9{stroke-width: 4px;}.cls-6{fill: #f3f2f2;}.cls-7{stroke-width:
+        2px;}.cls-10{fill: #f05c22;}</style> <linearGradient id=\"linear-gradient\"
+        x1=\"-466.78\" y1=\"147.28\" x2=\"-466.78\" y2=\"607.05\" gradientTransform=\"matrix(-1
+        0 0 1 -28.41 0)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#d1d2d3\"/><stop
+        offset=\"1\" stop-color=\"#d1d2d3\" stop-opacity=\"0\"/></linearGradient>
+        </defs> <ellipse class=\"cls-1\" cx=\"249.38\" cy=\"652.94\" rx=\"53.49\"
+        ry=\"22.61\"/> <path class=\"cls-2\" d=\"M66.12 608.39l33.13-.39 38-.35c14.68-.14
+        31.25-.3 49.32-.38l58.36-.33c20.71-.11 42.54-.27 65.13-.28l141.56-.27 141.56.26c22.59
+        0 44.43.16 65.13.28l58.36.33c18.07.08 34.64.24 49.32.38l38 .36 33.13.39-33.13.39-38
+        .36c-14.68.14-31.25.3-49.32.38l-58.36.33c-20.71.12-42.54.27-65.13.28l-141.56.26-141.56-.27c-22.59
+        0-44.43-.17-65.13-.28l-58.36-.33c-18.07-.08-34.64-.24-49.32-.38l-38-.35z\"/>
+        <path class=\"cls-3\" d=\"M876.73 607.05S864.92 441.74 831 539.16c0-152-87.08-93-87.08-63.47-16.24-183-69.37-332.09-124-163.83-56.09-69.37-78.23-3-84.13
+        64.94-33.95-360.14-62-252.39-62 20.66-8.86-135.79-59-152-69.37-66.42 0 0-70.85-57.56-76.75
+        91.51-93-150.55-157.93-50.18-163.83 54.61-48.71-44.28-109.59-8.86-109.22 60.51C25.09
+        491.92 4.43 539.16 0 607.05z\"/> <ellipse class=\"cls-1\" cx=\"484.51\" cy=\"716.14\"
+        rx=\"192.63\" ry=\"19.51\"/> <path class=\"cls-4\" d=\"M525.14 9.43s-12.67
+        110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/> <path class=\"cls-5\"
+        d=\"M525.14 9.43s-12.67 110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/>
+        <path class=\"cls-4\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-5\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-4\" d=\"M401.06 196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18
+        42.54-86.15 100.65 10 6.39 18.67 6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5
+        6-16 37.5-16 37.5s-17.14-.75-31.14 3.58c-5.33 105.67 125.87 109.56 179.2 95.56
+        15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/> <path class=\"cls-5\" d=\"M401.06
+        196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18 42.54-86.15 100.65 10 6.39 18.67
+        6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5 6-16 37.5-16 37.5s-17.14-.75-31.14
+        3.58c-5.33 105.67 125.87 109.56 179.2 95.56 15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/>
+        <path class=\"cls-6\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66
+        41.58 6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path
+        class=\"cls-7\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66 41.58
+        6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path class=\"cls-6\"
+        d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1 16-106.1 4.25c1 15.54 3.74 71.88
+        3.74 71.88z\"/> <path class=\"cls-7\" d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1
+        16-106.1 4.25c1 15.54 3.74 71.88 3.74 71.88z\"/> <path class=\"cls-4\" d=\"M421
+        473.25s0 42 7.63 56.67\"/> <path class=\"cls-2\" d=\"M423 473.24s-.12 3.55-.12
+        8.93c0 2.69 0 5.82.12 9.17l.19 5.17c.1 1.76.16 3.55.3 5.34s.23 3.58.42 5.33.33
+        3.48.55 5.14l.31 2.45.38 2.33c.13.76.24 1.5.37 2.21l.44 2 .41 1.88.48 1.67a22.3
+        22.3 0 0 0 .86 2.69l.91 2.3-1.07-2.23a22.51 22.51 0 0 1-1.05-2.64l-.6-1.65-.54-1.86-.59-2c-.18-.71-.35-1.44-.53-2.2l-.55-2.33-.48-2.45c-.35-1.66-.63-3.38-.92-5.14s-.54-3.54-.8-5.33-.45-3.58-.67-5.35l-.55-5.19c-.32-3.37-.58-6.52-.77-9.23-.38-5.4-.51-9-.51-9z\"/>
+        <path class=\"cls-8\" d=\"M413.73 648.68L438 670.21l17.85-24.64 22.41 24.81
+        20.21-25.76 17.69 25.76 12.14-21.54 9.48 35.75H415.52l-1.79-35.91z\"/> <path
+        class=\"cls-2\" d=\"M523.48 51.81l13.16 3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99
+        7.43-2.14 36.14-1.66 42.38z\"/> <path class=\"cls-7\" d=\"M523.48 51.81l13.16
+        3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99 7.43-2.14 36.14-1.66 42.38z\"/>
+        <path class=\"cls-4\" d=\"M356.59 330.67s21.2.58 35.2 9.92\"/> <path class=\"cls-2\"
+        d=\"M356.66 328.67h.42l1.22.13c1 .12 2.5.32 4.24.62s3.76.69 5.9 1.19 4.41
+        1.12 6.64 1.82c1.11.38 2.23.71 3.3 1.14s2.14.78 3.14 1.25 2 .83 2.87 1.31
+        1.76.84 2.5 1.3l2.05 1.2c.6.37 1.1.74 1.52 1l1.31.9-1.4-.75c-.45-.23-1-.55-1.61-.85l-2.15-1c-.78-.37-1.68-.65-2.59-1s-1.92-.65-2.94-1-2.1-.59-3.19-.88-2.22-.5-3.33-.75c-2.24-.44-4.5-.81-6.62-1.06s-4.11-.43-5.81-.53-3.12-.14-4.1-.15h-1.53z\"/>
+        <path class=\"cls-4\" d=\"M331.35 377.17s24.5 73.83 152.51 58.63\"/> <path
+        class=\"cls-2\" d=\"M333.24 376.51s.18.56.65 1.71 1.22 2.78 2.31 4.84a80.71
+        80.71 0 0 0 4.38 7.19 91.92 91.92 0 0 0 6.79 8.61 103 103 0 0 0 9.34 9.07
+        110.29 110.29 0 0 0 11.78 8.58c1 .72 2.18 1.31 3.29 2s2.21 1.34 3.39 1.91c2.33
+        1.17 4.65 2.45 7.11 3.49l3.67 1.64 3.75 1.45c2.5 1 5.11 1.8 7.68 2.67 1.28.45
+        2.6.8 3.91 1.16l3.92 1.08c2.62.69 5.27 1.2 7.88 1.8s5.26.93 7.84 1.39c1.29.25
+        2.59.39 3.88.55l3.84.47c2.53.36 5 .5 7.5.7s4.86.4 7.2.44l6.83.23h6.39c4.1
+        0 7.85-.21 11.18-.37l4.66-.24 3.95-.35 7.49-.66-7.48.83-3.94.44-4.66.35c-3.33.24-7.08.56-11.19.63l-6.41.19-6.86-.07c-2.36
+        0-4.77-.13-7.24-.27s-5-.22-7.56-.53l-3.87-.39c-1.3-.13-2.61-.24-3.92-.46-2.62-.41-5.28-.74-7.94-1.22s-5.34-1-8-1.64l-4-1c-1.34-.33-2.67-.65-4-1.08-2.63-.82-5.29-1.54-7.86-2.53l-3.87-1.4-3.77-1.58c-2.53-1-4.93-2.25-7.33-3.4-1.21-.56-2.34-1.26-3.51-1.88s-2.32-1.23-3.41-1.94a113.19
+        113.19 0 0 1-12.31-8.54 106.28 106.28 0 0 1-9.87-9.16 95.33 95.33 0 0 1-7.27-8.8
+        84.35 84.35 0 0 1-4.77-7.44c-1.2-2.15-2-3.91-2.59-5.13-.26-.62-.47-1.09-.6-1.45l-.19-.5zm38.01-85.42l3.1.2c2
+        .15 4.76.37 8.11.74s7.25.85 11.41 1.56a84.34 84.34 0 0 1 12.9 3.1c1.07.36
+        2.17.87 3.1 1.18a3.22 3.22 0 0 0 2.55-.07 3.9 3.9 0 0 0 1.6-2.13 12.17 12.17
+        0 0 0 .64-2.94 30.75 30.75 0 0 0 0-5.91 51.73 51.73 0 0 0-.76-5.3 41.35 41.35
+        0 0 0-2.21-7.72 9.94 9.94 0 0 0-1.05-2 2 2 0 0 0-.55-.57 2 2 0 0 1 .59.54
+        10 10 0 0 1 1.17 1.94 41.67 41.67 0 0 1 2.65 7.66 52.4 52.4 0 0 1 1.07 5.33
+        31.82 31.82 0 0 1 .35 6.11 13.47 13.47 0 0 1-.54 3.3 5.37 5.37 0 0 1-2.12
+        3 4.14 4.14 0 0 1-1.94.61 6.23 6.23 0 0 1-1.92-.2c-1.19-.34-2.14-.73-3.2-1a82.15
+        82.15 0 0 0-12.69-2.29c-4.11-.46-8-.72-11.29-.89s-6.08-.24-8-.27h-3z\"/> <path
+        class=\"cls-9\" d=\"M419 173.1s-11.33-25.2 6-33.53 116.73-28.5 130.4-2.84c19
+        27.67 9.33 74.18 0 81.85s-28.33 146.33-7 192.33c-34.67 8.33-37 44-37 44l-34.59
+        9.67s-4.41-195.33 16.93-247.33S419 173.1 419 173.1z\"/> <path class=\"cls-4\"
+        d=\"M415.52 160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1
+        13.09-61.73s-35.76-60.5-139.92-58.34z\"/> <path class=\"cls-5\" d=\"M415.52
+        160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1 13.09-61.73s-35.76-60.5-139.92-58.34z\"/>
+        <path class=\"cls-10\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21
+        45.39-31.1-5.22 54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/>
+        <path class=\"cls-5\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21 45.39-31.1-5.22
+        54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/> <path class=\"cls-11\"
+        d=\"M198.82 623.12s26.74-23.38 53.93-28.37c20.11-3.69 9.18-24.22 7.37-27.3s32.79
+        23.05 8.19 43.29c-12.54 19.44 5.67 45.79 5.67 45.79l-15 2.17-3.72 9.51s-30.6-27.48-42-25.52-35.82-1.06-36.37-28.22c12.11
+        19.6 21.93 8.65 21.93 8.65z\"/> <path class=\"cls-2\" d=\"M238.12 626.82c3.58
+        1.78 4.75 6.35 2.6 10.21-2.15 3.86-6.79 5.54-10.38 3.76-3.58-1.78-4.82-6.38-2.67-10.24
+        2.15-3.86 6.87-5.51 10.45-3.73zm16.88 1.95c-.58-2-3.11-3.06-5.65-2.4h-.07c-2.54.66-4.13
+        2.81-3.56 4.79v.06c.58 2 3.11 3.05 5.65 2.39h.07c2.54-.66 4.14-2.8 3.56-4.78z\"/>
+        <path class=\"cls-7\" d=\"M198.82 623.12s14.8-1.71 18.54 19.85m39.89-49.61s-5.72
+        9.47 9.47 18.44\"/> </svg> </div><p class=\"indian-msg\">- Dzi\u0119kujemy
+        za wyrozumia\u0142o\u015B\u0107!</p></div></body></html>\n"
+    headers:
+      cache-control:
+      - no-cache
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      connection:
+      - close
+      content-length:
+      - '15321'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      retry-after:
+      - '10'
+      set-cookie:
+      - _cmuid=2cf66e69-4b7b-462f-991f-3d4c2005c0ca; Expires=Sat, 10 Jun 2023 12:38:31
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=aPFX2GF4qlnK~DP~bQScz5RlcTAaV3-PFay7yYdvI-21jgNDFjG.ruyhPK.x4dyKQ2tnkxPaU0.MIeNgi5qMgUf8PunLW0nS0xgw~HZDKm;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMA4tB8MNalevQAw8k9Mw==
+      x-frame-options:
+      - SAMEORIGIN
+      x-from:
+      - LB
+      x-reason:
+      - Too Many Requests
+    status:
+      code: 429
+      message: Too Many Requests
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://157.230.103.91:35495/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
+        <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\">
+        <meta name=\"referrer\" content=\"unsafe-url\"> <link rel=\"manifest\" href=\"/manifest.json\">
+        <meta name=\"robots\" content=\"noindex, nofollow\"> <style>html{font-size:62.5%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{font-size:13px;font-size:1.3rem;font-size:1.3em;font-family:Arial,Helvetica
+        Neue,Helvetica,sans-serif;line-height:1.42857143;color:#303030;background-color:#fff;margin:0}a{background-color:transparent;color:#00a790;text-decoration:none}a:focus,a:hover{color:#00a790;text-decoration:underline}a:focus{outline:thin
+        dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}a:visited{color:#00a790}a:active,a:hover{outline:0}p{margin:0
+        0 10px}img{border:0;vertical-align:middle}svg:not(:root){overflow:hidden}h1,h2{font-weight:700;font-family:inherit;line-height:1.1;color:inherit;margin-top:1em;margin-bottom:1em}.m-card{background-color:#fff;padding:8px}.m-header{background-color:#fff}.m-header__center{display:flex;max-width:1600px;margin:0
+        auto;justify-content:space-between;align-items:center;box-sizing:border-box}.m-header__logo-wrapper{margin:0}.m-header__logo{background-size:80px
+        28px;height:28px;width:80px;vertical-align:middle;display:flex}.m-header__border-bottom{border-bottom:1px
+        solid #ddd}.m-header__tall\\@md{height:64px}.error-box{text-align:center;margin-top:30px;margin-bottom:30px}.error-box
+        h2{font-weight:400;margin:0 0 1.5rem;color:#ff7100;font-size:3rem}.error-box
+        p{font-size:1.6rem}.error-box .apache{max-width:500px;width:90%;margin-top:2em;}.indian-msg{padding:6px;text-align:
+        center;}@media only screen and (min-width:24em){.error-box h2{font-size:3rem}}@media
+        only screen and (min-width:34em){.error-box h2{font-size:6rem}.m-header__logo{background-size:96px
+        32px;height:32px;width:96px;margin-right:16px}.m-header__tall\\@md{height:80px}}@media
+        only screen and (min-width:48em){.m-card{padding:16px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{background-size:128px
+        44px;height:44px;width:128px}}@media only screen and (min-width:62em){.m-card{padding:24px}.m-card--no-space-top{padding-top:0}.m-card--no-space-bottom{padding-bottom:0}.m-header__logo{margin-right:32px}.m-header__tall\\@md{height:96px}}.m-button{-moz-appearance:none;-ms-text-size-adjust:100%;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;appearance:none;background:transparent;border:0;border-radius:2px;box-sizing:border-box;color:#222;cursor:pointer;display:inline-block;font-family:OpenSans,sans-serif;font-size:14px;height:40px;line-height:21px;line-height:40px;margin:0;overflow:hidden;padding:013px;position:relative;text-align:center;text-decoration:none;text-size-adjust:100%;vertical-align:middle;white-space:nowrap;width:auto}.m-button::-moz-focus-inner{border-style:none;padding:0}.m-button:active,.m-button:hover,.m-button:link,.m-button:visited{outline:0;text-decoration:none}.m-button:disabled{color:#c3c3c3;pointer-events:none}.m-button--secondary{color:#00a790;font-weight:500;letter-spacing:2px;text-transform:uppercase}.m-button--secondary:link,.m-button--secondary:visited{color:#00a790}.m-button--secondary:focus,.m-button--secondary:hover{color:#2ab9a3}.m-button--secondary:active{background:#fff;opacity:.3}</style></head><body>
+        <nav class=\"m-header\"> <div class=\"m-header__border-bottom\"> <div class=\"m-header__center
+        m-header__tall@md m-card m-card--no-space-top m-card--no-space-bottom\"> <h2
+        itemscope itemtype=\"http://schema.org/Organization\" class=\"m-header__logo-wrapper\">
+        <a href=\"https://allegro.pl/\"> <svg class=\"m-header__logo\" width=\"145\"
+        height=\"50\" viewBox=\"0 0 145 50\" fill=\"#ff5a00\" xmlns=\"http://www.w3.org/2000/svg\">
+        <path d=\"M141.72 16.69a13.1 13.1 0 0 0-20.7 0 13.59 13.59 0 0 0-2.46 8 13.59
+        13.59 0 0 0 2.46 8 13.1 13.1 0 0 0 20.7 0 13.6 13.6 0 0 0 2.46-8 13.6 13.6
+        0 0 0-2.46-8zm-4.1 11c-.94 2.81-3.17 5-6.26 5.07s-5.32-2.26-6.25-5.07a9.27
+        9.27 0 0 1 0-6c.94-2.81 3.17-5 6.25-5.07s5.32 2.26 6.26 5.07a9.28 9.28 0 0
+        1 0 5.99zm-94.25 9.4a.74.74 0 0 1-.74.74h-4.3a.74.74 0 0 1-.74-.74V1.74a.74.74
+        0 0 1 .74-.74h4.3a.74.74 0 0 1 .74.74v35.35zm-10.1 0a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V1.74a.74.74 0 0 1 .73-.74h4.3a.74.74 0 0 1 .74.74v35.35zm84.32-24v3a.78.78
+        0 0 1-1 .85c-4.86-1-7.85 1.16-7.85 5.65v14.5a.74.74 0 0 1-.74.74h-4.3a.74.74
+        0 0 1-.74-.74V22.28a10 10 0 0 1 3.17-7.49 11.16 11.16 0 0 1 7.87-3.18 16.69
+        16.69 0 0 1 3 .28c.51.17.59.47.59 1.24zM99.18 24.68a13.41 13.41 0 0 0-2.46-8
+        13.1 13.1 0 0 0-20.7 0 14.07 14.07 0 0 0 0 16 12.73 12.73 0 0 0 10.35 5.07
+        13.2 13.2 0 0 0 7.37-2.22v3.16c0 4.29-3.75 5.07-6.15 5.22a28.26 28.26 0 0
+        1-4.94-.27c-.66-.1-1.12 0-1.12.71v3.8a.65.65 0 0 0 .68.62c5.57.48 9.32.38
+        12.14-1.23a9.18 9.18 0 0 0 4.11-5.23 17.49 17.49 0 0 0 .71-5.22V24.68zm-12.81
+        8.06c-3.09 0-5.32-2.26-6.26-5.07a9.27 9.27 0 0 1 0-6c.94-2.81 3.17-5.07 6.26-5.07
+        6.91 0 7.14 7.05 7.14 8.07s-.23 8.07-7.14 8.07zM23.55 22.09c0-3.41-.76-6-2.4-7.79s-4.94-2.68-8-2.68a17.34
+        17.34 0 0 0-8.75 2.33.55.55 0 0 0-.27.48l.23 3.76a.67.67 0 0 0 1.1.39C9.21
+        16.27 13.71 15.84 16 17a4 4 0 0 1 2 3.61v.55h-6.25c-2.69 0-10.93 1-10.93 8.57v.08a7.34
+        7.34 0 0 0 2.67 6.08 10.56 10.56 0 0 0 6.68 1.91h12.65a.74.74 0 0 0 .74-.74v-15zM18
+        33.18h-7.47a4.62 4.62 0 0 1-2.65-.93 2.94 2.94 0 0 1-1.25-2.46c0-1.35.91-4.05
+        5.46-4.05H18v7.44zm41.2-21.56c-7.65 0-11 5.13-12.07 9.47a14.58 14.58 0 0 0-.44
+        3.58 13.6 13.6 0 0 0 2.46 8 13.13 13.13 0 0 0 10.35 5.07c4.13.15 6.89-.55
+        9-1.75a1.17 1.17 0 0 0 .5-1.27v-3.33c0-.68-.41-1-1-.59a13.05 13.05 0 0 1-8.32
+        2A6.81 6.81 0 0 1 53 26.73h17a.7.7 0 0 0 .7-.69c.3-4.65-1.05-14.42-11.5-14.42zm-6.11
+        10.51a5.78 5.78 0 0 1 6.12-5.51 5.14 5.14 0 0 1 5.44 5.51H53.09z\"/> </svg>
+        </a> </h2> </div></div></nav> <div class=\"m-card\"> <div class=\"error-box\">
+        <h2>Rany Julek!</h2> <p>Co\u015B posz\u0142o nie tak.</p><p>Je\u017Celi sytuacja
+        si\u0119 powtarza, to zg\u0142o\u015B ten przypadek obs\u0142udze klienta
+        za\u0142\u0105czaj\u0105c kod b\u0142\u0119du.</p><p>Pomo\u017Ce nam to w
+        szybszym rozwi\u0105zaniu Twojego problemu.</p><div> <h3>Kod b\u0142\u0119du:
+        dcffb9df8038fcb5</h3> </div><a href=\"/pomoc\" class=\"m-button m-button--secondary\">
+        skontaktuj si\u0119 z obs\u0142ug\u0105 klienta </a> </a> </p><svg class=\"apache\"
+        xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 876.73 735.65\"> <defs>
+        <style>.cls-1{fill: #f1f1f1;}.cls-2, .cls-8, .cls-9{fill: #343433;}.cls-3{fill:
+        url(#linear-gradient);}.cls-11, .cls-4{fill: #fff;}.cls-5, .cls-7{fill: none;}.cls-11,
+        .cls-5, .cls-7, .cls-8, .cls-9{stroke: #343433; stroke-miterlimit: 10;}.cls-11,
+        .cls-5, .cls-9{stroke-width: 4px;}.cls-6{fill: #f3f2f2;}.cls-7{stroke-width:
+        2px;}.cls-10{fill: #f05c22;}</style> <linearGradient id=\"linear-gradient\"
+        x1=\"-466.78\" y1=\"147.28\" x2=\"-466.78\" y2=\"607.05\" gradientTransform=\"matrix(-1
+        0 0 1 -28.41 0)\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#d1d2d3\"/><stop
+        offset=\"1\" stop-color=\"#d1d2d3\" stop-opacity=\"0\"/></linearGradient>
+        </defs> <ellipse class=\"cls-1\" cx=\"249.38\" cy=\"652.94\" rx=\"53.49\"
+        ry=\"22.61\"/> <path class=\"cls-2\" d=\"M66.12 608.39l33.13-.39 38-.35c14.68-.14
+        31.25-.3 49.32-.38l58.36-.33c20.71-.11 42.54-.27 65.13-.28l141.56-.27 141.56.26c22.59
+        0 44.43.16 65.13.28l58.36.33c18.07.08 34.64.24 49.32.38l38 .36 33.13.39-33.13.39-38
+        .36c-14.68.14-31.25.3-49.32.38l-58.36.33c-20.71.12-42.54.27-65.13.28l-141.56.26-141.56-.27c-22.59
+        0-44.43-.17-65.13-.28l-58.36-.33c-18.07-.08-34.64-.24-49.32-.38l-38-.35z\"/>
+        <path class=\"cls-3\" d=\"M876.73 607.05S864.92 441.74 831 539.16c0-152-87.08-93-87.08-63.47-16.24-183-69.37-332.09-124-163.83-56.09-69.37-78.23-3-84.13
+        64.94-33.95-360.14-62-252.39-62 20.66-8.86-135.79-59-152-69.37-66.42 0 0-70.85-57.56-76.75
+        91.51-93-150.55-157.93-50.18-163.83 54.61-48.71-44.28-109.59-8.86-109.22 60.51C25.09
+        491.92 4.43 539.16 0 607.05z\"/> <ellipse class=\"cls-1\" cx=\"484.51\" cy=\"716.14\"
+        rx=\"192.63\" ry=\"19.51\"/> <path class=\"cls-4\" d=\"M525.14 9.43s-12.67
+        110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/> <path class=\"cls-5\"
+        d=\"M525.14 9.43s-12.67 110.34 30.33 127.33c23-56.99-30.33-127.33-30.33-127.33z\"/>
+        <path class=\"cls-4\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-5\" d=\"M590.78 603.92c6.56 39.46-46.74 84.33-67.41 97.33
+        38.67-5.33 49.74 8.67 49.74 8.67s-33 12.55-66.31.33c10.93-17.67 8.52-17.83
+        16.56-49l-69.26-4c10.12 26.67 14.21 46.51 13.86 53-6.73 4.84-43.5 10-62.53.33
+        4.67-18 48.67-11 48.67-11s-1-21.67-32.67-34.33C381 637.82 359.18 591.41 349
+        549.78c-8.12-33.23-8.81-63.43-5.55-78.53-188-72.67-104-253.67-81.67-279.33s27.86-28.73
+        58.33-27.67 40.67 11.67 40.67 11.67 1.67 11-5.67 11.33-29.67 2.66-34.5 2.66c-6.67
+        0-11.7 11.5-35.17 6.54 0 0-83 150.46 58.33 184.13s204.67 30.33 204.67 30.33
+        148.33 23.33 115.33 134.67c-12.33 29.67-18 24.67-18 24.67s-22-2.67-23.67-12c2.76-9.79
+        10.33-17 10.33-17s12-1 15.67-.67-.67-51-68-53c-9 14-6.67 67 10.67 116.33\"/>
+        <path class=\"cls-4\" d=\"M401.06 196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18
+        42.54-86.15 100.65 10 6.39 18.67 6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5
+        6-16 37.5-16 37.5s-17.14-.75-31.14 3.58c-5.33 105.67 125.87 109.56 179.2 95.56
+        15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/> <path class=\"cls-5\" d=\"M401.06
+        196.45s-1 .48-2.79 1.42c-13.87 7.3-75.18 42.54-86.15 100.65 10 6.39 18.67
+        6.06 18.67 6.06s18.83-12.92 41.83-11.42c-9.5 6-16 37.5-16 37.5s-17.14-.75-31.14
+        3.58c-5.33 105.67 125.87 109.56 179.2 95.56 15.63-4.33 1.47-9.89 1.47-9.89l5.33-201.33z\"/>
+        <path class=\"cls-6\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66
+        41.58 6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path
+        class=\"cls-7\" d=\"M349 550s95.38 45.44 226.67-14.26c1.4 12.45 6.66 41.58
+        6.66 41.58S490 650.66 366.24 598.57A155.4 155.4 0 0 1 349 550z\"/> <path class=\"cls-6\"
+        d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1 16-106.1 4.25c1 15.54 3.74 71.88
+        3.74 71.88z\"/> <path class=\"cls-7\" d=\"M415.52 684.59h122.26l-19.9-76.13s-46.1
+        16-106.1 4.25c1 15.54 3.74 71.88 3.74 71.88z\"/> <path class=\"cls-4\" d=\"M421
+        473.25s0 42 7.63 56.67\"/> <path class=\"cls-2\" d=\"M423 473.24s-.12 3.55-.12
+        8.93c0 2.69 0 5.82.12 9.17l.19 5.17c.1 1.76.16 3.55.3 5.34s.23 3.58.42 5.33.33
+        3.48.55 5.14l.31 2.45.38 2.33c.13.76.24 1.5.37 2.21l.44 2 .41 1.88.48 1.67a22.3
+        22.3 0 0 0 .86 2.69l.91 2.3-1.07-2.23a22.51 22.51 0 0 1-1.05-2.64l-.6-1.65-.54-1.86-.59-2c-.18-.71-.35-1.44-.53-2.2l-.55-2.33-.48-2.45c-.35-1.66-.63-3.38-.92-5.14s-.54-3.54-.8-5.33-.45-3.58-.67-5.35l-.55-5.19c-.32-3.37-.58-6.52-.77-9.23-.38-5.4-.51-9-.51-9z\"/>
+        <path class=\"cls-8\" d=\"M413.73 648.68L438 670.21l17.85-24.64 22.41 24.81
+        20.21-25.76 17.69 25.76 12.14-21.54 9.48 35.75H415.52l-1.79-35.91z\"/> <path
+        class=\"cls-2\" d=\"M523.48 51.81l13.16 3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99
+        7.43-2.14 36.14-1.66 42.38z\"/> <path class=\"cls-7\" d=\"M523.48 51.81l13.16
+        3.62 9.21-10.62s-13.6-27.14-20.71-35.38c-.99 7.43-2.14 36.14-1.66 42.38z\"/>
+        <path class=\"cls-4\" d=\"M356.59 330.67s21.2.58 35.2 9.92\"/> <path class=\"cls-2\"
+        d=\"M356.66 328.67h.42l1.22.13c1 .12 2.5.32 4.24.62s3.76.69 5.9 1.19 4.41
+        1.12 6.64 1.82c1.11.38 2.23.71 3.3 1.14s2.14.78 3.14 1.25 2 .83 2.87 1.31
+        1.76.84 2.5 1.3l2.05 1.2c.6.37 1.1.74 1.52 1l1.31.9-1.4-.75c-.45-.23-1-.55-1.61-.85l-2.15-1c-.78-.37-1.68-.65-2.59-1s-1.92-.65-2.94-1-2.1-.59-3.19-.88-2.22-.5-3.33-.75c-2.24-.44-4.5-.81-6.62-1.06s-4.11-.43-5.81-.53-3.12-.14-4.1-.15h-1.53z\"/>
+        <path class=\"cls-4\" d=\"M331.35 377.17s24.5 73.83 152.51 58.63\"/> <path
+        class=\"cls-2\" d=\"M333.24 376.51s.18.56.65 1.71 1.22 2.78 2.31 4.84a80.71
+        80.71 0 0 0 4.38 7.19 91.92 91.92 0 0 0 6.79 8.61 103 103 0 0 0 9.34 9.07
+        110.29 110.29 0 0 0 11.78 8.58c1 .72 2.18 1.31 3.29 2s2.21 1.34 3.39 1.91c2.33
+        1.17 4.65 2.45 7.11 3.49l3.67 1.64 3.75 1.45c2.5 1 5.11 1.8 7.68 2.67 1.28.45
+        2.6.8 3.91 1.16l3.92 1.08c2.62.69 5.27 1.2 7.88 1.8s5.26.93 7.84 1.39c1.29.25
+        2.59.39 3.88.55l3.84.47c2.53.36 5 .5 7.5.7s4.86.4 7.2.44l6.83.23h6.39c4.1
+        0 7.85-.21 11.18-.37l4.66-.24 3.95-.35 7.49-.66-7.48.83-3.94.44-4.66.35c-3.33.24-7.08.56-11.19.63l-6.41.19-6.86-.07c-2.36
+        0-4.77-.13-7.24-.27s-5-.22-7.56-.53l-3.87-.39c-1.3-.13-2.61-.24-3.92-.46-2.62-.41-5.28-.74-7.94-1.22s-5.34-1-8-1.64l-4-1c-1.34-.33-2.67-.65-4-1.08-2.63-.82-5.29-1.54-7.86-2.53l-3.87-1.4-3.77-1.58c-2.53-1-4.93-2.25-7.33-3.4-1.21-.56-2.34-1.26-3.51-1.88s-2.32-1.23-3.41-1.94a113.19
+        113.19 0 0 1-12.31-8.54 106.28 106.28 0 0 1-9.87-9.16 95.33 95.33 0 0 1-7.27-8.8
+        84.35 84.35 0 0 1-4.77-7.44c-1.2-2.15-2-3.91-2.59-5.13-.26-.62-.47-1.09-.6-1.45l-.19-.5zm38.01-85.42l3.1.2c2
+        .15 4.76.37 8.11.74s7.25.85 11.41 1.56a84.34 84.34 0 0 1 12.9 3.1c1.07.36
+        2.17.87 3.1 1.18a3.22 3.22 0 0 0 2.55-.07 3.9 3.9 0 0 0 1.6-2.13 12.17 12.17
+        0 0 0 .64-2.94 30.75 30.75 0 0 0 0-5.91 51.73 51.73 0 0 0-.76-5.3 41.35 41.35
+        0 0 0-2.21-7.72 9.94 9.94 0 0 0-1.05-2 2 2 0 0 0-.55-.57 2 2 0 0 1 .59.54
+        10 10 0 0 1 1.17 1.94 41.67 41.67 0 0 1 2.65 7.66 52.4 52.4 0 0 1 1.07 5.33
+        31.82 31.82 0 0 1 .35 6.11 13.47 13.47 0 0 1-.54 3.3 5.37 5.37 0 0 1-2.12
+        3 4.14 4.14 0 0 1-1.94.61 6.23 6.23 0 0 1-1.92-.2c-1.19-.34-2.14-.73-3.2-1a82.15
+        82.15 0 0 0-12.69-2.29c-4.11-.46-8-.72-11.29-.89s-6.08-.24-8-.27h-3z\"/> <path
+        class=\"cls-9\" d=\"M419 173.1s-11.33-25.2 6-33.53 116.73-28.5 130.4-2.84c19
+        27.67 9.33 74.18 0 81.85s-28.33 146.33-7 192.33c-34.67 8.33-37 44-37 44l-34.59
+        9.67s-4.41-195.33 16.93-247.33S419 173.1 419 173.1z\"/> <path class=\"cls-4\"
+        d=\"M415.52 160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1
+        13.09-61.73s-35.76-60.5-139.92-58.34z\"/> <path class=\"cls-5\" d=\"M415.52
+        160.25l-17.26 37.62s86 26.18 144.09 82.45a523.28 523.28 0 0 1 13.09-61.73s-35.76-60.5-139.92-58.34z\"/>
+        <path class=\"cls-10\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21
+        45.39-31.1-5.22 54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/>
+        <path class=\"cls-5\" d=\"M415.52 160.25l10 39.51 37.45-33.08 5.17 49.21 45.39-31.1-5.22
+        54.62 47.17-20.83-13.09 61.73s-50.44-50.49-144.09-82.45z\"/> <path class=\"cls-11\"
+        d=\"M198.82 623.12s26.74-23.38 53.93-28.37c20.11-3.69 9.18-24.22 7.37-27.3s32.79
+        23.05 8.19 43.29c-12.54 19.44 5.67 45.79 5.67 45.79l-15 2.17-3.72 9.51s-30.6-27.48-42-25.52-35.82-1.06-36.37-28.22c12.11
+        19.6 21.93 8.65 21.93 8.65z\"/> <path class=\"cls-2\" d=\"M238.12 626.82c3.58
+        1.78 4.75 6.35 2.6 10.21-2.15 3.86-6.79 5.54-10.38 3.76-3.58-1.78-4.82-6.38-2.67-10.24
+        2.15-3.86 6.87-5.51 10.45-3.73zm16.88 1.95c-.58-2-3.11-3.06-5.65-2.4h-.07c-2.54.66-4.13
+        2.81-3.56 4.79v.06c.58 2 3.11 3.05 5.65 2.39h.07c2.54-.66 4.14-2.8 3.56-4.78z\"/>
+        <path class=\"cls-7\" d=\"M198.82 623.12s14.8-1.71 18.54 19.85m39.89-49.61s-5.72
+        9.47 9.47 18.44\"/> </svg> </div><p class=\"indian-msg\">- Dzi\u0119kujemy
+        za wyrozumia\u0142o\u015B\u0107!</p></div></body></html>\n"
+    headers:
+      cache-control:
+      - no-cache
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      connection:
+      - close
+      content-length:
+      - '15321'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      retry-after:
+      - '10'
+      set-cookie:
+      - _cmuid=d97bcb28-1584-4b79-9884-55ce81a2c901; Expires=Sat, 10 Jun 2023 12:38:35
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=-2vkATplIcs084ioWMoMuQpzf3iZk3voI06pdC6He8-cjYCCPdtCmaRjctwgA3fD~a_CNMPRTZCUoLC_g3fXH3UFgyzy2iObemoxsstPdj;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMAu7cTvkFTffcAudxm9Q==
+      x-frame-options:
+      - SAMEORIGIN
+      x-from:
+      - LB
+      x-reason:
+      - Too Many Requests
+    status:
+      code: 429
+      message: Too Many Requests
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://183.89.145.196:8080/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: '<html><head><title>allegro.pl</title><style>#cmsg{animation: A 1.5s;}@keyframes
+        A{0%{opacity:0;}99%{opacity:0;}100%{opacity:1;}}</style></head><body style="margin:0"><p
+        id="cmsg">Please enable JS and disable any ad blocker</p><script>var dd={''cid'':''AHrlqAAAAAMAkXZ71wPi4o0At1mRxA=='',''hsh'':''77DC0FFBAA0B77570F6B414F8E5BDB'',''t'':''fe'',''s'':29560,''host'':''geo.captcha-delivery.com''}</script><script
+        src="https://ct.captcha-delivery.com/c.js"></script></body></html>
+
+        '
+    headers:
+      cache-control:
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      content-length:
+      - '459'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      set-cookie:
+      - _cmuid=ff60235c-0f45-46f1-85d8-38626d2ca218; Expires=Sat, 10 Jun 2023 12:38:37
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=Qu4qaWKj9_aLhB07wN93OJz7b1FJIrgMg727f-3X-C4IObMmov~CevOjmgIGc6gZXYvGUKAAVyskfBEEoOPTTPsJ5jDWpTD4ooQM2y.BAk;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMAkXZ71wPi4o0At1mRxA==
+      x-frame-options:
+      - SAMEORIGIN
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://128.199.214.87:3128/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: '<html><head><title>allegro.pl</title><style>#cmsg{animation: A 1.5s;}@keyframes
+        A{0%{opacity:0;}99%{opacity:0;}100%{opacity:1;}}</style></head><body style="margin:0"><p
+        id="cmsg">Please enable JS and disable any ad blocker</p><script>var dd={''cid'':''AHrlqAAAAAMATrS6HCw5cJwAgMfWVw=='',''hsh'':''77DC0FFBAA0B77570F6B414F8E5BDB'',''t'':''fe'',''s'':29560,''host'':''geo.captcha-delivery.com''}</script><script
+        src="https://ct.captcha-delivery.com/c.js"></script></body></html>
+
+        '
+    headers:
+      cache-control:
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      content-length:
+      - '459'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      set-cookie:
+      - _cmuid=1b915881-422f-4460-9843-8c482bb85e6d; Expires=Sat, 10 Jun 2023 12:38:54
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=Ln~qr1X1ZCk5nKRocmLg35SoAusRT16VBRjQhf6vdrv32Uv8P39YrQtuu2AeFSVSGcjOSkWWPqUtLXT0D8P2O74OpcwK4YAg6Cl8CN-3QD;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMATrS6HCw5cJwAgMfWVw==
+      x-frame-options:
+      - SAMEORIGIN
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - en-US,en;q=0.9,pl;q=0.8
+      Connection:
+      - keep-alive
+      Referer:
+      - https://allegro.pl
+      Sec-Fetch-Dest:
+      - image
+      Sec-Fetch-Mode:
+      - no-cors
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Gpc:
+      - '1'
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/91.0.4472.77 Safari/537.36
+    method: GET
+    uri: https://68.183.24.126:8080/oferta/typ-c-kabel-quick-charge-3-0-szybkie-ladowanie-7865547535
+  response:
+    body:
+      string: '<html><head><title>allegro.pl</title><style>#cmsg{animation: A 1.5s;}@keyframes
+        A{0%{opacity:0;}99%{opacity:0;}100%{opacity:1;}}</style></head><body style="margin:0"><p
+        id="cmsg">Please enable JS and disable any ad blocker</p><script>var dd={''cid'':''AHrlqAAAAAMAnuefBXIuewgARLcYfg=='',''hsh'':''77DC0FFBAA0B77570F6B414F8E5BDB'',''t'':''fe'',''s'':29560,''host'':''geo.captcha-delivery.com''}</script><script
+        src="https://ct.captcha-delivery.com/c.js"></script></body></html>
+
+        '
+    headers:
+      cache-control:
+      - max-age=0, private, no-cache, no-store, must-revalidate
+      charset:
+      - utf-8
+      content-length:
+      - '459'
+      content-type:
+      - text/html
+      - text/html; charset=utf-8
+      pragma:
+      - no-cache
+      set-cookie:
+      - _cmuid=ec250cb1-4cdc-42b0-bda1-b1e7c0babd0a; Expires=Sat, 10 Jun 2023 12:39:03
+        GMT; Path=/; Domain=.allegro.pl; Secure
+      - datadome=WR1Hjwiy1Jo92c00awu~Y5vy34QIl7C-25XTD3g5FM5W~gV3OID~R1hIanrJgp5P0ksZ_-bwbE.RWTMaMzOo0yYbBDQm9DOmkwRA9iU~xW;
+        Max-Age=31536000; Domain=.allegro.pl; Path=/; Secure; SameSite=Lax
+      strict-transport-security:
+      - max-age=15552000
+      x-datadome-cid:
+      - AHrlqAAAAAMAnuefBXIuewgARLcYfg==
+      x-frame-options:
+      - SAMEORIGIN
+    status:
+      code: 403
+      message: Forbidden
+version: 1
