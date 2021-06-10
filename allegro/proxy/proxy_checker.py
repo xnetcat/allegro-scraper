@@ -41,10 +41,12 @@ def filter_proxies(proxies: List[str], timeout: int = None) -> List[str]:
         if proxy_is_working is True:
             good_proxies.append(proxy)
 
-        logging.info(
-            f'Proxy "{proxy}" is' " "
-            if proxy_is_working is True
-            else " not " f"working [{index + 1}/{len(proxies)}]"
+        message = (
+            f'Proxy "{proxy}" is'
+            f' {"" if proxy_is_working is True else "not "}working'
+            f" [{index + 1}/{len(proxies)}]"
         )
+
+        logging.info(message)
 
     return good_proxies
