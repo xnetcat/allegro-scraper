@@ -1,6 +1,8 @@
+from concurrent.futures import thread
 import logging
 import json
 
+import concurrent.futures
 from dataclasses import dataclass
 from typing import List, Tuple
 from allegro.utils import get_soup
@@ -122,6 +124,7 @@ def parse_products(
     proxies: List[str] = None,
     max_results: int = None,
     timeout: int = None,
+    threads: int = None
 ) -> Tuple[List[Product], bool]:
     # create url and encode spaces
     url = (
@@ -160,47 +163,100 @@ def parse_products(
     else:
         logging.info(f"Found {sections_len} products")
 
-    for index, section in enumerate(sections):
-        index += 1
+    if threads is not None:
+        products_urls = []
+        for section in sections:
+            # max products
+            if max_results != len(products_urls):
+                # Find url to product in a tag
+                product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
+                product_url = product_link.get("href")
+                products_urls.append(product_url)
 
-        # max products
-        if max_results == len(products):
-            return products, False
+        # Threadding magic
+        with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
+            future_to_product = {executor.submit(Product.from_url, urll, proxies, timeout): urll for urll in products_urls}
+            for index, future in enumerate(concurrent.futures.as_completed(future_to_product)):
+                index = index + 1
 
-        # Find url to product in a tag
-        product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
-        product_url = product_link.get("href")
+                # Start future
+                future_to_product[future]
 
-        if max_results is not None:
-            if max_results > sections_len:
-                print_num = sections_len
+                if max_results is not None:
+                    if max_results > sections_len:
+                        print_num = sections_len
+                    else:
+                        print_num = max_results
+                else:
+                    print_num = sections_len
+
+                # Try to get product
+                try:
+                    product = future.result()
+
+                    # Add product to products list
+                    products.append(product)
+                    logging.info(
+                        f'Scrapped "{product.name}"'
+                        f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
+                        f" [{index}/{print_num}]"
+                    )
+
+                    # We've hit max results so we return products
+                    if max_results == len(products):
+                        return products, False
+                # Advert and auction
+                except NotImplementedError:
+                    logging.info(
+                        f'Ignoring "{products_urls[index]}" '
+                        "because it's advert or auction "
+                        f"[{index}/{print_num}]"
+                    )
+
+            # Shutdown executor, not sure if needed but I will leave it
+            executor.shutdown(wait=True)
+    else:
+        for index, section in enumerate(sections):
+            index += 1
+
+            # max products
+            if max_results == len(products):
+                return products, False
+
+            # Find url to product in a tag
+            product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
+            product_url = product_link.get("href")
+
+            if max_results is not None:
+                if max_results > sections_len:
+                    print_num = sections_len
+                else:
+                    print_num = max_results
             else:
-                print_num = max_results
-        else:
-            print_num = sections_len
+                print_num = sections_len
 
-        # Create product object using url
-        try:
-            product = Product.from_url(
-                url=product_url, proxies=proxies, timeout=timeout
-            )
+            # Create product object using url
+            try:
+                product = Product.from_url(
+                    url=product_url, proxies=proxies, timeout=timeout
+                )
 
-            logging.info(
-                f'Scraping "{product.name}"'
-                f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
-                f" [{index}/{print_num}]"
-            )
+                logging.info(
+                    f'Scraping "{product.name}"'
+                    f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
+                    f" [{index}/{print_num}]"
+                )
 
-            # Add product to list
-            products.append(product)
-        # Ignore adverts and auctions
-        except NotImplementedError:
-            logging.info(
-                f'Ignoring "{product_link}" '
-                "because it's advert or auction "
-                f"[{index}/{print_num}]"
-            )
-            continue
+                # Add product to list
+                products.append(product)
+            # Ignore adverts and auctions
+            except NotImplementedError:
+                logging.info(
+                    f'Ignoring "{product_link}" '
+                    "because it's advert or auction "
+                    f"[{index}/{print_num}]"
+                )
+                continue
 
     pagination_input = soup.find(
         "input", attrs={"data-role": "page-number-input", "data-page": True}
