@@ -185,7 +185,7 @@ def crawl(
                 proxies=proxies,
                 timeout=timeout,
                 max_results=remaining_items,
-                threads=threads
+                threads=threads,
             )
 
             # add new products to products list
@@ -210,7 +210,7 @@ def crawl(
                 proxies=proxies,
                 timeout=timeout,
                 max_results=max_results,
-                threads=threads
+                threads=threads,
             )
 
             # add new products to products list

@@ -124,7 +124,7 @@ def parse_products(
     proxies: List[str] = None,
     max_results: int = None,
     timeout: int = None,
-    threads: int = None
+    threads: int = None,
 ) -> Tuple[List[Product], bool]:
     # create url and encode spaces
     url = (
@@ -169,14 +169,21 @@ def parse_products(
             # max products
             if max_results != len(products_urls):
                 # Find url to product in a tag
-                product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
+                product_link = section.find(
+                    "a", attrs={"rel": "nofollow", "tabindex": "-1"}
+                )
                 product_url = product_link.get("href")
                 products_urls.append(product_url)
 
         # Threadding magic
         with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
-            future_to_product = {executor.submit(Product.from_url, urll, proxies, timeout): urll for urll in products_urls}
-            for index, future in enumerate(concurrent.futures.as_completed(future_to_product)):
+            future_to_product = {
+                executor.submit(Product.from_url, urll, proxies, timeout): urll
+                for urll in products_urls
+            }
+            for index, future in enumerate(
+                concurrent.futures.as_completed(future_to_product)
+            ):
                 index = index + 1
 
                 # Start future
@@ -224,7 +231,9 @@ def parse_products(
                 return products, False
 
             # Find url to product in a tag
-            product_link = section.find("a", attrs={"rel": "nofollow", "tabindex": "-1"})
+            product_link = section.find(
+                "a", attrs={"rel": "nofollow", "tabindex": "-1"}
+            )
             product_url = product_link.get("href")
 
             if max_results is not None:
