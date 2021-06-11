@@ -50,6 +50,7 @@ def console_entry_point():
         "proxies_file": arguments.proxies_file,
         "check_proxies": arguments.check_proxies,
         "request_timeout": arguments.request_timeout,
+        "threads": arguments.threads
     }
 
     # Set up logging

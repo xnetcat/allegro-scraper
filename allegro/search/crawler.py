@@ -151,11 +151,13 @@ def crawl(
         pages_to_fetch = options.get("pages_to_fetch")
         max_results = options.get("max_results")
         timeout = options.get("request_timeout")
+        threads = options.get("threads")
     else:
         start_page = None
         pages_to_fetch = None
         max_results = None
         timeout = None
+        threads = None
 
     remaining_items = None
 
@@ -183,6 +185,7 @@ def crawl(
                 proxies=proxies,
                 timeout=timeout,
                 max_results=remaining_items,
+                threads=threads
             )
 
             # add new products to products list
@@ -207,6 +210,7 @@ def crawl(
                 proxies=proxies,
                 timeout=timeout,
                 max_results=max_results,
+                threads=threads
             )
 
             # add new products to products list

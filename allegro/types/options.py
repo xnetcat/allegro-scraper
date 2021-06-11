@@ -9,3 +9,4 @@ class Options(TypedDict):
     proxies_file: Optional[str]
     check_proxies: Optional[bool]
     request_timeout: Optional[int]
+    threads: Optional[int]
