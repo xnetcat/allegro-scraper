@@ -26,6 +26,14 @@ Allegro scraping tool
   pip install https://codeload.github.com/xnetcat/allegro-spider/zip/dev
   ```
 
+- Installing using zip file
+
+  Download and unzip the archive and then cd into the folder and then run
+
+  ```bash
+  python setup.py install
+  ```
+
 ## Usage
 
 <details>
