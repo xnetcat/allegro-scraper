@@ -175,7 +175,7 @@ def parse_products(
                 products_urls.append(product_url)
 
         # Threadding magic
-        with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=threads) as executor:
             future_to_product = {
                 executor.submit(Product.from_url, urll, proxies, timeout): urll
                 for urll in products_urls
