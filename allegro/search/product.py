@@ -256,7 +256,6 @@ def parse_products(
                     "because it's advert or auction "
                     f"[{index}/{print_num}]"
                 )
-                continue
 
     pagination_input = soup.find(
         "input", attrs={"data-role": "page-number-input", "data-page": True}
