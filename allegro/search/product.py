@@ -1,4 +1,3 @@
-from concurrent.futures import thread
 import logging
 import json
 
@@ -164,7 +163,7 @@ def parse_products(
         logging.info(f"Found {sections_len} products")
 
     if threads is not None:
-        products_urls = []
+        products_urls: List[str] = []
         for section in sections:
             # max products
             if max_results != len(products_urls):
@@ -203,9 +202,15 @@ def parse_products(
 
                     # Add product to products list
                     products.append(product)
+
+                    if logging.DEBUG >= logging.root.level:
+                        message = f" with url {product.url}"
+                    else:
+                        message = ""
+
                     logging.info(
                         f'Scrapped "{product.name}"'
-                        f'{f" with url {product.url}" if logging.DEBUG >= logging.root.level else ""}'
+                        f"{message}"
                         f" [{index}/{print_num}]"
                     )
 
