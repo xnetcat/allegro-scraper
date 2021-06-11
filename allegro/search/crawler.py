@@ -124,7 +124,7 @@ def crawl(
     query_string = ""
 
     if filters is not None:
-        for index, (key, value) in enumerate(filters.items()):
+        for key, value in filters.items():
             # skip filters with None value
             if value is None:
                 continue
