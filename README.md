@@ -4,8 +4,6 @@
 
 Allegro scraping tool
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat-square&color=44CC11)](https://github.com/xnetcat/allegro-scraper/blob/master/LICENSE)
-
 </div>
 
 ## It probably no longer works, example usage in `allegro/console/__init__.py`
