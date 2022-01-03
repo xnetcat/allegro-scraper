@@ -43,7 +43,6 @@ def get_soup(url: str, proxies: List[str] = None, timeout: int = None):
         start_proxy = current_proxy
         if current_proxy is not None:
             proxy_object = {
-                "http": f"https://{current_proxy}",
                 "https": f"https://{current_proxy}",
             }
 
@@ -65,7 +64,6 @@ def get_soup(url: str, proxies: List[str] = None, timeout: int = None):
 
                 # Update proxy object
                 proxy_object = {
-                    "http": f"https://{current_proxy}",
                     "https": f"https://{current_proxy}",
                 }
 

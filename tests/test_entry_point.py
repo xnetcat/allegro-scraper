@@ -34,7 +34,7 @@ def test_no_search_or_crawl(capsys, monkeypatch):
 
     out, err = capsys.readouterr()
 
-    assert "allegro-spider: error: --crawl/-c or --search/-s is required\n" in err
+    assert "allegro-scraper: error: --crawl/-c or --search/-s is required\n" in err
 
 
 @pytest.mark.vcr()

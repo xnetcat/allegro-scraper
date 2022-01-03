@@ -247,7 +247,7 @@ def _parse_options(parser: ArgumentParser):
 def parse_arguments():
     # Initialize argument parser
     parser = ArgumentParser(
-        prog="allegro-spider",
+        prog="allegro-scraper",
         description="Allegro spider, product scrapper",
     )
 

@@ -1,29 +1,30 @@
 <div align="center">
 
-# allegro-spider
+# allegro-scraper
 
 Allegro scraping tool
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat-square&color=44CC11)](https://github.com/xnetcat/allegro-spider/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat-square&color=44CC11)](https://github.com/xnetcat/allegro-scraper/blob/master/LICENSE)
 
 </div>
 
-> The fastest, easiest most accurate allegro crawler/spider/product scrapper
+## It probably no longer works, example usage in `allegro/console/__init__.py`
+
 
 ## Installation
 
-### Installing allegro-spider
+### Installing allegro-scraper
 
 - Recommended Stable Version:
 
   ```bash
-  pip install https://codeload.github.com/xnetcat/allegro-spider/zip/main
+  pip install https://codeload.github.com/xnetcat/allegro-scraper/zip/main
   ```
 
 - Dev Version: **(NOT STABLE)**
 
   ```bash
-  pip install https://codeload.github.com/xnetcat/allegro-spider/zip/dev
+  pip install https://codeload.github.com/xnetcat/allegro-scraper/zip/dev
   ```
 
 - Installing using zip file
@@ -44,61 +45,61 @@ Allegro scraping tool
 - #### To scrape one offer
 
   ```bash
-  allegro-spider -s [offerUrl]
+  allegro-scraper -s [offerUrl]
   ```
 
   example:
 
   ```bash
-  allegro-spider -s https://allegro.pl/oferta/latarka-czolowa-petzl-actik-core-red-czolowka-450-10162449851
+  allegro-scraper -s https://allegro.pl/oferta/latarka-czolowa-petzl-actik-core-red-czolowka-450-10162449851
   ```
 
 - #### To scrape multiple offers
 
   ```bash
-  allegro-spider -s [offer1] [offer2] [offer3] ...
+  allegro-scraper -s [offer1] [offer2] [offer3] ...
   ```
 
   example
 
   ```bash
-  allegro-spider -s https://allegro.pl/oferta/zestaw-solarny-kolektor-sloneczny-2-0-eco-2-200-10727343060 https://allegro.pl/oferta/lodka-zanetowa-2-komorowa-7-4v-5200mah-hit-na-ryby-10545491921 https://allegro.pl/oferta/proszek-na-mrowki-likwiduje-gniazda-bros-trutka-9401994058
+  allegro-scraper -s https://allegro.pl/oferta/zestaw-solarny-kolektor-sloneczny-2-0-eco-2-200-10727343060 https://allegro.pl/oferta/lodka-zanetowa-2-komorowa-7-4v-5200mah-hit-na-ryby-10545491921 https://allegro.pl/oferta/proszek-na-mrowki-likwiduje-gniazda-bros-trutka-9401994058
   ```
 
 - #### To scrape only first page of results for search term
 
   ```bash
-  allegro-spider -s [searchTerm]
+  allegro-scraper -s [searchTerm]
   ```
 
   example:
 
   ```bash
-  allegro-spider -s "rtx 3090"
+  allegro-scraper -s "rtx 3090"
   ```
 
 - #### To scrape multiple search terms (only first page)
 
   ```bash
-  allegro-spider -s [searchTerm1] [searchTerm2] [searchTerm3] ...
+  allegro-scraper -s [searchTerm1] [searchTerm2] [searchTerm3] ...
   ```
 
   example:
 
   ```bash
-  allegro-spider -s "rtx 3090" "rtx 3080" "rtx 3070"
+  allegro-scraper -s "rtx 3090" "rtx 3080" "rtx 3070"
   ```
 
 - #### To crawl a search term
 
   ```bash
-  allegro-spider -c [searchTerm]
+  allegro-scraper -c [searchTerm]
   ```
 
   example:
 
   ```bash
-  allegro-spider -c "rtx 2070"
+  allegro-scraper -c "rtx 2070"
   ```
 
   > _Note: crawling without specifying filters or options defaults to scraping first page_
@@ -106,13 +107,13 @@ Allegro scraping tool
 - #### To crawl multiple search terms
 
   ```bash
-  allegro-spider -c [searchTerm1] [searchTerm2] [searchTerm3] ...
+  allegro-scraper -c [searchTerm1] [searchTerm2] [searchTerm3] ...
   ```
 
   example:
 
   ```bash
-  allegro-spider -c "rtx 2060" "rtx 2070" "rtx 2080"
+  allegro-scraper -c "rtx 2060" "rtx 2070" "rtx 2080"
   ```
 
   > _Note: crawling without specifying filters or options defaults to scraping first page_
@@ -120,13 +121,13 @@ Allegro scraping tool
 - #### To save data in a file
 
   ```bash
-  allegro-spider -s/-c [args] --output file.json
+  allegro-scraper -s/-c [args] --output file.json
   ```
 
   example:
 
   ```bash
-  allegro-spider -s/-c [args] --output C:\\Users\\xnetcat\\Desktop\\allegro.json
+  allegro-scraper -s/-c [args] --output C:\\Users\\xnetcat\\Desktop\\allegro.json
   ```
 </details>
 
@@ -159,7 +160,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" --sorting time_added_latest
+  allegro-scraper -c "rtx 3090" --sorting time_added_latest
   ```
 
 - #### Allegro Smart! free shipping
@@ -173,7 +174,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" --smart-free-shipping
+  allegro-scraper -c "rtx 3090" --smart-free-shipping
   ```
 
 - #### Product condition
@@ -204,7 +205,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -pc new used damaged
+  allegro-scraper -c "rtx 3090" -pc new used damaged
   ```
 
 - #### Offer type
@@ -226,7 +227,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -ot buy_now auction
+  allegro-scraper -c "rtx 3090" -ot buy_now auction
   ```
 
 - #### Minimal price
@@ -240,7 +241,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -pmin 5000.25
+  allegro-scraper -c "rtx 3090" -pmin 5000.25
   ```
 
 - #### Maximum price
@@ -254,7 +255,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -pmax 15000.00
+  allegro-scraper -c "rtx 3090" -pmax 15000.00
   ```
 
 - #### Delivery time
@@ -277,7 +278,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -dt today
+  allegro-scraper -c "rtx 3090" -dt today
   ```
 
 - #### Delivery methods
@@ -304,7 +305,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -dm email pickup package
+  allegro-scraper -c "rtx 3090" -dm email pickup package
   ```
 
 - #### Delivery options
@@ -325,7 +326,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -do free_shipping free_return
+  allegro-scraper -c "rtx 3090" -do free_shipping free_return
   ```
 
 - #### City
@@ -339,7 +340,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -ct warszawa
+  allegro-scraper -c "rtx 3090" -ct warszawa
   ```
 
 - #### Voivodeship
@@ -374,7 +375,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -vo lubuskie
+  allegro-scraper -c "rtx 3090" -vo lubuskie
   ```
 
 - #### Product rating
@@ -396,7 +397,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -pr "from4.5"
+  allegro-scraper -c "rtx 3090" -pr "from4.5"
   ```
 
 - #### Vat invoice
@@ -410,7 +411,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" --vat-invoice
+  allegro-scraper -c "rtx 3090" --vat-invoice
   ```
 
 - #### Allegro programs
@@ -433,7 +434,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -ap great_seller allegro_charity
+  allegro-scraper -c "rtx 3090" -ap great_seller allegro_charity
   ```
 
 - #### Occasions
@@ -455,7 +456,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -oc great_price opportunity_zone
+  allegro-scraper -c "rtx 3090" -oc great_price opportunity_zone
   ```
 
 </details>
@@ -476,7 +477,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -rmax 100
+  allegro-scraper -c "rtx 3090" -rmax 100
   ```
 
 - #### Pages to fetch
@@ -490,7 +491,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -ptf 5
+  allegro-scraper -c "rtx 3090" -ptf 5
   ```
 
 - #### Start page
@@ -504,7 +505,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -sp 1
+  allegro-scraper -c "rtx 3090" -sp 1
   ```
 
 - #### Proxies file
@@ -518,7 +519,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -pf "C:/test/proxies.ttx"
+  allegro-scraper -c "rtx 3090" -pf "C:/test/proxies.ttx"
   ```
 
 - #### Use free proxies
@@ -532,7 +533,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" -ufp
+  allegro-scraper -c "rtx 3090" -ufp
   ```
 
 - #### Check proxies
@@ -546,7 +547,7 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" --use-free-proxies -cp
+  allegro-scraper -c "rtx 3090" --use-free-proxies -cp
   ```
 
 - #### Threads
@@ -560,31 +561,8 @@ Allegro scraping tool
   example:
 
   ```bash
-  allegro-spider -c "rtx 3090" --thread 4
+  allegro-scraper -c "rtx 3090" --thread 4
   ```
-
-</details>
-
-<details>
-    <summary style="font-size:1.25em">
-        <strong>pipx Isolated Environment Alternative</strong>
-    </summary>
-
-For users who are not familiar with `pipx`, it can be used to run scripts **without**
-installing the allegro-spider package and all the dependencies globally with pip.
-
-First, you will need to install `pipx` by running:
-
-```bash
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-```
-
-Next, you can jump directly to running allegro-spider with:
-
-```bash
-pipx run allegro-spider ...
-```
 
 </details>
 

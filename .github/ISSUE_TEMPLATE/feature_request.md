@@ -1,5 +1,5 @@
 ---
-about: Request a feature to be added to allegro-spider!
+about: Request a feature to be added to allegro-scraper!
 assignees: ''
 labels: feature-request
 name: Feature Request

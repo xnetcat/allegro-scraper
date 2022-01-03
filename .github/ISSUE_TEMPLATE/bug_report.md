@@ -22,11 +22,11 @@ title: Change this title, Poorly Formatted Issues will not be handled.
 
 <!--- Did you download from pip, or from GitHub? -->
 
-<!--- Provide the command you used to install allegro-spider -->
+<!--- Provide the command you used to install allegro-scraper -->
 
 - **Version OR Commit hash:**
 
-<!--- If from pip, what is the version? Run "pip show allegro-spider" -->
+<!--- If from pip, what is the version? Run "pip show allegro-scraper" -->
 
 <!--- If not from pip, what is the commit hash? -->
 
